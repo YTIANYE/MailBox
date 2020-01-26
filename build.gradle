@@ -1,13 +1,36 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
+
+    //  修改信息，只需要修改config.gradle即可，不需要一个一个module修改，不会引起配置文件合并错误
+    ext {
+        buildConfig = [
+                'compileSdk': 29,
+                'targetSdk': 28,
+                'minSdk': 21,
+                'buildTools': '29.0.2',
+                'robolectricSdk': 28
+        ]
+
+        versions = [
+
+
+        ]
+
+
+        javaVersion = JavaVersion.VERSION_1_8
+        kotlinJvmVersion = "1.8"
+    }
+
     repositories {
         google()
         jcenter()
         
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.3.1'
+        //classpath 'com.android.tools.build:gradle:3.3.1'
+
+        classpath 'com.android.tools.build:gradle:3.3.2'
         
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
