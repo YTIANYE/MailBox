@@ -1,4 +1,4 @@
-package com.example.MailBox2;
+package com.example.mailbox;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;

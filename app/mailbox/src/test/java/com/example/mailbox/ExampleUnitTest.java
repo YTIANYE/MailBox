@@ -1,4 +1,4 @@
-package com.example.MailBox2;
+package com.example.mailbox;
 
 import org.junit.Test;
 

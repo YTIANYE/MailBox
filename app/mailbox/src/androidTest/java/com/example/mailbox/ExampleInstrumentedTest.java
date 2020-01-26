@@ -1,4 +1,4 @@
-package com.example.MailBox2;
+package com.example.mailbox;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
