@@ -1,3 +1,5 @@
 //多模块构建
 
 include ':app:mailbox'
+include ':plugins:openpgp-api-lib:openpgp-api'
+
