@@ -1,5 +1,12 @@
 //多模块构建
 
 include ':app:mailbox'
+
 include ':plugins:openpgp-api-lib:openpgp-api'
 
+include ':mail:common'
+include ':mail:testing'
+include ':mail:protocols:imap'
+include ':mail:protocols:pop3'
+include ':mail:protocols:webdav'
+include ':mail:protocols:smtp'

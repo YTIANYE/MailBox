@@ -3,12 +3,28 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
-        <compositeConfiguration>
-          <compositeBuild compositeDefinitionSource="SCRIPT" />
-        </compositeConfiguration>
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/app/mailbox" />
+            <option value="$PROJECT_DIR$/mail" />
+            <option value="$PROJECT_DIR$/mail/common" />
+            <option value="$PROJECT_DIR$/mail/protocols" />
+            <option value="$PROJECT_DIR$/mail/protocols/imap" />
+            <option value="$PROJECT_DIR$/mail/protocols/pop3" />
+            <option value="$PROJECT_DIR$/mail/protocols/smtp" />
+            <option value="$PROJECT_DIR$/mail/protocols/webdav" />
+            <option value="$PROJECT_DIR$/mail/testing" />
+            <option value="$PROJECT_DIR$/plugins" />
+            <option value="$PROJECT_DIR$/plugins/openpgp-api-lib" />
+            <option value="$PROJECT_DIR$/plugins/openpgp-api-lib/openpgp-api" />
+          </set>
+        </option>
         <option name="resolveModulePerSourceSet" value="false" />
+        <option name="testRunner" value="PLATFORM" />
       </GradleProjectSettings>
     </option>
   </component>
