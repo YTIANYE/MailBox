@@ -1,1 +1,0 @@
-com.fsck.k9.mail.common

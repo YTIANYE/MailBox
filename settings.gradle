@@ -10,3 +10,8 @@ include ':mail:protocols:imap'
 include ':mail:protocols:pop3'
 include ':mail:protocols:webdav'
 include ':mail:protocols:smtp'
+
+include ':backend:api'
+include ':backend:imap'
+include ':backend:pop3'
+include ':backend:webdav'

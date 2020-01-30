@@ -10,6 +10,11 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/app/mailbox" />
+            <option value="$PROJECT_DIR$/backend" />
+            <option value="$PROJECT_DIR$/backend/api" />
+            <option value="$PROJECT_DIR$/backend/imap" />
+            <option value="$PROJECT_DIR$/backend/pop3" />
+            <option value="$PROJECT_DIR$/backend/webdav" />
             <option value="$PROJECT_DIR$/mail" />
             <option value="$PROJECT_DIR$/mail/common" />
             <option value="$PROJECT_DIR$/mail/protocols" />
