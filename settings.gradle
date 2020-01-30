@@ -15,3 +15,5 @@ include ':backend:api'
 include ':backend:imap'
 include ':backend:pop3'
 include ':backend:webdav'
+
+include ':app:ui'
