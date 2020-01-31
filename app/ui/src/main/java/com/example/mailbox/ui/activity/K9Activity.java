@@ -15,10 +15,10 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.example.mailbox.activity.K9ActivityCommon.K9ActivityMagic;
-import com.fsck.k9.activity.misc.SwipeGestureDetector.OnSwipeGestureListener;
-import com.fsck.k9.ui.R;
-import com.fsck.k9.ui.ThemeManager;
-import com.fsck.k9.ui.permissions.PermissionRationaleDialogFragment;
+import com.example.mailbox.activity.misc.SwipeGestureDetector.OnSwipeGestureListener;
+import com.example.mailbox.ui.R;
+import com.example.mailbox.ui.ThemeManager;
+import com.example.mailbox.ui.permissions.PermissionRationaleDialogFragment;
 
 import timber.log.Timber;
 

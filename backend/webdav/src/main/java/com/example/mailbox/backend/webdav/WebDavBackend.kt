@@ -1,0 +1,136 @@
+package com.example.mailbox.backend.webdav
+
+import com.example.mailbox.backend.api.Backend
+import com.example.mailbox.backend.api.BackendStorage
+import com.example.mailbox.backend.api.SyncConfig
+import com.example.mailbox.backend.api.SyncListener
+import com.example.mailbox.mail.BodyFactory
+import com.example.mailbox.mail.FetchProfile
+import com.example.mailbox.mail.Flag
+import com.example.mailbox.mail.Message
+import com.example.mailbox.mail.MessagingException
+import com.example.mailbox.mail.Part
+import com.example.mailbox.mail.PushReceiver
+import com.example.mailbox.mail.Pusher
+import com.example.mailbox.mail.store.webdav.WebDavStore
+import com.example.mailbox.mail.transport.WebDavTransport
+
+class WebDavBackend(
+    accountName: String,
+    backendStorage: BackendStorage,
+    private val webDavStore: WebDavStore,
+    private val webDavTransport: WebDavTransport
+) : Backend {
+    private val webDavSync: WebDavSync = WebDavSync(accountName, backendStorage, webDavStore)
+    private val commandGetFolders = CommandRefreshFolderList(backendStorage, webDavStore)
+    private val commandSetFlag = CommandSetFlag(webDavStore)
+    private val commandMarkAllAsRead = CommandMarkAllAsRead(webDavStore)
+    private val commandMoveOrCopyMessages = CommandMoveOrCopyMessages(webDavStore)
+    private val commandDeleteAll = CommandDeleteAll(webDavStore)
+    private val commandFetchMessage = CommandFetchMessage(webDavStore)
+    private val commandUploadMessage = CommandUploadMessage(webDavStore)
+
+    override val supportsSeenFlag = true
+    override val supportsExpunge = true
+    override val supportsMove = true
+    override val supportsCopy = true
+    override val supportsUpload = true
+    override val supportsTrashFolder = true
+    override val supportsSearchByDate = false
+    override val isPushCapable = false
+    override val isDeleteMoveToTrash = true
+
+    override fun refreshFolderList() {
+        commandGetFolders.refreshFolderList()
+    }
+
+    override fun sync(folder: String, syncConfig: SyncConfig, listener: SyncListener) {
+        webDavSync.sync(folder, syncConfig, listener)
+    }
+
+    override fun downloadMessage(syncConfig: SyncConfig, folderServerId: String, messageServerId: String) {
+        throw UnsupportedOperationException("not implemented")
+    }
+
+    @Throws(MessagingException::class)
+    override fun setFlag(folderServerId: String, messageServerIds: List<String>, flag: Flag, newState: Boolean) {
+        commandSetFlag.setFlag(folderServerId, messageServerIds, flag, newState)
+    }
+
+    override fun markAllAsRead(folderServerId: String) {
+        commandMarkAllAsRead.markAllAsRead(folderServerId)
+    }
+
+    override fun expunge(folderServerId: String) {
+        throw UnsupportedOperationException("not supported")
+    }
+
+    override fun expungeMessages(folderServerId: String, messageServerIds: List<String>) {
+        throw UnsupportedOperationException("not supported")
+    }
+
+    override fun deleteMessages(folderServerId: String, messageServerIds: List<String>) {
+        commandSetFlag.setFlag(folderServerId, messageServerIds, Flag.DELETED, true)
+    }
+
+    override fun deleteAllMessages(folderServerId: String) {
+        commandDeleteAll.deleteAll(folderServerId)
+    }
+
+    override fun moveMessages(
+        sourceFolderServerId: String,
+        targetFolderServerId: String,
+        messageServerIds: List<String>
+    ): Map<String, String>? {
+        return commandMoveOrCopyMessages.moveMessages(sourceFolderServerId, targetFolderServerId, messageServerIds)
+    }
+
+    override fun copyMessages(
+        sourceFolderServerId: String,
+        targetFolderServerId: String,
+        messageServerIds: List<String>
+    ): Map<String, String>? {
+        return commandMoveOrCopyMessages.copyMessages(sourceFolderServerId, targetFolderServerId, messageServerIds)
+    }
+
+    override fun search(
+        folderServerId: String,
+        query: String?,
+        requiredFlags: Set<Flag>?,
+        forbiddenFlags: Set<Flag>?
+    ): List<String> {
+        throw UnsupportedOperationException("not supported")
+    }
+
+    override fun fetchMessage(folderServerId: String, messageServerId: String, fetchProfile: FetchProfile): Message {
+        return commandFetchMessage.fetchMessage(folderServerId, messageServerId, fetchProfile)
+    }
+
+    override fun fetchPart(folderServerId: String, messageServerId: String, part: Part, bodyFactory: BodyFactory) {
+        throw UnsupportedOperationException("not supported")
+    }
+
+    override fun findByMessageId(folderServerId: String, messageId: String): String? {
+        return null
+    }
+
+    override fun uploadMessage(folderServerId: String, message: Message): String? {
+        return commandUploadMessage.uploadMessage(folderServerId, message)
+    }
+
+    override fun createPusher(receiver: PushReceiver): Pusher {
+        throw UnsupportedOperationException("not supported")
+    }
+
+    override fun checkIncomingServerSettings() {
+        webDavStore.checkSettings()
+    }
+
+    override fun sendMessage(message: Message) {
+        webDavTransport.sendMessage(message)
+    }
+
+    override fun checkOutgoingServerSettings() {
+        webDavTransport.checkSettings()
+    }
+}
