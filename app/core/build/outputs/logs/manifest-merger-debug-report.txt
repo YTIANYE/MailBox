@@ -1,0 +1,43 @@
+-- Merging decision tree log ---
+manifest
+ADDED from E:\AndroidStudioProject\k-9-master\app\core\src\main\AndroidManifest.xml:2:1-16:12
+INJECTED from E:\AndroidStudioProject\k-9-master\app\core\src\main\AndroidManifest.xml:2:1-16:12
+INJECTED from E:\AndroidStudioProject\k-9-master\app\core\src\main\AndroidManifest.xml:2:1-16:12
+	package
+		ADDED from E:\AndroidStudioProject\k-9-master\app\core\src\main\AndroidManifest.xml:4:5-31
+		INJECTED from E:\AndroidStudioProject\k-9-master\app\core\src\main\AndroidManifest.xml
+		INJECTED from E:\AndroidStudioProject\k-9-master\app\core\src\main\AndroidManifest.xml
+	xmlns:tools
+		ADDED from E:\AndroidStudioProject\k-9-master\app\core\src\main\AndroidManifest.xml:3:5-51
+	xmlns:android
+		ADDED from E:\AndroidStudioProject\k-9-master\app\core\src\main\AndroidManifest.xml:2:11-69
+uses-permission#android.permission.READ_SYNC_SETTINGS
+ADDED from E:\AndroidStudioProject\k-9-master\app\core\src\main\AndroidManifest.xml:6:5-77
+	android:name
+		ADDED from E:\AndroidStudioProject\k-9-master\app\core\src\main\AndroidManifest.xml:6:22-74
+application
+ADDED from E:\AndroidStudioProject\k-9-master\app\core\src\main\AndroidManifest.xml:8:5-14:19
+provider#androidx.work.impl.WorkManagerInitializer
+ADDED from E:\AndroidStudioProject\k-9-master\app\core\src\main\AndroidManifest.xml:9:9-13:35
+	tools:node
+		ADDED from E:\AndroidStudioProject\k-9-master\app\core\src\main\AndroidManifest.xml:13:13-32
+	android:authorities
+		ADDED from E:\AndroidStudioProject\k-9-master\app\core\src\main\AndroidManifest.xml:11:13-68
+	android:exported
+		ADDED from E:\AndroidStudioProject\k-9-master\app\core\src\main\AndroidManifest.xml:12:13-37
+	android:name
+		ADDED from E:\AndroidStudioProject\k-9-master\app\core\src\main\AndroidManifest.xml:10:13-69
+uses-sdk
+INJECTED from E:\AndroidStudioProject\k-9-master\app\core\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from E:\AndroidStudioProject\k-9-master\app\core\src\main\AndroidManifest.xml
+INJECTED from E:\AndroidStudioProject\k-9-master\app\core\src\main\AndroidManifest.xml
+INJECTED from E:\AndroidStudioProject\k-9-master\app\core\src\main\AndroidManifest.xml
+INJECTED from E:\AndroidStudioProject\k-9-master\app\core\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from E:\AndroidStudioProject\k-9-master\app\core\src\main\AndroidManifest.xml
+		ADDED from E:\AndroidStudioProject\k-9-master\app\core\src\main\AndroidManifest.xml
+		INJECTED from E:\AndroidStudioProject\k-9-master\app\core\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from E:\AndroidStudioProject\k-9-master\app\core\src\main\AndroidManifest.xml
+		ADDED from E:\AndroidStudioProject\k-9-master\app\core\src\main\AndroidManifest.xml
+		INJECTED from E:\AndroidStudioProject\k-9-master\app\core\src\main\AndroidManifest.xml

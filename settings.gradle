@@ -17,3 +17,8 @@ include ':backend:pop3'
 include ':backend:webdav'
 
 include ':app:ui'
+include ':app:core'
+include ':app:storage'
+include ':app:crypto-openpgp'
+include ':app:testing'
+include ':app:autodiscovery'

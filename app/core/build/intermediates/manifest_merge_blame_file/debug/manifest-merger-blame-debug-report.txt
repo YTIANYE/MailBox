@@ -1,0 +1,30 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    xmlns:tools="http://schemas.android.com/tools"
+4    package="com.fsck.k9.core" >
+5
+6    <uses-sdk
+7        android:minSdkVersion="21"
+7-->E:\AndroidStudioProject\k-9-master\app\core\src\main\AndroidManifest.xml
+8        android:targetSdkVersion="28" />
+8-->E:\AndroidStudioProject\k-9-master\app\core\src\main\AndroidManifest.xml
+9
+10    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
+10-->E:\AndroidStudioProject\k-9-master\app\core\src\main\AndroidManifest.xml:6:5-77
+10-->E:\AndroidStudioProject\k-9-master\app\core\src\main\AndroidManifest.xml:6:22-74
+11
+12    <application>
+12-->E:\AndroidStudioProject\k-9-master\app\core\src\main\AndroidManifest.xml:8:5-14:19
+13        <provider
+13-->E:\AndroidStudioProject\k-9-master\app\core\src\main\AndroidManifest.xml:9:9-13:35
+14            android:name="androidx.work.impl.WorkManagerInitializer"
+14-->E:\AndroidStudioProject\k-9-master\app\core\src\main\AndroidManifest.xml:10:13-69
+15            android:authorities="dollar_openBracket_applicationId_closeBracket.workmanager-init"
+15-->E:\AndroidStudioProject\k-9-master\app\core\src\main\AndroidManifest.xml:11:13-68
+16            android:exported="false"
+16-->E:\AndroidStudioProject\k-9-master\app\core\src\main\AndroidManifest.xml:12:13-37
+17            tools:node="remove" />
+17-->E:\AndroidStudioProject\k-9-master\app\core\src\main\AndroidManifest.xml:13:13-32
+18    </application>
+19
+20</manifest>

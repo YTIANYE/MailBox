@@ -1,4 +1,6 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
 
 if (rootProject.testCoverage) {
     apply plugin: 'jacoco'
@@ -20,6 +22,8 @@ dependencies {
     // The Android Gradle plugin doesn't seem to put the Apache HTTP Client on the runtime classpath anymore when
     // running JVM tests.
     testImplementation "org.apache.httpcomponents:httpclient:4.5.5"
+    implementation "androidx.core:core-ktx:+"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 
 android {
@@ -48,4 +52,7 @@ android {
         sourceCompatibility javaVersion
         targetCompatibility javaVersion
     }
+}
+repositories {
+    mavenCentral()
 }
