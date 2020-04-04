@@ -5,6 +5,9 @@ apply plugin: 'org.jetbrains.kotlin.android.extensions'
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions.kotlin}"
 
+    implementation project(":app:core")
+
+
     //***
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
@@ -12,17 +15,26 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation 'androidx.core:core:1.2.0-alpha03'
+    implementation 'androidx.core:core:1.1.0'
+
+    //implementation 'androidx.core:core-ktx:1.0.2'
+    implementation "androidx.core:core-ktx:${versions.coreKtx}"
     //***
 }
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.2"
+    //compileSdkVersion 29
+    //buildToolsVersion "29.0.2"
+    compileSdkVersion buildConfig.compileSdk
+    buildToolsVersion buildConfig.buildTools
 
 
     defaultConfig {
-        minSdkVersion 15
-        targetSdkVersion 29
+        //minSdkVersion 15
+        //targetSdkVersion 29
+        minSdkVersion buildConfig.minSdk
+        targetSdkVersion buildConfig.targetSdk
         versionCode 1
         versionName "1.0"
 

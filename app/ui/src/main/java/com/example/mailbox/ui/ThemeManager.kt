@@ -5,16 +5,21 @@ import android.content.res.Configuration
 import android.os.Build
 import androidx.annotation.StyleRes
 import androidx.appcompat.app.AppCompatDelegate
-import com.fsck.k9.K9
-import com.fsck.k9.K9.AppTheme
-import com.fsck.k9.K9.SubTheme
+import com.example.mailbox.K9
+//import com.example.ui.R
+import com.example.mailbox.ui.R
+//import com.fsck.k9.K9
+//import com.K9.AppTheme
+import com.example.mailbox.K9.AppTheme
+//import com.fsck.k9.K9.SubTheme
+import com.example.mailbox.K9.SubTheme
 
 class ThemeManager(private val context: Context) {
     val appTheme: Theme
         get() = when (K9.appTheme) {
-            AppTheme.LIGHT -> Theme.LIGHT
-            AppTheme.DARK -> Theme.DARK
-            AppTheme.FOLLOW_SYSTEM -> getSystemTheme()
+            K9.AppTheme.LIGHT -> Theme.LIGHT
+            K9.AppTheme.DARK -> Theme.DARK
+            K9.AppTheme.FOLLOW_SYSTEM -> getSystemTheme()
         }
 
     val messageViewTheme: Theme
@@ -49,9 +54,9 @@ class ThemeManager(private val context: Context) {
 
     fun updateAppTheme() {
         val defaultNightMode = when (K9.appTheme) {
-            AppTheme.LIGHT -> AppCompatDelegate.MODE_NIGHT_NO
-            AppTheme.DARK -> AppCompatDelegate.MODE_NIGHT_YES
-            AppTheme.FOLLOW_SYSTEM -> {
+            K9.AppTheme.LIGHT -> AppCompatDelegate.MODE_NIGHT_NO
+            K9.AppTheme.DARK -> AppCompatDelegate.MODE_NIGHT_YES
+            K9.AppTheme.FOLLOW_SYSTEM -> {
                 if (Build.VERSION.SDK_INT < 28) {
                     AppCompatDelegate.MODE_NIGHT_NO
                 } else {

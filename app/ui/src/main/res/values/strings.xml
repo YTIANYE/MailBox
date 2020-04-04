@@ -1,3 +1,18 @@
-<resources>
-    <string name="app_name">ui</string>
+<?xml version='1.0' encoding='UTF-8'?>
+<resources
+    tools:locale="zh-rCN"
+    xmlns:tools="http://schemas.android.com/tools">
+    <!--设置默认语言为中文  tools:locale="zh-rCN"-->
+    <string name="app_name" translatable="false">MailBox</string><!--translatable="false"  不翻译-->
+
+    <!-- Welcome message -->
+    <string name="welcome_message_title" translatable="false">Welcome to MailBox</string>
+
+    <!-- permissions -->
+    <string name="permission_contacts_rationale_title" translatable="false">Allow access to contacts</string>
+    <string name="permission_contacts_rationale_message" translatable="false">To be able to provide contact suggestions and to display contact names and photos, the app needs access to your contacts.</string>
+
+    <!-- Used to confirm acceptance of dialog boxes, warnings, errors, etc. -->
+    <string name="okay_action" translatable="false">OK</string>
+
 </resources>

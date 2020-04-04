@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="main$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="E:\AndroidStudioProject\k-9-master\app\core\src\main\res"/><source path="E:\AndroidStudioProject\k-9-master\app\core\build\generated\res\rs\debug"/><source path="E:\AndroidStudioProject\k-9-master\app\core\build\generated\res\resValues\debug"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="main" generated-set="main$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="E:\AndroidStudioProject\k-9-master\app\core\src\main\res"><file path="E:\AndroidStudioProject\k-9-master\app\core\src\main\res\values\arrays_account_settings_values.xml" qualifiers=""><integer-array name="account_colors">
+<merger version="3"><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="main$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="E:\AndroidStudioProject\MailBox\app\core\src\main\res"/><source path="E:\AndroidStudioProject\MailBox\app\core\build\generated\res\rs\debug"/><source path="E:\AndroidStudioProject\MailBox\app\core\build\generated\res\resValues\debug"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="main" generated-set="main$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="E:\AndroidStudioProject\MailBox\app\core\src\main\res"><file path="E:\AndroidStudioProject\MailBox\app\core\src\main\res\values\arrays_account_settings_values.xml" qualifiers=""><integer-array name="account_colors">
         <item>0xFFFFB300</item> 
         <item>0xFFFB8C00</item> 
         <item>0xFFF4511E</item> 
@@ -167,7 +167,7 @@
         <item>500</item>
         <item>1000</item>
         <item>0</item>
-    </string-array></file><file path="E:\AndroidStudioProject\k-9-master\app\core\src\main\res\values\arrays_drawer.xml" qualifiers=""><integer-array name="drawer_account_accent_color_dark_theme">
+    </string-array></file><file path="E:\AndroidStudioProject\MailBox\app\core\src\main\res\values\arrays_drawer.xml" qualifiers=""><integer-array name="drawer_account_accent_color_dark_theme">
         <item>0xFFFFB300</item> 
         <item>0xFFFF9800</item> 
         <item>0xFFFF7043</item> 
@@ -187,7 +187,7 @@
         <item>0xFFCE93D8</item> 
         <item>0xFFB39DDB</item> 
         <item>0xFF90A4AE</item> 
-    </integer-array></file><file path="E:\AndroidStudioProject\k-9-master\app\core\src\main\res\values\arrays_general_settings_values.xml" qualifiers=""><string-array name="supported_languages" translatable="false">
+    </integer-array></file><file path="E:\AndroidStudioProject\MailBox\app\core\src\main\res\values\arrays_general_settings_values.xml" qualifiers=""><string-array name="supported_languages" translatable="false">
         <item/>
         <item>in</item>
         <item>br</item>
@@ -372,4 +372,4 @@
     </string-array><string-array name="volume_navigation_values" translatable="false">
         <item>message</item>
         <item>list</item>
-    </string-array></file><file name="decrypted_file_provider_paths" path="E:\AndroidStudioProject\k-9-master\app\core\src\main\res\xml\decrypted_file_provider_paths.xml" qualifiers="" type="xml"/><file name="temp_file_provider_paths" path="E:\AndroidStudioProject\k-9-master\app\core\src\main\res\xml\temp_file_provider_paths.xml" qualifiers="" type="xml"/></source><source path="E:\AndroidStudioProject\k-9-master\app\core\build\generated\res\rs\debug"/><source path="E:\AndroidStudioProject\k-9-master\app\core\build\generated\res\resValues\debug"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="debug$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="E:\AndroidStudioProject\k-9-master\app\core\src\debug\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="debug" generated-set="debug$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="E:\AndroidStudioProject\k-9-master\app\core\src\debug\res"/></dataSet><mergedItems/></merger>
+    </string-array></file><file name="decrypted_file_provider_paths" path="E:\AndroidStudioProject\MailBox\app\core\src\main\res\xml\decrypted_file_provider_paths.xml" qualifiers="" type="xml"/><file name="temp_file_provider_paths" path="E:\AndroidStudioProject\MailBox\app\core\src\main\res\xml\temp_file_provider_paths.xml" qualifiers="" type="xml"/></source><source path="E:\AndroidStudioProject\MailBox\app\core\build\generated\res\rs\debug"/><source path="E:\AndroidStudioProject\MailBox\app\core\build\generated\res\resValues\debug"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="debug$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="E:\AndroidStudioProject\MailBox\app\core\src\debug\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="debug" generated-set="debug$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="E:\AndroidStudioProject\MailBox\app\core\src\debug\res"/></dataSet><mergedItems/></merger>

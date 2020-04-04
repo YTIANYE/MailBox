@@ -20,7 +20,6 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-extensions:${versions.androidxLifecycleExtensions}"
     implementation "com.jakewharton.timber:timber:${versions.timber}"
     implementation "com.takisoft.preferencex:preferencex:${versions.preferencesFix}"
-    implementation "androidx.core:core-ktx:+"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.0.0"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
