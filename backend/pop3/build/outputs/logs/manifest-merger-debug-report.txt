@@ -1,14 +1,14 @@
 -- Merging decision tree log ---
 manifest
-ADDED from E:\AndroidStudioProject\MailBox\backend\pop3\src\main\AndroidManifest.xml:2:1-56
-INJECTED from E:\AndroidStudioProject\MailBox\backend\pop3\src\main\AndroidManifest.xml:2:1-56
-INJECTED from E:\AndroidStudioProject\MailBox\backend\pop3\src\main\AndroidManifest.xml:2:1-56
+ADDED from E:\AndroidStudioProject\MailBox\backend\pop3\src\main\AndroidManifest.xml:2:1-48
+INJECTED from E:\AndroidStudioProject\MailBox\backend\pop3\src\main\AndroidManifest.xml:2:1-48
+INJECTED from E:\AndroidStudioProject\MailBox\backend\pop3\src\main\AndroidManifest.xml:2:1-48
 	package
-		ADDED from E:\AndroidStudioProject\MailBox\backend\pop3\src\main\AndroidManifest.xml:2:11-53
+		ADDED from E:\AndroidStudioProject\MailBox\backend\pop3\src\main\AndroidManifest.xml:2:11-45
 		INJECTED from E:\AndroidStudioProject\MailBox\backend\pop3\src\main\AndroidManifest.xml
 		INJECTED from E:\AndroidStudioProject\MailBox\backend\pop3\src\main\AndroidManifest.xml
 	xmlns:android
-		ADDED from E:\AndroidStudioProject\MailBox\backend\pop3\src\main\AndroidManifest.xml:2:1-56
+		ADDED from E:\AndroidStudioProject\MailBox\backend\pop3\src\main\AndroidManifest.xml:2:1-48
 uses-sdk
 INJECTED from E:\AndroidStudioProject\MailBox\backend\pop3\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from E:\AndroidStudioProject\MailBox\backend\pop3\src\main\AndroidManifest.xml

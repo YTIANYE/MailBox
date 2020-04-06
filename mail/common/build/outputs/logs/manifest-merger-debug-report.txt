@@ -1,14 +1,14 @@
 -- Merging decision tree log ---
 manifest
-ADDED from E:\AndroidStudioProject\MailBox\mail\common\src\main\AndroidManifest.xml:2:1-55
-INJECTED from E:\AndroidStudioProject\MailBox\mail\common\src\main\AndroidManifest.xml:2:1-55
-INJECTED from E:\AndroidStudioProject\MailBox\mail\common\src\main\AndroidManifest.xml:2:1-55
+ADDED from E:\AndroidStudioProject\MailBox\mail\common\src\main\AndroidManifest.xml:2:1-47
+INJECTED from E:\AndroidStudioProject\MailBox\mail\common\src\main\AndroidManifest.xml:2:1-47
+INJECTED from E:\AndroidStudioProject\MailBox\mail\common\src\main\AndroidManifest.xml:2:1-47
 	package
-		ADDED from E:\AndroidStudioProject\MailBox\mail\common\src\main\AndroidManifest.xml:2:11-52
+		ADDED from E:\AndroidStudioProject\MailBox\mail\common\src\main\AndroidManifest.xml:2:11-44
 		INJECTED from E:\AndroidStudioProject\MailBox\mail\common\src\main\AndroidManifest.xml
 		INJECTED from E:\AndroidStudioProject\MailBox\mail\common\src\main\AndroidManifest.xml
 	xmlns:android
-		ADDED from E:\AndroidStudioProject\MailBox\mail\common\src\main\AndroidManifest.xml:2:1-55
+		ADDED from E:\AndroidStudioProject\MailBox\mail\common\src\main\AndroidManifest.xml:2:1-47
 uses-sdk
 INJECTED from E:\AndroidStudioProject\MailBox\mail\common\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from E:\AndroidStudioProject\MailBox\mail\common\src\main\AndroidManifest.xml

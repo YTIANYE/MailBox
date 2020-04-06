@@ -1,1 +1,1 @@
-com.example.mailbox.mail.common
+com.fsck.k9.mail.common

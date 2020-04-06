@@ -1,1 +1,1 @@
-com.example.mailbox.mail.protocols.smtp
+com.fsck.k9.mail.protocols.smtp

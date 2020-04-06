@@ -1,1 +1,1 @@
-com.example.mailbox.backend.pop3
+com.fsck.k9.backend.pop3

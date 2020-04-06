@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "E:\\AndroidStudioProject\\MailBox\\app\\storage\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_action.xml",
+        "source": "C:\\Users\\YTY\\.gradle\\caches\\transforms-2\\files-2.1\\ce5fe7b3651047928a88d15113885232\\core-1.1.0\\res\\layout-v21\\notification_action.xml"
+    },
+    {
+        "merged": "E:\\AndroidStudioProject\\MailBox\\app\\storage\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_template_icon_group.xml",
+        "source": "C:\\Users\\YTY\\.gradle\\caches\\transforms-2\\files-2.1\\ce5fe7b3651047928a88d15113885232\\core-1.1.0\\res\\layout-v21\\notification_template_icon_group.xml"
+    },
+    {
+        "merged": "E:\\AndroidStudioProject\\MailBox\\app\\storage\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_action_tombstone.xml",
+        "source": "C:\\Users\\YTY\\.gradle\\caches\\transforms-2\\files-2.1\\ce5fe7b3651047928a88d15113885232\\core-1.1.0\\res\\layout-v21\\notification_action_tombstone.xml"
+    },
+    {
+        "merged": "E:\\AndroidStudioProject\\MailBox\\app\\storage\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_template_custom_big.xml",
+        "source": "C:\\Users\\YTY\\.gradle\\caches\\transforms-2\\files-2.1\\ce5fe7b3651047928a88d15113885232\\core-1.1.0\\res\\layout-v21\\notification_template_custom_big.xml"
+    }
+]

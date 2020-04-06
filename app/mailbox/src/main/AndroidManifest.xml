@@ -2,11 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:dist="http://schemas.android.com/apk/distribution"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.mailbox" >
+    package="com.fsck.k9" >
 
     <dist:module dist:instant="true" />
 
-    <!--    android:name="com.example.mailbox.App"-->
+    <!--    android:name="k9-->
 
     <application
         android:allowBackup="true"
@@ -18,7 +18,7 @@
         tools:ignore="GoogleAppIndexingWarning" >
 
         <activity
-            android:name="com.example.mailbox.MainActivity"
+            android:name="com.fsck.k9.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" >
             <intent-filter>
@@ -30,7 +30,7 @@
 
         <!--最开始欢迎界面-->
         <activity
-            android:name=".ui.onboarding.OnboardingActivity"
+            android:name="com.fsck.k9.ui.onboarding.OnboardingActivity"
             android:label="@string/welcome_message_title" />
 
     </application>

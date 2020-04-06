@@ -4,7 +4,7 @@ ADDED from E:\AndroidStudioProject\MailBox\app\core\src\main\AndroidManifest.xml
 INJECTED from E:\AndroidStudioProject\MailBox\app\core\src\main\AndroidManifest.xml:2:1-16:12
 INJECTED from E:\AndroidStudioProject\MailBox\app\core\src\main\AndroidManifest.xml:2:1-16:12
 	package
-		ADDED from E:\AndroidStudioProject\MailBox\app\core\src\main\AndroidManifest.xml:4:5-39
+		ADDED from E:\AndroidStudioProject\MailBox\app\core\src\main\AndroidManifest.xml:4:5-31
 		INJECTED from E:\AndroidStudioProject\MailBox\app\core\src\main\AndroidManifest.xml
 		INJECTED from E:\AndroidStudioProject\MailBox\app\core\src\main\AndroidManifest.xml
 	xmlns:tools

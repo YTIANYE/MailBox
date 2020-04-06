@@ -1,1 +1,1 @@
-com.example.mailbox.backend.api
+com.fsck.k9.backend.api

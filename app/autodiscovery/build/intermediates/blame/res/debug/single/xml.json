@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "E:\\AndroidStudioProject\\MailBox\\app\\autodiscovery\\build\\intermediates\\res\\merged\\debug\\xml\\temp_file_provider_paths.xml",
+        "source": "E:\\AndroidStudioProject\\MailBox\\app\\core\\build\\intermediates\\packaged_res\\debug\\xml\\temp_file_provider_paths.xml"
+    },
+    {
+        "merged": "E:\\AndroidStudioProject\\MailBox\\app\\autodiscovery\\build\\intermediates\\res\\merged\\debug\\xml\\providers.xml",
+        "source": "E:\\AndroidStudioProject\\MailBox\\app\\autodiscovery\\src\\main\\res\\xml\\providers.xml"
+    },
+    {
+        "merged": "E:\\AndroidStudioProject\\MailBox\\app\\autodiscovery\\build\\intermediates\\res\\merged\\debug\\xml\\decrypted_file_provider_paths.xml",
+        "source": "E:\\AndroidStudioProject\\MailBox\\app\\core\\build\\intermediates\\packaged_res\\debug\\xml\\decrypted_file_provider_paths.xml"
+    }
+]

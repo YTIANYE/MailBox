@@ -96,6 +96,6 @@ allprojects {//subprojects？
     }
 }
 
-task clean(type: Delete) {
+/*task clean(type: Delete) {
     delete rootProject.buildDir
-}
+}*/

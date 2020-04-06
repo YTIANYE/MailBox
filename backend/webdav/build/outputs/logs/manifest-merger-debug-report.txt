@@ -1,0 +1,19 @@
+-- Merging decision tree log ---
+manifest
+ADDED from E:\AndroidStudioProject\MailBox\backend\webdav\src\main\AndroidManifest.xml:2:1-50
+INJECTED from E:\AndroidStudioProject\MailBox\backend\webdav\src\main\AndroidManifest.xml:2:1-50
+INJECTED from E:\AndroidStudioProject\MailBox\backend\webdav\src\main\AndroidManifest.xml:2:1-50
+	package
+		ADDED from E:\AndroidStudioProject\MailBox\backend\webdav\src\main\AndroidManifest.xml:2:11-47
+		INJECTED from E:\AndroidStudioProject\MailBox\backend\webdav\src\main\AndroidManifest.xml
+		INJECTED from E:\AndroidStudioProject\MailBox\backend\webdav\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from E:\AndroidStudioProject\MailBox\backend\webdav\src\main\AndroidManifest.xml:2:1-50
+uses-sdk
+INJECTED from E:\AndroidStudioProject\MailBox\backend\webdav\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from E:\AndroidStudioProject\MailBox\backend\webdav\src\main\AndroidManifest.xml
+INJECTED from E:\AndroidStudioProject\MailBox\backend\webdav\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from E:\AndroidStudioProject\MailBox\backend\webdav\src\main\AndroidManifest.xml
+		ADDED from E:\AndroidStudioProject\MailBox\backend\webdav\src\main\AndroidManifest.xml
+		INJECTED from E:\AndroidStudioProject\MailBox\backend\webdav\src\main\AndroidManifest.xml
