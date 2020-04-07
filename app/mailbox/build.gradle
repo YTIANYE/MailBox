@@ -1,4 +1,7 @@
 apply plugin: 'com.android.application'
+apply plugin: 'org.jetbrains.kotlin.android'
+apply plugin: 'org.jetbrains.kotlin.android.extensions'
+apply plugin: 'org.jlleitschuh.gradle.ktlint'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
@@ -9,6 +12,29 @@ if (rootProject.testCoverage) {
 }
 
 dependencies {
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions.kotlin}"
+
+    implementation project(":app:ui")
+    implementation project(":app:core")
+    implementation project(":app:storage")
+    implementation project(":app:crypto-openpgp")
+    implementation project(":backend:imap")
+    implementation project(":backend:pop3")
+    implementation project(":backend:webdav")
+
+    implementation "androidx.appcompat:appcompat:${versions.androidxAppCompat}"
+    implementation "com.jakewharton.timber:timber:${versions.timber}"
+
+    testImplementation "org.robolectric:robolectric:${versions.robolectric}"
+    testImplementation "junit:junit:${versions.junit}"
+    testImplementation "com.google.truth:truth:${versions.truth}"
+    testImplementation "org.mockito:mockito-core:${versions.mockito}"
+    testImplementation "com.nhaarman:mockito-kotlin:${versions.mockitoKotlin}"
+    testImplementation "org.jdom:jdom2:2.0.6"
+    testImplementation "org.koin:koin-test:${versions.koin}"
+
+    androidTestImplementation "androidx.test.espresso:espresso-core:3.1.1"
     //**
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.0.0'
@@ -18,29 +44,31 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
-    implementation 'androidx.core:core-ktx:1.0.2'
+    implementation 'androidx.core:core-ktx:1.0.2'//模块间引用
     //***
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-
-    implementation project(":app:ui")
-    implementation 'androidx.core:core-ktx:1.0.1'//模块间引用
+    //implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
     //报错 The given artifact contains a string literal with a package reference 'android.support.v4' that cannot be safely rewritten. Libraries using reflection such as annotation processors need to be updated manually to add support for androidx.
     //引入ButterKnife
-    implementation 'com.jakewharton:butterknife:10.0.0'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:10.0.0'
+/*    implementation 'com.jakewharton:butterknife:10.0.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.0.0'*/
 }
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion buildConfig.compileSdk
+    buildToolsVersion buildConfig.buildTools
     defaultConfig {
         applicationId "com.fsck.MailBox"
+        testApplicationId "com.fsck.k9.tests"
 //        minSdkVersion 15
 //        targetSdkVersion 28
         minSdkVersion buildConfig.minSdk
         targetSdkVersion buildConfig.targetSdk
         versionCode 1
         versionName "1.0"
+
+        generatedDensities = ['mdpi', 'hdpi', 'xhdpi']
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -75,6 +103,12 @@ android {
 
             buildConfigField "boolean", "DEVELOPER_MODE", "true"
         }
+    }
+
+    // Do not abort build if lint finds errors
+    lintOptions {
+        abortOnError false
+        lintConfig file("$rootProject.projectDir/config/lint/lint.xml")
     }
 
     packagingOptions {
@@ -125,6 +159,6 @@ if (project.hasProperty('storePassword')) {
 }
 
 
-repositories {
+/*repositories {
     mavenCentral()
-}
+}*/

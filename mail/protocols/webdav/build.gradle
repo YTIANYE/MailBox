@@ -22,7 +22,8 @@ dependencies {
     // The Android Gradle plugin doesn't seem to put the Apache HTTP Client on the runtime classpath anymore when
     // running JVM tests.
     testImplementation "org.apache.httpcomponents:httpclient:4.5.5"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions.kotlin}"
+//    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 
 android {

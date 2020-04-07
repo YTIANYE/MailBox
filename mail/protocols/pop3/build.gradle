@@ -20,7 +20,8 @@ dependencies {
     testImplementation "com.squareup.okio:okio:${versions.okio}"
     testImplementation "com.jcraft:jzlib:1.0.7"
     testImplementation "commons-io:commons-io:${versions.commonsIo}"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    //implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions.kotlin}"
 }
 
 android {
