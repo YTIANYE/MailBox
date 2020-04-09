@@ -58,6 +58,7 @@ import com.fsck.k9.ui.managefolders.ManageFoldersActivity;
 import com.fsck.k9.ui.messagelist.DefaultFolderProvider;
 import com.fsck.k9.ui.messageview.MessageViewFragment;
 import com.fsck.k9.ui.messageview.MessageViewFragment.MessageViewFragmentListener;
+import com.fsck.k9.ui.onboarding.OnboardingActivity;
 import com.fsck.k9.view.ViewSwitcher;
 import com.fsck.k9.view.ViewSwitcher.OnSwitchCompleteListener;
 import com.mikepenz.materialdrawer.Drawer.OnDrawerListener;
@@ -226,7 +227,7 @@ public class MessageList extends K9Activity implements MessageListFragmentListen
 
         List<Account> accounts = preferences.getAccounts();
         if (accounts.isEmpty()) {
-            //OnboardingActivity.launch(this);//调用最开始欢迎界面
+            OnboardingActivity.launch(this);//调用最开始欢迎界面
             finish();
             return;
         }

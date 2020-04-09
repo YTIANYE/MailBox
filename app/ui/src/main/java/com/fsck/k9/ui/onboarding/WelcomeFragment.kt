@@ -28,11 +28,11 @@ class WelcomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val welcome: TextView = view.findViewById(R.id.welcome_message)
-        welcome.text = htmlToSpanned.convert(getString(R.string.accounts_welcome))
+        welcome.text = htmlToSpanned.convert(getString(R.string.accounts_welcome))//介绍内容
         welcome.movementMethod = LinkMovementMethod.getInstance()
 
-        view.findViewById<View>(R.id.next).setOnClickListener { launchAccountSetup() }
-        view.findViewById<View>(R.id.import_settings).setOnClickListener { launchImportSettings() }
+        view.findViewById<View>(R.id.next).setOnClickListener { launchAccountSetup() }//添加账号
+        //view.findViewById<View>(R.id.import_settings).setOnClickListener { launchImportSettings() }
 
         importResultViewModel.settingsImportResult.observeNotNull(this) {
             if (it == SettingsImportSuccess) {
@@ -41,11 +41,12 @@ class WelcomeFragment : Fragment() {
         }
     }
 
+    /*添加账号*/
     private fun launchAccountSetup() {
         findNavController().navigate(R.id.action_welcomeScreen_to_addAccountScreen)
         requireActivity().finish()
     }
-
+    /*导入设置*/
     private fun launchImportSettings() {
         findNavController().navigate(R.id.action_welcomeScreen_to_settingsImportScreen)
     }

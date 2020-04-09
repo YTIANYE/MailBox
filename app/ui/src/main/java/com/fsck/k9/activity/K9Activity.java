@@ -20,7 +20,7 @@ import com.fsck.k9.ui.R;
 import com.fsck.k9.ui.ThemeManager;
 import com.fsck.k9.ui.permissions.PermissionRationaleDialogFragment;
 
-//import timber.log.Timber;//打印日志
+import timber.log.Timber;//打印日志
 
 
 public abstract class K9Activity extends AppCompatActivity implements K9ActivityMagic {
@@ -92,7 +92,7 @@ public abstract class K9Activity extends AppCompatActivity implements K9Activity
     }
 
     public void requestPermission(Permission permission) {
-        //Timber.i("Requesting permission: " + permission.permission);
+        Timber.i("Requesting permission: " + permission.permission);
         ActivityCompat.requestPermissions(this, new String[] { permission.permission }, permission.requestCode);
     }
 

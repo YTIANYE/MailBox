@@ -4,6 +4,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
+<!--    垂直滚动：Scroll
+    水平滚动：HorizontalScrollView-->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -30,6 +32,7 @@
         </LinearLayout>
     </ScrollView>
 
+    <!--底部按钮 导入设置 前进-->
     <include layout="@layout/wizard_welcome" />
 
 </LinearLayout>
