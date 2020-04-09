@@ -1,0 +1,38 @@
+{
+    "logs": [
+        {
+            "outputFile": "E:\\AndroidStudioProject\\MailBox\\app\\mailbox\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-watch-v20\\values-watch-v20.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\YTY\\.gradle\\caches\\transforms-2\\files-2.1\\dcacd8af9d88970b1c93318ebd6f2031\\jetified-datetimepicker-1.0.2\\res\\values-watch-v20\\values-watch-v20.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,113",
+                        "endColumns": "57,57",
+                        "endOffsets": "108,166"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\YTY\\.gradle\\caches\\transforms-2\\files-2.1\\52773b1239f1f2503d3a71c6da1ecf68\\appcompat-1.1.0\\res\\values-watch-v20\\values-watch-v20.xml",
+                    "from": {
+                        "startLines": "2,5,8",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,214,385",
+                        "endLines": "4,7,10",
+                        "endColumns": "12,12,12",
+                        "endOffsets": "209,380,553"
+                    },
+                    "to": {
+                        "startLines": "4,7,10",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "171,330,501",
+                        "endLines": "6,9,12",
+                        "endColumns": "12,12,12",
+                        "endOffsets": "325,496,669"
+                    }
+                }
+            ]
+        }
+    ]
+}

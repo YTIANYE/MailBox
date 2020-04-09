@@ -1,0 +1,12 @@
+R_DEF: Internal format may change without notice
+local
+drawable ic_action_cancel_launchersize
+drawable ic_action_cancel_launchersize_light
+string openpgp_install_openkeychain_via
+string openpgp_key_created
+string openpgp_key_selected
+string openpgp_key_title
+string openpgp_key_using
+string openpgp_key_using_no_name
+string openpgp_list_preference_none
+string openpgp_no_key_selected

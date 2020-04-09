@@ -1,0 +1,93 @@
+{
+    "logs": [
+        {
+            "outputFile": "E:\\AndroidStudioProject\\MailBox\\app\\mailbox\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v23\\values-v23.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\YTY\\.gradle\\caches\\transforms-2\\files-2.1\\3769748ebdb5ddff650b7f6d00deed3a\\work-runtime-2.2.0\\res\\values-v23\\values-v23.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,121",
+                        "endColumns": "65,62",
+                        "endOffsets": "116,179"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\YTY\\.gradle\\caches\\transforms-2\\files-2.1\\52773b1239f1f2503d3a71c6da1ecf68\\appcompat-1.1.0\\res\\values-v23\\values-v23.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,20,34,35,36,37,41,42,43,44",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,190,325,400,487,1371,2267,2386,2513,2618,2842,2957,3064,3177",
+                        "endLines": "2,3,4,5,19,33,34,35,36,40,41,42,43,47",
+                        "endColumns": "134,134,74,86,12,12,118,126,104,12,114,106,112,12",
+                        "endOffsets": "185,320,395,482,1366,2262,2381,2508,2613,2837,2952,3059,3172,3402"
+                    },
+                    "to": {
+                        "startLines": "5,6,7,8,9,23,37,38,39,40,44,45,46,47",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "236,371,506,581,668,1552,2448,2567,2694,2799,3023,3138,3245,3358",
+                        "endLines": "5,6,7,8,22,36,37,38,39,43,44,45,46,50",
+                        "endColumns": "134,134,74,86,12,12,118,126,104,12,114,106,112,12",
+                        "endOffsets": "366,501,576,663,1547,2443,2562,2689,2794,3018,3133,3240,3353,3583"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\YTY\\.gradle\\caches\\transforms-2\\files-2.1\\d1d5d5c3e5b2ae437f8c4a71cfa8e855\\material-1.1.0-beta02\\res\\values-v23\\values-v23.xml",
+                    "from": {
+                        "startLines": "2,6",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,320",
+                        "endLines": "5,9",
+                        "endColumns": "10,10",
+                        "endOffsets": "315,588"
+                    },
+                    "to": {
+                        "startLines": "54,58",
+                        "startColumns": "4,4",
+                        "startOffsets": "3738,4003",
+                        "endLines": "57,61",
+                        "endColumns": "10,10",
+                        "endOffsets": "3998,4271"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\YTY\\.gradle\\caches\\transforms-2\\files-2.1\\f5ccd85021f55eed4b602b7b3a9b78a2\\cardview-1.0.0\\res\\values-v23\\values-v23.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "4",
+                        "endColumns": "12",
+                        "endOffsets": "200"
+                    },
+                    "to": {
+                        "startLines": "51",
+                        "startColumns": "4",
+                        "startOffsets": "3588",
+                        "endLines": "53",
+                        "endColumns": "12",
+                        "endOffsets": "3733"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\YTY\\.gradle\\caches\\transforms-2\\files-2.1\\37ac1dec6cae29892bb28f109ea02ad7\\materialize-1.2.1\\res\\values-v23\\values-v23.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "51",
+                        "endOffsets": "102"
+                    },
+                    "to": {
+                        "startLines": "4",
+                        "startColumns": "4",
+                        "startOffsets": "184",
+                        "endColumns": "51",
+                        "endOffsets": "231"
+                    }
+                }
+            ]
+        }
+    ]
+}

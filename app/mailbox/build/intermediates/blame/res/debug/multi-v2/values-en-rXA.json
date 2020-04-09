@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "E:\\AndroidStudioProject\\MailBox\\app\\mailbox\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-en-rXA\\values-en-rXA.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\YTY\\.gradle\\caches\\transforms-2\\files-2.1\\dcacd8af9d88970b1c93318ebd6f2031\\jetified-datetimepicker-1.0.2\\res\\values-en-rXA\\values-en-rXA.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6",
+                        "startColumns": "4,4,4,4,4",
+                        "startOffsets": "55,117,173,221,273",
+                        "endColumns": "61,55,47,51,48",
+                        "endOffsets": "112,168,216,268,317"
+                    }
+                }
+            ]
+        }
+    ]
+}

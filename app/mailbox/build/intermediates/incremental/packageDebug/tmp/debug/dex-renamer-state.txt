@@ -1,0 +1,4 @@
+#Thu Apr 09 16:14:22 CST 2020
+base.0=E\:\\AndroidStudioProject\\MailBox\\app\\mailbox\\build\\intermediates\\transforms\\r8\\debug\\0\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex

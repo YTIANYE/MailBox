@@ -1,0 +1,1 @@
+[{"outputType":{"type":"MERGED_MANIFESTS"},"apkData":{"type":"MAIN","splits":[],"versionCode":27003,"versionName":"5.704-SNAPSHOT","enabled":true,"outputFile":"mailbox-debug.apk","fullName":"debug","baseName":"debug"},"path":"AndroidManifest.xml","properties":{"packageId":"com.fsck.MailBox.debug","split":"","minSdkVersion":"21"}}]

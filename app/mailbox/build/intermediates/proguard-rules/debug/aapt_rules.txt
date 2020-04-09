@@ -1,0 +1,487 @@
+# Referenced at E:\AndroidStudioProject\MailBox\app\mailbox\build\intermediates\merged_manifests\debug\AndroidManifest.xml:18
+-keep class androidx.core.app.CoreComponentFactory { <init>(); }
+# Referenced at E:\AndroidStudioProject\MailBox\app\mailbox\build\intermediates\merged_manifests\debug\AndroidManifest.xml:256
+-keep class androidx.lifecycle.ProcessLifecycleOwnerInitializer { <init>(); }
+# Referenced at E:\AndroidStudioProject\MailBox\app\mailbox\build\intermediates\merged_manifests\debug\AndroidManifest.xml:252
+-keep class androidx.room.MultiInstanceInvalidationService { <init>(); }
+# Referenced at E:\AndroidStudioProject\MailBox\app\mailbox\build\intermediates\merged_manifests\debug\AndroidManifest.xml:192
+-keep class androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy { <init>(); }
+# Referenced at E:\AndroidStudioProject\MailBox\app\mailbox\build\intermediates\merged_manifests\debug\AndroidManifest.xml:202
+-keep class androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy { <init>(); }
+# Referenced at E:\AndroidStudioProject\MailBox\app\mailbox\build\intermediates\merged_manifests\debug\AndroidManifest.xml:222
+-keep class androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy { <init>(); }
+# Referenced at E:\AndroidStudioProject\MailBox\app\mailbox\build\intermediates\merged_manifests\debug\AndroidManifest.xml:212
+-keep class androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy { <init>(); }
+# Referenced at E:\AndroidStudioProject\MailBox\app\mailbox\build\intermediates\merged_manifests\debug\AndroidManifest.xml:242
+-keep class androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver { <init>(); }
+# Referenced at E:\AndroidStudioProject\MailBox\app\mailbox\build\intermediates\merged_manifests\debug\AndroidManifest.xml:231
+-keep class androidx.work.impl.background.systemalarm.RescheduleReceiver { <init>(); }
+# Referenced at E:\AndroidStudioProject\MailBox\app\mailbox\build\intermediates\merged_manifests\debug\AndroidManifest.xml:175
+-keep class androidx.work.impl.background.systemalarm.SystemAlarmService { <init>(); }
+# Referenced at E:\AndroidStudioProject\MailBox\app\mailbox\build\intermediates\merged_manifests\debug\AndroidManifest.xml:180
+-keep class androidx.work.impl.background.systemjob.SystemJobService { <init>(); }
+# Referenced at E:\AndroidStudioProject\MailBox\app\mailbox\build\intermediates\merged_manifests\debug\AndroidManifest.xml:187
+-keep class androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver { <init>(); }
+# Referenced at E:\AndroidStudioProject\MailBox\app\mailbox\build\intermediates\merged_manifests\debug\AndroidManifest.xml:151
+-keep class com.evernote.android.job.JobBootReceiver { <init>(); }
+# Referenced at E:\AndroidStudioProject\MailBox\app\mailbox\build\intermediates\merged_manifests\debug\AndroidManifest.xml:171
+-keep class com.evernote.android.job.JobRescheduleService { <init>(); }
+# Referenced at E:\AndroidStudioProject\MailBox\app\mailbox\build\intermediates\merged_manifests\debug\AndroidManifest.xml:162
+-keep class com.evernote.android.job.gcm.PlatformGcmService { <init>(); }
+# Referenced at E:\AndroidStudioProject\MailBox\app\mailbox\build\intermediates\merged_manifests\debug\AndroidManifest.xml:141
+-keep class com.evernote.android.job.v14.PlatformAlarmReceiver { <init>(); }
+# Referenced at E:\AndroidStudioProject\MailBox\app\mailbox\build\intermediates\merged_manifests\debug\AndroidManifest.xml:133
+-keep class com.evernote.android.job.v14.PlatformAlarmService { <init>(); }
+# Referenced at E:\AndroidStudioProject\MailBox\app\mailbox\build\intermediates\merged_manifests\debug\AndroidManifest.xml:137
+-keep class com.evernote.android.job.v14.PlatformAlarmServiceExact { <init>(); }
+# Referenced at E:\AndroidStudioProject\MailBox\app\mailbox\build\intermediates\merged_manifests\debug\AndroidManifest.xml:129
+-keep class com.evernote.android.job.v21.PlatformJobService { <init>(); }
+# Referenced at E:\AndroidStudioProject\MailBox\app\mailbox\build\intermediates\merged_manifests\debug\AndroidManifest.xml:18
+-keep class com.fsck.k9.App { <init>(); }
+# Referenced at E:\AndroidStudioProject\MailBox\app\mailbox\build\intermediates\merged_manifests\debug\AndroidManifest.xml:63
+-keep class com.fsck.k9.MainActivity { <init>(); }
+# Referenced at E:\AndroidStudioProject\MailBox\app\mailbox\build\intermediates\merged_manifests\debug\AndroidManifest.xml:111
+-keep class com.fsck.k9.activity.LauncherShortcuts { <init>(); }
+# Referenced at E:\AndroidStudioProject\MailBox\app\mailbox\build\intermediates\merged_manifests\debug\AndroidManifest.xml:81
+-keep class com.fsck.k9.activity.MessageList { <init>(); }
+# Referenced at E:\AndroidStudioProject\MailBox\app\mailbox\build\intermediates\merged_manifests\debug\AndroidManifest.xml:76
+-keep class com.fsck.k9.ui.onboarding.OnboardingActivity { <init>(); }
+# Referenced at E:\AndroidStudioProject\MailBox\app\mailbox\build\intermediates\merged_manifests\debug\AndroidManifest.xml:122
+-keep class com.mikepenz.iconics.IconicsContentProvider { <init>(); }
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\52773b1239f1f2503d3a71c6da1ecf68\appcompat-1.1.0\res\layout-watch-v20\abc_alert_dialog_title_material.xml:53
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\d1d5d5c3e5b2ae437f8c4a71cfa8e855\material-1.1.0-beta02\res\layout\mtrl_alert_dialog_title.xml:41
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\d1d5d5c3e5b2ae437f8c4a71cfa8e855\material-1.1.0-beta02\res\layout\mtrl_alert_dialog_actions.xml:45
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\d1d5d5c3e5b2ae437f8c4a71cfa8e855\material-1.1.0-beta02\res\layout\mtrl_alert_dialog.xml:51
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\52773b1239f1f2503d3a71c6da1ecf68\appcompat-1.1.0\res\layout\abc_alert_dialog_title_material.xml:57
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\52773b1239f1f2503d3a71c6da1ecf68\appcompat-1.1.0\res\layout\abc_alert_dialog_material.xml:52
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\52773b1239f1f2503d3a71c6da1ecf68\appcompat-1.1.0\res\layout\abc_alert_dialog_button_bar_material.xml:43
+-keep class android.widget.Space { <init>(...); }
+
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\52773b1239f1f2503d3a71c6da1ecf68\appcompat-1.1.0\res\layout\abc_select_dialog_material.xml:23
+-keep class androidx.appcompat.app.AlertController$RecycleListView { <init>(...); }
+
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\52773b1239f1f2503d3a71c6da1ecf68\appcompat-1.1.0\res\layout\abc_action_menu_item_layout.xml:17
+-keep class androidx.appcompat.view.menu.ActionMenuItemView { <init>(...); }
+
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\52773b1239f1f2503d3a71c6da1ecf68\appcompat-1.1.0\res\layout\abc_expanded_menu_layout.xml:17
+-keep class androidx.appcompat.view.menu.ExpandedMenuView { <init>(...); }
+
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\52773b1239f1f2503d3a71c6da1ecf68\appcompat-1.1.0\res\layout\abc_popup_menu_item_layout.xml:17
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\52773b1239f1f2503d3a71c6da1ecf68\appcompat-1.1.0\res\layout\abc_list_menu_item_layout.xml:17
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\52773b1239f1f2503d3a71c6da1ecf68\appcompat-1.1.0\res\layout\abc_cascading_menu_item_layout.xml:20
+-keep class androidx.appcompat.view.menu.ListMenuItemView { <init>(...); }
+
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\52773b1239f1f2503d3a71c6da1ecf68\appcompat-1.1.0\res\layout\abc_screen_toolbar.xml:27
+-keep class androidx.appcompat.widget.ActionBarContainer { <init>(...); }
+
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\52773b1239f1f2503d3a71c6da1ecf68\appcompat-1.1.0\res\layout\abc_screen_toolbar.xml:43
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\52773b1239f1f2503d3a71c6da1ecf68\appcompat-1.1.0\res\layout\abc_action_mode_bar.xml:19
+-keep class androidx.appcompat.widget.ActionBarContextView { <init>(...); }
+
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\52773b1239f1f2503d3a71c6da1ecf68\appcompat-1.1.0\res\layout\abc_screen_toolbar.xml:17
+-keep class androidx.appcompat.widget.ActionBarOverlayLayout { <init>(...); }
+
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\52773b1239f1f2503d3a71c6da1ecf68\appcompat-1.1.0\res\layout\abc_action_menu_layout.xml:17
+-keep class androidx.appcompat.widget.ActionMenuView { <init>(...); }
+
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\52773b1239f1f2503d3a71c6da1ecf68\appcompat-1.1.0\res\layout\abc_activity_chooser_view.xml:19
+-keep class androidx.appcompat.widget.ActivityChooserView$InnerLayout { <init>(...); }
+
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\d1d5d5c3e5b2ae437f8c4a71cfa8e855\material-1.1.0-beta02\res\layout\mtrl_alert_dialog.xml:17
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\52773b1239f1f2503d3a71c6da1ecf68\appcompat-1.1.0\res\layout\abc_alert_dialog_material.xml:18
+-keep class androidx.appcompat.widget.AlertDialogLayout { <init>(...); }
+
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\0e634a8ce40582870b7658813c3fa92a\materialdrawer-7.0.0-rc09\res\layout\material_drawer_item_toggle.xml:10
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\0e634a8ce40582870b7658813c3fa92a\materialdrawer-7.0.0-rc09\res\layout\material_drawer_item_switch.xml:14
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\0e634a8ce40582870b7658813c3fa92a\materialdrawer-7.0.0-rc09\res\layout\material_drawer_item_secondary_switch.xml:14
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\0e634a8ce40582870b7658813c3fa92a\materialdrawer-7.0.0-rc09\res\layout\material_drawer_item_secondary.xml:12
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\0e634a8ce40582870b7658813c3fa92a\materialdrawer-7.0.0-rc09\res\layout\material_drawer_item_profile_setting.xml:13
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\0e634a8ce40582870b7658813c3fa92a\materialdrawer-7.0.0-rc09\res\layout\material_drawer_item_primary.xml:12
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\0e634a8ce40582870b7658813c3fa92a\materialdrawer-7.0.0-rc09\res\layout\material_drawer_item_mini.xml:13
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\0e634a8ce40582870b7658813c3fa92a\materialdrawer-7.0.0-rc09\res\layout\material_drawer_item_expandable_badge.xml:14
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\0e634a8ce40582870b7658813c3fa92a\materialdrawer-7.0.0-rc09\res\layout\material_drawer_item_expandable.xml:13
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\0e634a8ce40582870b7658813c3fa92a\materialdrawer-7.0.0-rc09\res\layout\material_drawer_header.xml:8
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\0e634a8ce40582870b7658813c3fa92a\materialdrawer-7.0.0-rc09\res\layout\material_drawer_compact_header.xml:12
+-keep class androidx.appcompat.widget.AppCompatImageView { <init>(...); }
+
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\0e634a8ce40582870b7658813c3fa92a\materialdrawer-7.0.0-rc09\res\layout\material_drawer_item_toggle.xml:25
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\0e634a8ce40582870b7658813c3fa92a\materialdrawer-7.0.0-rc09\res\layout\material_drawer_item_switch.xml:29
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\0e634a8ce40582870b7658813c3fa92a\materialdrawer-7.0.0-rc09\res\layout\material_drawer_item_section.xml:13
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\0e634a8ce40582870b7658813c3fa92a\materialdrawer-7.0.0-rc09\res\layout\material_drawer_item_secondary_switch.xml:29
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\0e634a8ce40582870b7658813c3fa92a\materialdrawer-7.0.0-rc09\res\layout\material_drawer_item_secondary.xml:27
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\0e634a8ce40582870b7658813c3fa92a\materialdrawer-7.0.0-rc09\res\layout\material_drawer_item_profile.xml:29
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\0e634a8ce40582870b7658813c3fa92a\materialdrawer-7.0.0-rc09\res\layout\material_drawer_item_primary.xml:27
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\0e634a8ce40582870b7658813c3fa92a\materialdrawer-7.0.0-rc09\res\layout\material_drawer_item_mini.xml:21
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\0e634a8ce40582870b7658813c3fa92a\materialdrawer-7.0.0-rc09\res\layout\material_drawer_item_expandable_badge.xml:29
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\0e634a8ce40582870b7658813c3fa92a\materialdrawer-7.0.0-rc09\res\layout\material_drawer_item_expandable.xml:28
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\0e634a8ce40582870b7658813c3fa92a\materialdrawer-7.0.0-rc09\res\layout\material_drawer_header.xml:91
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\0e634a8ce40582870b7658813c3fa92a\materialdrawer-7.0.0-rc09\res\layout\material_drawer_compact_header.xml:65
+-keep class androidx.appcompat.widget.AppCompatTextView { <init>(...); }
+
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\52773b1239f1f2503d3a71c6da1ecf68\appcompat-1.1.0\res\layout-watch-v20\abc_alert_dialog_button_bar_material.xml:18
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\dcacd8af9d88970b1c93318ebd6f2031\jetified-datetimepicker-1.0.2\res\layout\picker_dialog_button_bar_material.xml:26
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\d1d5d5c3e5b2ae437f8c4a71cfa8e855\material-1.1.0-beta02\res\layout\mtrl_alert_dialog_actions.xml:26
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\52773b1239f1f2503d3a71c6da1ecf68\appcompat-1.1.0\res\layout\abc_alert_dialog_button_bar_material.xml:26
+-keep class androidx.appcompat.widget.ButtonBarLayout { <init>(...); }
+
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\52773b1239f1f2503d3a71c6da1ecf68\appcompat-1.1.0\res\layout\abc_screen_content_include.xml:19
+-keep class androidx.appcompat.widget.ContentFrameLayout { <init>(...); }
+
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\d1d5d5c3e5b2ae437f8c4a71cfa8e855\material-1.1.0-beta02\res\layout\mtrl_alert_dialog_title.xml:36
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\52773b1239f1f2503d3a71c6da1ecf68\appcompat-1.1.0\res\layout\abc_alert_dialog_title_material.xml:45
+-keep class androidx.appcompat.widget.DialogTitle { <init>(...); }
+
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\52773b1239f1f2503d3a71c6da1ecf68\appcompat-1.1.0\res\layout\abc_screen_simple_overlay_action_mode.xml:23
+-keep class androidx.appcompat.widget.FitWindowsFrameLayout { <init>(...); }
+
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\52773b1239f1f2503d3a71c6da1ecf68\appcompat-1.1.0\res\layout\abc_screen_simple.xml:17
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\52773b1239f1f2503d3a71c6da1ecf68\appcompat-1.1.0\res\layout\abc_dialog_title_material.xml:22
+-keep class androidx.appcompat.widget.FitWindowsLinearLayout { <init>(...); }
+
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\52773b1239f1f2503d3a71c6da1ecf68\appcompat-1.1.0\res\layout\abc_search_view.xml:75
+-keep class androidx.appcompat.widget.SearchView$SearchAutoComplete { <init>(...); }
+
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\47c1e9558043dafa125a9937deb8c72c\preference-1.1.0\res\layout\preference_widget_switch_compat.xml:20
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\d8551a0e9923a385685c0a222bcab080\preferencex-1.1.0\res\layout\preference_list_master_switch.xml:68
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\0e634a8ce40582870b7658813c3fa92a\materialdrawer-7.0.0-rc09\res\layout\material_drawer_item_switch.xml:62
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\0e634a8ce40582870b7658813c3fa92a\materialdrawer-7.0.0-rc09\res\layout\material_drawer_item_secondary_switch.xml:62
+-keep class androidx.appcompat.widget.SwitchCompat { <init>(...); }
+
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\52773b1239f1f2503d3a71c6da1ecf68\appcompat-1.1.0\res\layout-v26\abc_screen_toolbar.xml:37
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\layout\toolbar.xml:2
+# Referenced at E:\AndroidStudioProject\MailBox\app\mailbox\src\main\res\layout\app_bar_main.xml:15
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\layout\activity_account_settings.xml:7
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\52773b1239f1f2503d3a71c6da1ecf68\appcompat-1.1.0\res\layout\abc_screen_toolbar.xml:36
+-keep class androidx.appcompat.widget.Toolbar { <init>(...); }
+
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\52773b1239f1f2503d3a71c6da1ecf68\appcompat-1.1.0\res\layout\abc_screen_simple_overlay_action_mode.xml:32
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\52773b1239f1f2503d3a71c6da1ecf68\appcompat-1.1.0\res\layout\abc_screen_simple.xml:25
+-keep class androidx.appcompat.widget.ViewStubCompat { <init>(...); }
+
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\b4c87f24abd778bb72d49486bbf38bf4\jetified-SearchPreference-v1.1.4\res\layout\searchpreference_searchbar.xml:2
+-keep class androidx.cardview.widget.CardView { <init>(...); }
+
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\layout\fragment_settings_import.xml:85
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\layout\fragment_settings_export.xml:56
+-keep class androidx.constraintlayout.widget.Barrier { <init>(...); }
+
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\layout\settings_import_general_list_item.xml:2
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\layout\settings_import_account_list_item.xml:2
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\layout\settings_export_general_list_item.xml:2
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\layout\settings_export_account_list_item.xml:2
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\layout\password_prompt_dialog.xml:8
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\0e634a8ce40582870b7658813c3fa92a\materialdrawer-7.0.0-rc09\res\layout\material_drawer_item_toggle.xml:2
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\0e634a8ce40582870b7658813c3fa92a\materialdrawer-7.0.0-rc09\res\layout\material_drawer_item_switch.xml:2
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\0e634a8ce40582870b7658813c3fa92a\materialdrawer-7.0.0-rc09\res\layout\material_drawer_item_secondary_toggle.xml:2
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\0e634a8ce40582870b7658813c3fa92a\materialdrawer-7.0.0-rc09\res\layout\material_drawer_item_secondary_switch.xml:2
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\0e634a8ce40582870b7658813c3fa92a\materialdrawer-7.0.0-rc09\res\layout\material_drawer_item_secondary.xml:2
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\0e634a8ce40582870b7658813c3fa92a\materialdrawer-7.0.0-rc09\res\layout\material_drawer_item_profile_setting.xml:2
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\0e634a8ce40582870b7658813c3fa92a\materialdrawer-7.0.0-rc09\res\layout\material_drawer_item_profile.xml:2
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\0e634a8ce40582870b7658813c3fa92a\materialdrawer-7.0.0-rc09\res\layout\material_drawer_item_primary.xml:2
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\0e634a8ce40582870b7658813c3fa92a\materialdrawer-7.0.0-rc09\res\layout\material_drawer_item_expandable_badge.xml:2
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\0e634a8ce40582870b7658813c3fa92a\materialdrawer-7.0.0-rc09\res\layout\material_drawer_item_expandable.xml:2
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\0e634a8ce40582870b7658813c3fa92a\materialdrawer-7.0.0-rc09\res\layout\material_drawer_header.xml:1
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\0e634a8ce40582870b7658813c3fa92a\materialdrawer-7.0.0-rc09\res\layout\material_drawer_compact_header.xml:1
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\layout\fragment_settings_import.xml:2
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\layout\fragment_settings_export.xml:2
+# Referenced at E:\AndroidStudioProject\MailBox\app\mailbox\src\main\res\layout\content_main.xml:2
+-keep class androidx.constraintlayout.widget.ConstraintLayout { <init>(...); }
+
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\layout\password_prompt_dialog.xml:90
+-keep class androidx.constraintlayout.widget.Group { <init>(...); }
+
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\layout\settings_import_general_list_item.xml:49
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\layout\settings_import_account_list_item.xml:51
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\layout\settings_export_general_list_item.xml:37
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\layout\settings_export_account_list_item.xml:51
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\0e634a8ce40582870b7658813c3fa92a\materialdrawer-7.0.0-rc09\res\layout\material_drawer_header.xml:18
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\0e634a8ce40582870b7658813c3fa92a\materialdrawer-7.0.0-rc09\res\layout\material_drawer_compact_header.xml:22
+-keep class androidx.constraintlayout.widget.Guideline { <init>(...); }
+
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\d1d5d5c3e5b2ae437f8c4a71cfa8e855\material-1.1.0-beta02\res\layout\design_bottom_sheet_dialog.xml:26
+# Referenced at E:\AndroidStudioProject\MailBox\app\mailbox\src\main\res\layout\app_bar_main.xml:2
+-keep class androidx.coordinatorlayout.widget.CoordinatorLayout { <init>(...); }
+
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\d1d5d5c3e5b2ae437f8c4a71cfa8e855\material-1.1.0-beta02\res\layout\mtrl_alert_dialog.xml:40
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\layout\fragment_about.xml:7
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\52773b1239f1f2503d3a71c6da1ecf68\appcompat-1.1.0\res\layout\abc_alert_dialog_material.xml:41
+-keep class androidx.core.widget.NestedScrollView { <init>(...); }
+
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\0e634a8ce40582870b7658813c3fa92a\materialdrawer-7.0.0-rc09\res\layout\material_drawer_fits_not.xml:2
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\0e634a8ce40582870b7658813c3fa92a\materialdrawer-7.0.0-rc09\res\layout\material_drawer.xml:2
+# Referenced at E:\AndroidStudioProject\MailBox\app\mailbox\src\main\res\layout\activity_main.xml:2
+-keep class androidx.drawerlayout.widget.DrawerLayout { <init>(...); }
+
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\layout\activity_settings.xml:11
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\layout\activity_onboarding.xml:11
+-keep class androidx.navigation.fragment.NavHostFragment { <init>(...); }
+
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\47c1e9558043dafa125a9937deb8c72c\preference-1.1.0\res\layout\preference_widget_seekbar_material.xml:77
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\47c1e9558043dafa125a9937deb8c72c\preference-1.1.0\res\layout\preference_widget_seekbar.xml:70
+-keep class androidx.preference.UnPressableLinearLayout { <init>(...); }
+
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\47c1e9558043dafa125a9937deb8c72c\preference-1.1.0\res\layout\preference_dropdown.xml:39
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\47c1e9558043dafa125a9937deb8c72c\preference-1.1.0\res\layout\preference.xml:32
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\47c1e9558043dafa125a9937deb8c72c\preference-1.1.0\res\layout\image_frame.xml:33
+-keep class androidx.preference.internal.PreferenceImageView { <init>(...); }
+
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\b4c87f24abd778bb72d49486bbf38bf4\jetified-SearchPreference-v1.1.4\res\layout\searchpreference_fragment.xml:28
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\47c1e9558043dafa125a9937deb8c72c\preference-1.1.0\res\layout\preference_recyclerview.xml:18
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\d1d5d5c3e5b2ae437f8c4a71cfa8e855\material-1.1.0-beta02\res\layout\mtrl_calendar_months.xml:18
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\d1d5d5c3e5b2ae437f8c4a71cfa8e855\material-1.1.0-beta02\res\layout\mtrl_calendar_horizontal.xml:29
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\0e634a8ce40582870b7658813c3fa92a\materialdrawer-7.0.0-rc09\res\layout\material_drawer_recycler_view.xml:2
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\layout\fragment_settings_list.xml:2
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\layout\fragment_settings_import.xml:8
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\layout\fragment_settings_export.xml:9
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\layout\fragment_about.xml:208
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\layout\folder_list.xml:11
+-keep class androidx.recyclerview.widget.RecyclerView { <init>(...); }
+
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\layout\message_list_fragment.xml:3
+-keep class androidx.swiperefreshlayout.widget.SwipeRefreshLayout { <init>(...); }
+
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\menu\general_settings_option.xml:5
+-keep class com.bytehamster.lib.preferencesearch.SearchPreferenceActionView { <init>(...); }
+
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\navigation\navigation_onboarding.xml:40
+-keep class com.fsck.k9.activity.MessageList { <init>(...); }
+
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\navigation\navigation_settings.xml:26
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\navigation\navigation_onboarding.xml:34
+-keep class com.fsck.k9.activity.setup.AccountSetupBasics { <init>(...); }
+
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\xml\font_preferences.xml:153
+-keep class com.fsck.k9.activity.setup.SliderPreference { <init>(...); }
+
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\layout\recipient_alternate_item.xml:19
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\layout\message_view_header.xml:82
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\layout\message_list_item.xml:10
+-keep class com.fsck.k9.ui.ContactBadge { <init>(...); }
+
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\layout\message_compose_content.xml:57
+-keep class com.fsck.k9.ui.EolConvertingEditText { <init>(...); }
+
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\layout\message_view_attachment.xml:2
+-keep class com.fsck.k9.ui.messageview.AttachmentView { <init>(...); }
+
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\layout\message_view_attachment_locked.xml:2
+-keep class com.fsck.k9.ui.messageview.LockedAttachmentView { <init>(...); }
+
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\layout\message_container.xml:2
+-keep class com.fsck.k9.ui.messageview.MessageContainerView { <init>(...); }
+
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\layout\message.xml:2
+-keep class com.fsck.k9.ui.messageview.MessageTopView { <init>(...); }
+
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\navigation\navigation_settings.xml:9
+-keep class com.fsck.k9.ui.onboarding.OnboardingActivity { <init>(...); }
+
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\navigation\navigation_onboarding.xml:8
+-keep class com.fsck.k9.ui.onboarding.WelcomeFragment { <init>(...); }
+
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\navigation\navigation_settings.xml:15
+-keep class com.fsck.k9.ui.settings.AboutFragment { <init>(...); }
+
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\navigation\navigation_settings.xml:32
+-keep class com.fsck.k9.ui.settings.SettingsListFragment { <init>(...); }
+
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\layout\activity_account_settings.xml:14
+-keep class com.fsck.k9.ui.settings.account.AccountSelectionSpinner { <init>(...); }
+
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\xml\account_settings.xml:436
+-keep class com.fsck.k9.ui.settings.account.AutocryptPreferEncryptPreference { <init>(...); }
+
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\xml\account_settings.xml:243
+-keep class com.fsck.k9.ui.settings.account.FolderListPreference { <init>(...); }
+
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\xml\account_settings.xml:394
+-keep class com.fsck.k9.ui.settings.account.NotificationsPreference { <init>(...); }
+
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\navigation\navigation_settings.xml:62
+-keep class com.fsck.k9.ui.settings.export.SettingsExportFragment { <init>(...); }
+
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\navigation\navigation_settings.xml:21
+-keep class com.fsck.k9.ui.settings.general.GeneralSettingsActivity { <init>(...); }
+
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\xml\general_settings.xml:20
+-keep class com.fsck.k9.ui.settings.general.LanguagePreference { <init>(...); }
+
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\navigation\navigation_settings.xml:68
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\navigation\navigation_onboarding.xml:28
+-keep class com.fsck.k9.ui.settings.import.SettingsImportFragment { <init>(...); }
+
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\layout\account_setup_outgoing.xml:132
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\layout\account_setup_incoming.xml:120
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\layout\account_setup_basics.xml:47
+-keep class com.fsck.k9.view.ClientCertificateSpinner { <init>(...); }
+
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\layout\account_setup_basics.xml:53
+-keep class com.fsck.k9.view.FoldableLinearLayout { <init>(...); }
+
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\layout\message_view_header.xml:2
+-keep class com.fsck.k9.view.MessageHeader { <init>(...); }
+
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\layout\message_container.xml:9
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\layout\message_compose_content.xml:109
+-keep class com.fsck.k9.view.MessageWebView { <init>(...); }
+
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\layout\message.xml:13
+-keep class com.fsck.k9.view.NonLockingScrollView { <init>(...); }
+
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\layout\message_compose_recipients.xml:208
+-keep class com.fsck.k9.view.RecipientSelectView { <init>(...); }
+
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\layout\crypto_key_transfer.xml:71
+-keep class com.fsck.k9.view.StatusIndicator { <init>(...); }
+
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\layout\message_compose_recipients.xml:48
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\layout\message.xml:40
+-keep class com.fsck.k9.view.ToolableViewAnimator { <init>(...); }
+
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\layout\message_list.xml:10
+-keep class com.fsck.k9.view.ViewSwitcher { <init>(...); }
+
+# Referenced at E:\AndroidStudioProject\MailBox\app\mailbox\src\main\res\layout\app_bar_main.xml:10
+-keep class com.google.android.material.appbar.AppBarLayout { <init>(...); }
+
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\d1d5d5c3e5b2ae437f8c4a71cfa8e855\material-1.1.0-beta02\res\layout\test_toolbar_surface.xml:16
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\d1d5d5c3e5b2ae437f8c4a71cfa8e855\material-1.1.0-beta02\res\layout\test_toolbar_elevation.xml:16
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\d1d5d5c3e5b2ae437f8c4a71cfa8e855\material-1.1.0-beta02\res\layout\test_toolbar_custom_background.xml:16
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\d1d5d5c3e5b2ae437f8c4a71cfa8e855\material-1.1.0-beta02\res\layout\test_toolbar.xml:16
+-keep class com.google.android.material.appbar.MaterialToolbar { <init>(...); }
+
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\d1d5d5c3e5b2ae437f8c4a71cfa8e855\material-1.1.0-beta02\res\layout\mtrl_picker_header_fullscreen.xml:36
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\d1d5d5c3e5b2ae437f8c4a71cfa8e855\material-1.1.0-beta02\res\layout\mtrl_calendar_month_navigation.xml:32
+-keep class com.google.android.material.button.MaterialButton { <init>(...); }
+
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\d1d5d5c3e5b2ae437f8c4a71cfa8e855\material-1.1.0-beta02\res\layout\test_reflow_chipgroup.xml:25
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\d1d5d5c3e5b2ae437f8c4a71cfa8e855\material-1.1.0-beta02\res\layout\test_action_chip.xml:17
+-keep class com.google.android.material.chip.Chip { <init>(...); }
+
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\d1d5d5c3e5b2ae437f8c4a71cfa8e855\material-1.1.0-beta02\res\layout\test_reflow_chipgroup.xml:19
+-keep class com.google.android.material.chip.ChipGroup { <init>(...); }
+
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\d1d5d5c3e5b2ae437f8c4a71cfa8e855\material-1.1.0-beta02\res\layout\mtrl_calendar_month.xml:18
+-keep class com.google.android.material.datepicker.MaterialCalendarGridView { <init>(...); }
+
+# Referenced at E:\AndroidStudioProject\MailBox\app\mailbox\src\main\res\layout\app_bar_main.xml:26
+-keep class com.google.android.material.floatingactionbutton.FloatingActionButton { <init>(...); }
+
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\d1d5d5c3e5b2ae437f8c4a71cfa8e855\material-1.1.0-beta02\res\layout\design_bottom_navigation_item.xml:27
+-keep class com.google.android.material.internal.BaselineLayout { <init>(...); }
+
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\d1d5d5c3e5b2ae437f8c4a71cfa8e855\material-1.1.0-beta02\res\layout\mtrl_picker_header_toggle.xml:18
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\d1d5d5c3e5b2ae437f8c4a71cfa8e855\material-1.1.0-beta02\res\layout\design_text_input_start_icon.xml:18
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\d1d5d5c3e5b2ae437f8c4a71cfa8e855\material-1.1.0-beta02\res\layout\design_text_input_end_icon.xml:18
+-keep class com.google.android.material.internal.CheckableImageButton { <init>(...); }
+
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\d1d5d5c3e5b2ae437f8c4a71cfa8e855\material-1.1.0-beta02\res\layout\design_navigation_item.xml:17
+-keep class com.google.android.material.internal.NavigationMenuItemView { <init>(...); }
+
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\d1d5d5c3e5b2ae437f8c4a71cfa8e855\material-1.1.0-beta02\res\layout\design_navigation_menu.xml:17
+-keep class com.google.android.material.internal.NavigationMenuView { <init>(...); }
+
+# Referenced at E:\AndroidStudioProject\MailBox\app\mailbox\src\main\res\layout\activity_main.xml:19
+-keep class com.google.android.material.navigation.NavigationView { <init>(...); }
+
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\d1d5d5c3e5b2ae437f8c4a71cfa8e855\material-1.1.0-beta02\res\layout\mtrl_layout_snackbar.xml:18
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\d1d5d5c3e5b2ae437f8c4a71cfa8e855\material-1.1.0-beta02\res\layout\design_layout_snackbar.xml:18
+-keep class com.google.android.material.snackbar.Snackbar$SnackbarLayout { <init>(...); }
+
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\d1d5d5c3e5b2ae437f8c4a71cfa8e855\material-1.1.0-beta02\res\layout\mtrl_layout_snackbar_include.xml:18
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\d1d5d5c3e5b2ae437f8c4a71cfa8e855\material-1.1.0-beta02\res\layout\design_layout_snackbar_include.xml:18
+-keep class com.google.android.material.snackbar.SnackbarContentLayout { <init>(...); }
+
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\layout\password_prompt_dialog.xml:34
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\d1d5d5c3e5b2ae437f8c4a71cfa8e855\material-1.1.0-beta02\res\layout\mtrl_picker_text_input_date_range.xml:32
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\d1d5d5c3e5b2ae437f8c4a71cfa8e855\material-1.1.0-beta02\res\layout\mtrl_picker_text_input_date.xml:31
+-keep class com.google.android.material.textfield.TextInputEditText { <init>(...); }
+
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\layout\password_prompt_dialog.xml:24
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\d1d5d5c3e5b2ae437f8c4a71cfa8e855\material-1.1.0-beta02\res\layout\mtrl_picker_text_input_date_range.xml:26
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\d1d5d5c3e5b2ae437f8c4a71cfa8e855\material-1.1.0-beta02\res\layout\mtrl_picker_text_input_date.xml:26
+-keep class com.google.android.material.textfield.TextInputLayout { <init>(...); }
+
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\d1d5d5c3e5b2ae437f8c4a71cfa8e855\material-1.1.0-beta02\res\layout\text_view_without_line_height.xml:17
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\d1d5d5c3e5b2ae437f8c4a71cfa8e855\material-1.1.0-beta02\res\layout\text_view_with_theme_line_height.xml:17
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\d1d5d5c3e5b2ae437f8c4a71cfa8e855\material-1.1.0-beta02\res\layout\text_view_with_line_height_from_style.xml:17
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\d1d5d5c3e5b2ae437f8c4a71cfa8e855\material-1.1.0-beta02\res\layout\text_view_with_line_height_from_layout.xml:17
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\d1d5d5c3e5b2ae437f8c4a71cfa8e855\material-1.1.0-beta02\res\layout\text_view_with_line_height_from_appearance.xml:17
+-keep class com.google.android.material.textview.MaterialTextView { <init>(...); }
+
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\0e634a8ce40582870b7658813c3fa92a\materialdrawer-7.0.0-rc09\res\layout\material_drawer_item_profile.xml:13
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\0e634a8ce40582870b7658813c3fa92a\materialdrawer-7.0.0-rc09\res\layout\material_drawer_item_mini_profile.xml:6
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\0e634a8ce40582870b7658813c3fa92a\materialdrawer-7.0.0-rc09\res\layout\material_drawer_header.xml:25
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\0e634a8ce40582870b7658813c3fa92a\materialdrawer-7.0.0-rc09\res\layout\material_drawer_compact_header.xml:29
+-keep class com.mikepenz.materialdrawer.view.BezelImageView { <init>(...); }
+
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\37ac1dec6cae29892bb28f109ea02ad7\materialize-1.2.1\res\layout\materialize.xml:5
+-keep class com.mikepenz.materialize.view.ScrimInsetsFrameLayout { <init>(...); }
+
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\0e634a8ce40582870b7658813c3fa92a\materialdrawer-7.0.0-rc09\res\layout\material_drawer_slider.xml:2
+-keep class com.mikepenz.materialize.view.ScrimInsetsRelativeLayout { <init>(...); }
+
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\b338b33d54b084e7d67e2457edb82202\colorpicker-1.0.0\res\layout\color_picker_dialog.xml:57
+-keep class com.takisoft.colorpicker.ColorPickerPaletteFlex { <init>(...); }
+
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\dcacd8af9d88970b1c93318ebd6f2031\jetified-datetimepicker-1.0.2\res\layout\date_picker_legacy.xml:75
+-keep class com.takisoft.datetimepicker.widget.CalendarView { <init>(...); }
+
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\dcacd8af9d88970b1c93318ebd6f2031\jetified-datetimepicker-1.0.2\res\layout\date_picker_dialog.xml:18
+-keep class com.takisoft.datetimepicker.widget.DatePicker { <init>(...); }
+
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\dcacd8af9d88970b1c93318ebd6f2031\jetified-datetimepicker-1.0.2\res\layout\date_picker_view_animator_material.xml:26
+-keep class com.takisoft.datetimepicker.widget.DayPickerView { <init>(...); }
+
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\dcacd8af9d88970b1c93318ebd6f2031\jetified-datetimepicker-1.0.2\res\layout\day_picker_content_material.xml:23
+-keep class com.takisoft.datetimepicker.widget.DayPickerViewPager { <init>(...); }
+
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\dcacd8af9d88970b1c93318ebd6f2031\jetified-datetimepicker-1.0.2\res\layout\time_picker_legacy_material.xml:39
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\dcacd8af9d88970b1c93318ebd6f2031\jetified-datetimepicker-1.0.2\res\layout\date_picker_legacy.xml:40
+-keep class com.takisoft.datetimepicker.widget.NumberPicker { <init>(...); }
+
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\dcacd8af9d88970b1c93318ebd6f2031\jetified-datetimepicker-1.0.2\res\layout\number_picker_material.xml:17
+-keep class com.takisoft.datetimepicker.widget.NumberPicker$CustomEditText { <init>(...); }
+
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\dcacd8af9d88970b1c93318ebd6f2031\jetified-datetimepicker-1.0.2\res\layout\time_picker_material.xml:30
+-keep class com.takisoft.datetimepicker.widget.RadialTimePickerView { <init>(...); }
+
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\dcacd8af9d88970b1c93318ebd6f2031\jetified-datetimepicker-1.0.2\res\layout\date_picker_month_item_material.xml:18
+-keep class com.takisoft.datetimepicker.widget.SimpleMonthView { <init>(...); }
+
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\dcacd8af9d88970b1c93318ebd6f2031\jetified-datetimepicker-1.0.2\res\layout\time_picker_material.xml:54
+-keep class com.takisoft.datetimepicker.widget.TextInputTimePickerView { <init>(...); }
+
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\dcacd8af9d88970b1c93318ebd6f2031\jetified-datetimepicker-1.0.2\res\layout\time_picker_dialog.xml:20
+-keep class com.takisoft.datetimepicker.widget.TimePicker { <init>(...); }
+
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\dcacd8af9d88970b1c93318ebd6f2031\jetified-datetimepicker-1.0.2\res\layout\date_picker_view_animator_material.xml:31
+-keep class com.takisoft.datetimepicker.widget.YearPickerView { <init>(...); }
+
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\dcacd8af9d88970b1c93318ebd6f2031\jetified-datetimepicker-1.0.2\res\layout\date_picker_view_animator_material.xml:17
+-keep class com.takisoft.datetimepicker.widget.internal.DialogViewAnimator { <init>(...); }
+
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\dcacd8af9d88970b1c93318ebd6f2031\jetified-datetimepicker-1.0.2\res\layout-land\time_picker_material.xml:44
+# Referenced at C:\Users\YTY\.gradle\caches\transforms-2\files-2.1\dcacd8af9d88970b1c93318ebd6f2031\jetified-datetimepicker-1.0.2\res\layout\time_picker_header_material.xml:29
+-keep class com.takisoft.datetimepicker.widget.internal.NumericTextView { <init>(...); }
+
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\xml\account_settings.xml:14
+-keep class com.takisoft.preferencex.AutoSummaryEditTextPreference { <init>(...); }
+
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\xml\general_settings.xml:144
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\xml\account_settings.xml:24
+-keep class com.takisoft.preferencex.ColorPickerPreference { <init>(...); }
+
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\xml\account_settings.xml:333
+-keep class com.takisoft.preferencex.RingtonePreference { <init>(...); }
+
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\xml\general_settings.xml:262
+-keep class com.takisoft.preferencex.TimePickerPreference { <init>(...); }
+
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\layout\recipient_token_item.xml:8
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\layout\recipient_dropdown_item.xml:10
+-keep class de.hdodenhof.circleimageview.CircleImageView { <init>(...); }
+
+# Referenced at E:\AndroidStudioProject\MailBox\app\ui\build\intermediates\packaged_res\debug\xml\account_settings.xml:431
+-keep class org.openintents.openpgp.util.OpenPgpKeyPreference { <init>(...); }
+

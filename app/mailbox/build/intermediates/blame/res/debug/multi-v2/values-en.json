@@ -1,0 +1,36 @@
+{
+    "logs": [
+        {
+            "outputFile": "E:\\AndroidStudioProject\\MailBox\\app\\mailbox\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-en\\values-en.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\YTY\\.gradle\\caches\\transforms-2\\files-2.1\\b4c87f24abd778bb72d49486bbf38bf4\\jetified-SearchPreference-v1.1.4\\res\\values-en\\values-en.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "55,112,185,258,313,380",
+                        "endColumns": "56,72,72,54,66,59",
+                        "endOffsets": "107,180,253,308,375,435"
+                    },
+                    "to": {
+                        "startLines": "7,8,9,10,11,12",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "312,369,442,515,570,637",
+                        "endColumns": "56,72,72,54,66,59",
+                        "endOffsets": "364,437,510,565,632,692"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\YTY\\.gradle\\caches\\transforms-2\\files-2.1\\dcacd8af9d88970b1c93318ebd6f2031\\jetified-datetimepicker-1.0.2\\res\\values-en\\values-en.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6",
+                        "startColumns": "4,4,4,4,4",
+                        "startOffsets": "55,115,169,215,265",
+                        "endColumns": "59,53,45,49,46",
+                        "endOffsets": "110,164,210,260,307"
+                    }
+                }
+            ]
+        }
+    ]
+}
