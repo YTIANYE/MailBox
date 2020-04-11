@@ -32,7 +32,7 @@ class WelcomeFragment : Fragment() {
         welcome.movementMethod = LinkMovementMethod.getInstance()
 
         view.findViewById<View>(R.id.next).setOnClickListener { launchAccountSetup() }//添加账号
-        //view.findViewById<View>(R.id.import_settings).setOnClickListener { launchImportSettings() }
+        //view.findViewById<View>(R.id.import_settings).setOnClickListener { launchImportSettings() }//导入设置
 
         importResultViewModel.settingsImportResult.observeNotNull(this) {
             if (it == SettingsImportSuccess) {
@@ -46,10 +46,10 @@ class WelcomeFragment : Fragment() {
         findNavController().navigate(R.id.action_welcomeScreen_to_addAccountScreen)
         requireActivity().finish()
     }
-    /*导入设置*/
+/*    *//*导入设置*//*
     private fun launchImportSettings() {
         findNavController().navigate(R.id.action_welcomeScreen_to_settingsImportScreen)
-    }
+    }*/
 
     private fun launchMessageList() {
         findNavController().navigate(R.id.action_welcomeScreen_to_messageListScreen)

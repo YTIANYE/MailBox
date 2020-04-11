@@ -12,10 +12,10 @@
         android:label="@string/welcome_message_title"
         tools:layout="@layout/fragment_welcome_message">
 
-        <!--导入设置-->
+<!--        &lt;!&ndash;导入设置&ndash;&gt;
         <action
             android:id="@+id/action_welcomeScreen_to_settingsImportScreen"
-            app:destination="@id/settingsImportScreen" />
+            app:destination="@id/settingsImportScreen" />-->
 
         <!--添加账号-->
         <action
@@ -28,12 +28,12 @@
 
     </fragment>
 
-    <!--导入设置-->
+<!--    &lt;!&ndash;导入设置&ndash;&gt;
     <fragment
         android:id="@+id/settingsImportScreen"
         android:name="com.fsck.k9.ui.settings.import.SettingsImportFragment"
         android:label="@string/settings_import_title"
-        tools:layout="@layout/fragment_settings_import"/>
+        tools:layout="@layout/fragment_settings_import"/>-->
 
     <!--前进 创建账号 -->
     <activity
