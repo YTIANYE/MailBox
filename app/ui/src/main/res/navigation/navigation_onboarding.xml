@@ -21,10 +21,11 @@
         <action
             android:id="@+id/action_welcomeScreen_to_addAccountScreen"
             app:destination="@id/addAccountScreen" />
-
+        <!--目标 app:destination-->
         <action
             android:id="@+id/action_welcomeScreen_to_messageListScreen"
             app:destination="@id/messageListScreen" />
+
 
     </fragment>
 
@@ -35,7 +36,7 @@
         android:label="@string/settings_import_title"
         tools:layout="@layout/fragment_settings_import"/>-->
 
-    <!--前进 创建账号 -->
+    <!--前进 创建账号活动 -->
     <activity
         android:id="@+id/addAccountScreen"
         android:name="com.fsck.k9.activity.setup.AccountSetupBasics"

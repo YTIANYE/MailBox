@@ -2,6 +2,7 @@ package com.fsck.k9.ui.onboarding
 
 import android.os.Bundle
 import android.text.method.LinkMovementMethod
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -31,6 +32,8 @@ class WelcomeFragment : Fragment() {
         welcome.text = htmlToSpanned.convert(getString(R.string.accounts_welcome))//介绍内容
         welcome.movementMethod = LinkMovementMethod.getInstance()
 
+        Log.d("debugLog", "launchAccountSetup()")
+        Log.d("debugLog", "launchAccountSetup()")
         view.findViewById<View>(R.id.next).setOnClickListener { launchAccountSetup() }//添加账号
         //view.findViewById<View>(R.id.import_settings).setOnClickListener { launchImportSettings() }//导入设置
 
@@ -41,7 +44,7 @@ class WelcomeFragment : Fragment() {
         }
     }
 
-    /*添加账号*/
+    /*跳转到添加账号*/
     private fun launchAccountSetup() {
         findNavController().navigate(R.id.action_welcomeScreen_to_addAccountScreen)
         requireActivity().finish()

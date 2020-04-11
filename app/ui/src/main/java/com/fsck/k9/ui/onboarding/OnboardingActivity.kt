@@ -28,7 +28,7 @@ class OnboardingActivity : K9Activity() {   // *** K9Activity()
     }
 
     private fun initializeActionBar() {
-        val appBarConfiguration = AppBarConfiguration(topLevelDestinationIds = setOf(R.id.welcomeScreen))
+        val appBarConfiguration = AppBarConfiguration(topLevelDestinationIds = setOf(R.id.welcomeScreen))//欢迎界面
 
         navController = findNavController(R.id.nav_host_fragment)
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -40,11 +40,7 @@ class OnboardingActivity : K9Activity() {   // *** K9Activity()
 
     companion object {
         @JvmStatic fun launch(activity: Activity) {
-            Log.d("debugLog", "message")
-            Log.d("debugLog", "message")
-            Log.d("debugLog", "message")
-            Log.d("debugLog", "message")
-            Log.d("debugLog", "message")
+            //Log.d("debugLog", "message")
             val intent = Intent(activity, OnboardingActivity::class.java).apply {
                 flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             }

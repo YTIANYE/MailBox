@@ -104,6 +104,23 @@
             </intent-filter>
         </activity>
 
+        <!--界面2 前进 创建账号活动 -->
+        <activity
+            android:name=".activity.setup.AccountSetupBasics"
+            android:configChanges="locale"
+            android:label="@string/account_setup_basics_title"/>
+
+        <!--界面3 选择账户类型-->
+        <activity
+            android:name=".activity.setup.AccountSetupAccountType"
+            android:configChanges="locale"
+            android:label="@string/account_setup_account_type_title"/>
+
+        <activity
+            android:name=".activity.setup.AccountSetupIncoming"
+            android:configChanges="locale"
+            android:label="@string/account_setup_incoming_title"/>
+
     </application>
 
 </manifest>

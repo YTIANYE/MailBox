@@ -23,6 +23,7 @@
         android:name="com.fsck.k9.ui.settings.general.GeneralSettingsActivity"
         android:label="@string/general_settings_title" />
 
+    <!--前进 创建账号活动 -->
     <activity
         android:id="@+id/addAccountScreen"
         android:name="com.fsck.k9.activity.setup.AccountSetupBasics"

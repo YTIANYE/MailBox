@@ -44,6 +44,10 @@ import timber.log.Timber;
  * domain is known the settings are handed off to the AccountSetupCheckSettings
  * activity. If no settings are found the settings are handed off to the
  * AccountSetupAccountType activity.
+ *提示用户输入电子邮件地址和密码。
+ *尝试查找用户指定的域的默认设置。
+ * 如果域是已知的设置被传递到AccountSetupCheckSettings活动。
+ * 如果没有找到设置，则将这些设置传递给AccountSetupAccountType活动。
  */
 public class AccountSetupBasics extends K9Activity
     implements OnClickListener, TextWatcher, OnCheckedChangeListener, OnClientCertificateChangedListener {
@@ -51,7 +55,7 @@ public class AccountSetupBasics extends K9Activity
     private final static String STATE_KEY_CHECKED_INCOMING = "com.fsck.k9.AccountSetupBasics.checkedIncoming";
 
 
-    private final BackendManager backendManager = DI.get(BackendManager.class);
+    private final BackendManager backendManager = DI.get(BackendManager.class);//后端
     private final ProvidersXmlDiscovery providersXmlDiscovery = DI.get(ProvidersXmlDiscovery.class);
     private final AccountCreator accountCreator = DI.get(AccountCreator.class);
 
@@ -78,20 +82,20 @@ public class AccountSetupBasics extends K9Activity
         setLayout(R.layout.account_setup_basics);
         mEmailView = findViewById(R.id.account_email);
         mPasswordView = findViewById(R.id.account_password);
-        mClientCertificateCheckBox = findViewById(R.id.account_client_certificate);
-        mClientCertificateSpinner = findViewById(R.id.account_client_certificate_spinner);
+        //mClientCertificateCheckBox = findViewById(R.id.account_client_certificate);//使用客户端证书
+        //mClientCertificateSpinner = findViewById(R.id.account_client_certificate_spinner);
         mNextButton = findViewById(R.id.next);
-        mManualSetupButton = findViewById(R.id.manual_setup);
+        //mManualSetupButton = findViewById(R.id.manual_setup);手工设置
         mShowPasswordCheckBox = findViewById(R.id.show_password);
-        mNextButton.setOnClickListener(this);
-        mManualSetupButton.setOnClickListener(this);
+        mNextButton.setOnClickListener(this);//下一步
+        //mManualSetupButton.setOnClickListener(this);手工设置
     }
 
     private void initializeViewListeners() {
         mEmailView.addTextChangedListener(this);
         mPasswordView.addTextChangedListener(this);
-        mClientCertificateCheckBox.setOnCheckedChangeListener(this);
-        mClientCertificateSpinner.setOnClientCertificateChangedListener(this);
+//        mClientCertificateCheckBox.setOnCheckedChangeListener(this);//客户端证书
+//        mClientCertificateSpinner.setOnClientCertificateChangedListener(this);
         mShowPasswordCheckBox.setOnCheckedChangeListener(new OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -195,18 +199,20 @@ public class AccountSetupBasics extends K9Activity
     }
 
     private void validateFields() {
-        boolean clientCertificateChecked = mClientCertificateCheckBox.isChecked();
-        String clientCertificateAlias = mClientCertificateSpinner.getAlias();
+        //boolean clientCertificateChecked = mClientCertificateCheckBox.isChecked();
+        //boolean clientCertificateChecked = false;
+//        String clientCertificateAlias = mClientCertificateSpinner.getAlias();
         String email = mEmailView.getText().toString();
 
-        boolean valid = Utility.requiredFieldValid(mEmailView)
+/*        boolean valid = Utility.requiredFieldValid(mEmailView)
                 && ((!clientCertificateChecked && Utility.requiredFieldValid(mPasswordView))
                         || (clientCertificateChecked && clientCertificateAlias != null))
-                && mEmailValidator.isValidAddressOnly(email);
+                && mEmailValidator.isValidAddressOnly(email);*/
+        boolean valid = Utility.requiredFieldValid(mEmailView) && Utility.requiredFieldValid(mPasswordView) && mEmailValidator.isValidAddressOnly(email);
 
         mNextButton.setEnabled(valid);
         mNextButton.setFocusable(valid);
-        mManualSetupButton.setEnabled(valid);
+        //mManualSetupButton.setEnabled(valid);
         /*
          * Dim the next button's icon to 50% if the button is disabled.
          * TODO this can probably be done with a stateful drawable. Check into it.
@@ -261,16 +267,17 @@ public class AccountSetupBasics extends K9Activity
         mAccount.setDeletePolicy(accountCreator.getDefaultDeletePolicy(incomingServerSettings.type));
 
         // Check incoming here.  Then check outgoing in onActivityResult()
+        //已有户指定的域的默认设置
         AccountSetupCheckSettings.actionCheckSettings(this, mAccount, CheckDirection.INCOMING);
     }
 
     private void onNext() {
-        if (mClientCertificateCheckBox.isChecked()) {
+/*        if (mClientCertificateCheckBox.isChecked()) {
 
             // Auto-setup doesn't support client certificates.
             onManualSetup();
             return;
-        }
+        }*/
 
         String email = mEmailView.getText().toString();
 
@@ -279,7 +286,7 @@ public class AccountSetupBasics extends K9Activity
             finishAutoSetup(connectionSettings);
         } else {
             // We don't have default settings for this account, start the manual setup process.
-            onManualSetup();
+            onManualSetup();//手动设置
         }
     }
 
@@ -289,6 +296,7 @@ public class AccountSetupBasics extends K9Activity
             if (!mCheckedIncoming) {
                 //We've successfully checked incoming.  Now check outgoing.
                 mCheckedIncoming = true;
+                //用户指定的域的默认设置
                 AccountSetupCheckSettings.actionCheckSettings(this, mAccount, CheckDirection.OUTGOING);
             } else {
                 //We've successfully checked outgoing as well.
@@ -301,6 +309,7 @@ public class AccountSetupBasics extends K9Activity
         }
     }
 
+    //手动设置账户类型
     private void onManualSetup() {
         String email = mEmailView.getText().toString();
         String domain = EmailHelper.getDomainFromEmailAddress(email);
@@ -308,13 +317,15 @@ public class AccountSetupBasics extends K9Activity
         String password = null;
         String clientCertificateAlias = null;
         AuthType authenticationType;
-        if (mClientCertificateCheckBox.isChecked()) {
+/*        if (mClientCertificateCheckBox.isChecked()) {
             authenticationType = AuthType.EXTERNAL;
             clientCertificateAlias = mClientCertificateSpinner.getAlias();
         } else {
             authenticationType = AuthType.PLAIN;
             password = mPasswordView.getText().toString();
-        }
+        }*/
+        authenticationType = AuthType.PLAIN;
+        password = mPasswordView.getText().toString();
 
         if (mAccount == null) {
             mAccount = Preferences.getPreferences(this).newAccount();
@@ -334,7 +345,7 @@ public class AccountSetupBasics extends K9Activity
         mAccount.setStoreUri(storeUri);
         mAccount.setTransportUri(transportUri);
 
-        AccountSetupAccountType.actionSelectAccountType(this, mAccount, false);
+        AccountSetupAccountType.actionSelectAccountType(this, mAccount, false);//跳转到账户类型设置活动
 
         finish();
     }
@@ -343,8 +354,8 @@ public class AccountSetupBasics extends K9Activity
         int id = v.getId();
         if (id == R.id.next) {
             onNext();
-        } else if (id == R.id.manual_setup) {
+        } /*else if (id == R.id.manual_setup) {
             onManualSetup();
-        }
+        }*/
     }
 }
