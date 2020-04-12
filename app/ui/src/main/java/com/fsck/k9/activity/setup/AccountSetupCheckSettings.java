@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ProgressBar;
@@ -131,7 +132,7 @@ public class AccountSetupCheckSettings extends K9Activity implements OnClickList
                     cve);
         } else {
             showErrorDialog(
-                    R.string.account_setup_failed_dlg_server_message_fmt,
+                    R.string.account_setup_failed_dlg_server_message_fmt,//无法连接到服务器
                     errorMessageForCertificateException(cve));
         }
     }
@@ -426,31 +427,27 @@ public class AccountSetupCheckSettings extends K9Activity implements OnClickList
                 if (cancelled()) {
                     return null;
                 }
-
                 clearCertificateErrorNotifications(direction);
-
-                checkServerSettings(direction);
-
+                checkServerSettings(direction);//检查收发件服务器设置
                 if (cancelled()) {
                     return null;
                 }
-
                 createSpecialLocalFolders(direction);
-
                 setResult(RESULT_OK);
                 finish();
-
             } catch (AuthenticationFailedException afe) {
                 Timber.e(afe, "Error while testing settings");
                 showErrorDialog(
-                        R.string.account_setup_failed_dlg_auth_message_fmt,
+                        R.string.account_setup_failed_dlg_auth_message_fmt,//用户名或密码不正确
                         afe.getMessage() == null ? "" : afe.getMessage());
             } catch (CertificateValidationException cve) {
                 handleCertificateValidationException(cve);
             } catch (Exception e) {
+                //报错 java.lang.SecurityException: Permission denied (missing INTERNET permission?)
+                //AndroidManifest.xml 添加 <uses-permission android:name="android.permission.INTERNET"/>
                 Timber.e(e, "Error while testing settings");
                 String message = e.getMessage() == null ? "" : e.getMessage();
-                showErrorDialog(R.string.account_setup_failed_dlg_server_message_fmt, message);
+                showErrorDialog(R.string.account_setup_failed_dlg_server_message_fmt, message); //无法连接到服务器
             }
             return null;
         }
@@ -472,6 +469,7 @@ public class AccountSetupCheckSettings extends K9Activity implements OnClickList
             return false;
         }
 
+        //检查收发件服务器设置
         private void checkServerSettings(CheckDirection direction) throws MessagingException {
             switch (direction) {
                 case INCOMING: {
@@ -485,6 +483,7 @@ public class AccountSetupCheckSettings extends K9Activity implements OnClickList
             }
         }
 
+        //检查发件服务器设置
         private void checkOutgoing() throws MessagingException {
             if (!isWebDavAccount()) {
                 publishProgress(R.string.account_setup_check_settings_check_outgoing_msg);
@@ -493,13 +492,17 @@ public class AccountSetupCheckSettings extends K9Activity implements OnClickList
             messagingController.checkOutgoingServerSettings(account);
         }
 
+        //检查收件服务器设置
         private void checkIncoming() throws MessagingException {
+
             if (isWebDavAccount()) {
                 publishProgress(R.string.account_setup_check_settings_authenticate);
             } else {
-                publishProgress(R.string.account_setup_check_settings_check_incoming_msg);
+                publishProgress(R.string.account_setup_check_settings_check_incoming_msg);  //正在检查收件服务器设置
             }
-
+            Log.d("debugLog", "LOG_checkIncoming()");
+            Log.d("debugLog", "LOG_checkIncoming()");
+            //检查服务器设置
             messagingController.checkIncomingServerSettings(account);
 
             if (isWebDavAccount()) {

@@ -129,11 +129,11 @@
                     android:textColor="?android:attr/textColorPrimary"
                     android:visibility="gone" />
 
-                <com.fsck.k9.view.ClientCertificateSpinner
+<!--                <com.fsck.k9.view.ClientCertificateSpinner
                     android:id="@+id/account_client_certificate_spinner"
                     android:layout_height="wrap_content"
                     android:layout_width="fill_parent"
-                    android:visibility="gone" />
+                    android:visibility="gone" />-->
             </LinearLayout>
 
             <View

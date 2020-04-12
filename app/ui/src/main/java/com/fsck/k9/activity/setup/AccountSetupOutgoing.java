@@ -37,8 +37,6 @@ import com.fsck.k9.mail.MailServerDirection;
 import com.fsck.k9.mail.ServerSettings;
 import com.fsck.k9.preferences.Protocols;
 import com.fsck.k9.ui.R;
-import com.fsck.k9.view.ClientCertificateSpinner;
-import com.fsck.k9.view.ClientCertificateSpinner.OnClientCertificateChangedListener;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -59,7 +57,7 @@ public class AccountSetupOutgoing extends K9Activity implements OnClickListener,
 
     private EditText mUsernameView;
     private EditText mPasswordView;
-    private ClientCertificateSpinner mClientCertificateSpinner;
+//    private ClientCertificateSpinner mClientCertificateSpinner;
     private TextView mClientCertificateLabelView;
     private TextView mPasswordLabelView;
     private EditText mServerView;
@@ -122,7 +120,7 @@ public class AccountSetupOutgoing extends K9Activity implements OnClickListener,
 
         mUsernameView = findViewById(R.id.account_username);
         mPasswordView = findViewById(R.id.account_password);
-        mClientCertificateSpinner = findViewById(R.id.account_client_certificate_spinner);
+       // mClientCertificateSpinner = findViewById(R.id.account_client_certificate_spinner);
         mClientCertificateLabelView = findViewById(R.id.account_client_certificate_label);
         mPasswordLabelView = findViewById(R.id.account_password_label);
         mServerView = findViewById(R.id.account_server);
@@ -201,7 +199,7 @@ public class AccountSetupOutgoing extends K9Activity implements OnClickListener,
             }
 
             if (settings.clientCertificateAlias != null) {
-                mClientCertificateSpinner.setAlias(settings.clientCertificateAlias);
+                //mClientCertificateSpinner.setAlias(settings.clientCertificateAlias);
             }
 
             if (settings.host != null) {
@@ -299,7 +297,7 @@ public class AccountSetupOutgoing extends K9Activity implements OnClickListener,
                 if (AuthType.EXTERNAL == selection) {
 
                     // This may again invoke validateFields()
-                    mClientCertificateSpinner.chooseCertificate();
+                    //mClientCertificateSpinner.chooseCertificate();
                 } else {
                     mPasswordView.requestFocus();
                 }
@@ -310,7 +308,7 @@ public class AccountSetupOutgoing extends K9Activity implements OnClickListener,
         });
 
         mRequireLoginView.setOnCheckedChangeListener(this);
-        mClientCertificateSpinner.setOnClientCertificateChangedListener(clientCertificateChangedListener);
+       // mClientCertificateSpinner.setOnClientCertificateChangedListener(clientCertificateChangedListener);
         mUsernameView.addTextChangedListener(validationTextWatcher);
         mPasswordView.addTextChangedListener(validationTextWatcher);
         mServerView.addTextChangedListener(validationTextWatcher);
@@ -362,14 +360,14 @@ public class AccountSetupOutgoing extends K9Activity implements OnClickListener,
             mPasswordView.setVisibility(View.GONE);
             mPasswordLabelView.setVisibility(View.GONE);
             mClientCertificateLabelView.setVisibility(View.VISIBLE);
-            mClientCertificateSpinner.setVisibility(View.VISIBLE);
+            //mClientCertificateSpinner.setVisibility(View.VISIBLE);
         } else {
 
             // show password fields, hide client certificate fields
             mPasswordView.setVisibility(View.VISIBLE);
             mPasswordLabelView.setVisibility(View.VISIBLE);
             mClientCertificateLabelView.setVisibility(View.GONE);
-            mClientCertificateSpinner.setVisibility(View.GONE);
+            //mClientCertificateSpinner.setVisibility(View.GONE);
         }
     }
 
@@ -423,7 +421,8 @@ public class AccountSetupOutgoing extends K9Activity implements OnClickListener,
             mCurrentPortViewSetting = mPortView.getText().toString();
         }
 
-        boolean hasValidCertificateAlias = mClientCertificateSpinner.getAlias() != null;
+        //boolean hasValidCertificateAlias = mClientCertificateSpinner.getAlias() != null;
+        boolean hasValidCertificateAlias = null != null;
         boolean hasValidUserName = Utility.requiredFieldValid(mUsernameView);
 
         boolean hasValidPasswordSettings = hasValidUserName
@@ -483,7 +482,7 @@ public class AccountSetupOutgoing extends K9Activity implements OnClickListener,
 
             authType = getSelectedAuthType();
             if (AuthType.EXTERNAL == authType) {
-                clientCertificateAlias = mClientCertificateSpinner.getAlias();
+                //clientCertificateAlias = mClientCertificateSpinner.getAlias();
             } else {
                 password = mPasswordView.getText().toString();
             }
@@ -533,12 +532,12 @@ public class AccountSetupOutgoing extends K9Activity implements OnClickListener,
         }
     };
 
-    OnClientCertificateChangedListener clientCertificateChangedListener = new OnClientCertificateChangedListener() {
+/*    OnClientCertificateChangedListener clientCertificateChangedListener = new OnClientCertificateChangedListener() {
         @Override
         public void onClientCertificateChanged(String alias) {
             validateFields();
         }
-    };
+    };*/
 
     private AuthType getSelectedAuthType() {
         AuthTypeHolder holder = (AuthTypeHolder) mAuthTypeView.getSelectedItem();

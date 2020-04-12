@@ -20,6 +20,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
             <!-- This text may be changed in code if the server is IMAP, etc. -->
+            <!--POP3 服务器-->
             <TextView
                     android:id="@+id/account_server_label"
                     android:text="@string/account_setup_incoming_pop_server_label"
@@ -36,6 +37,7 @@
                     android:layout_height="wrap_content"
                     android:layout_width="fill_parent"/>
 
+            <!--加密方法-->
             <TextView
                     android:text="@string/account_setup_incoming_security_label"
                     android:layout_height="wrap_content"
@@ -49,6 +51,7 @@
                     android:layout_width="fill_parent"
                     android:contentDescription="@string/account_setup_incoming_security_label"/>
 
+            <!--端口号-->
             <TextView
                     android:text="@string/account_setup_incoming_port_label"
                     android:layout_height="wrap_content"
@@ -64,6 +67,7 @@
                     android:layout_width="fill_parent"
                     android:contentDescription="@string/account_setup_incoming_port_label"/>
 
+            <!--用户名-->
             <TextView
                     android:text="@string/account_setup_incoming_username_label"
                     android:layout_height="wrap_content"
@@ -71,6 +75,7 @@
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="?android:attr/textColorPrimary"/>
 
+            <!--用户名-->
             <EditText
                     android:id="@+id/account_username"
                     android:singleLine="true"
@@ -79,6 +84,7 @@
                     android:layout_width="fill_parent"
                     android:contentDescription="@string/account_setup_incoming_username_label"/>
 
+            <!--身份验证方法-->
             <TextView
                     android:id="@+id/account_auth_type_label"
                     android:text="@string/account_setup_incoming_auth_type_label"
@@ -87,12 +93,14 @@
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="?android:attr/textColorPrimary"/>
 
+            <!--身份验证方法-->
             <Spinner
                     android:id="@+id/account_auth_type"
                     android:layout_height="wrap_content"
                     android:layout_width="fill_parent"
                     android:contentDescription="@string/account_setup_incoming_auth_type_label"/>
 
+            <!--密码-->
             <TextView
                     android:id="@+id/account_password_label"
                     android:text="@string/account_setup_incoming_password_label"
@@ -108,6 +116,7 @@
                     android:layout_height="wrap_content"
                     android:layout_width="fill_parent"/>
 
+            <!--客户端证书-->
             <TextView
                     android:id="@+id/account_client_certificate_label"
                     android:text="@string/account_setup_incoming_client_certificate_label"
@@ -117,12 +126,13 @@
                     android:textColor="?android:attr/textColorPrimary"
                     android:visibility="gone"/>
 
-            <com.fsck.k9.view.ClientCertificateSpinner
+<!--            <com.fsck.k9.view.ClientCertificateSpinner
                     android:id="@+id/account_client_certificate_spinner"
                     android:layout_height="wrap_content"
                     android:layout_width="fill_parent"
-                    android:visibility="gone"/>
+                    android:visibility="gone"/>-->
 
+            <!--自动检测 IMAP 命名空间      IMAP 路径前缀-->
             <LinearLayout
                     android:id="@+id/imap_path_prefix_section"
                     android:layout_width="fill_parent"
@@ -150,6 +160,7 @@
                         android:contentDescription="@string/account_setup_incoming_imap_path_prefix_label"/>
             </LinearLayout>
 
+            <!--只显示订阅的文件夹-->
             <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
@@ -164,6 +175,7 @@
                         />
             </LinearLayout>
 
+            <!--高级-->
             <LinearLayout
                     android:id="@+id/webdav_advanced_header"
                     android:layout_width="fill_parent"
@@ -180,6 +192,7 @@
                         android:layout_marginTop="4dp"/>
             </LinearLayout>
 
+            <!--邮箱路径-->
             <LinearLayout
                     android:id="@+id/webdav_mailbox_alias_section"
                     android:layout_width="fill_parent"
@@ -202,6 +215,7 @@
                         android:contentDescription="@string/account_setup_incoming_webdav_mailbox_path_label"/>
             </LinearLayout>
 
+            <!--OWA 路径-->
             <LinearLayout
                     android:id="@+id/webdav_owa_path_section"
                     android:layout_width="fill_parent"
@@ -224,11 +238,13 @@
                         android:contentDescription="@string/account_setup_incoming_webdav_path_prefix_label"/>
             </LinearLayout>
 
+            <!--身份验证路径-->
             <LinearLayout
                     android:id="@+id/webdav_auth_path_section"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
+
 
                 <TextView
                         android:text="@string/account_setup_incoming_webdav_auth_path_label"
@@ -246,6 +262,7 @@
                         android:contentDescription="@string/account_setup_incoming_webdav_auth_path_label"/>
             </LinearLayout>
 
+            <!--在以下网络上使用压缩以便节约流量：-->
             <TextView
                     android:id="@+id/compression_label"
                     android:text="@string/account_setup_incoming_compression_label"
@@ -254,6 +271,7 @@
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="?android:attr/textColorPrimary"/>
 
+            <!--三个CheckBox 手机移动网络 WiFi 其他-->
             <LinearLayout
                     android:id="@+id/compression_section"
                     android:layout_width="fill_parent"

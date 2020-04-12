@@ -4,7 +4,9 @@ import android.content.res.Resources;
 
 import com.fsck.k9.mail.AuthType;
 import com.fsck.k9.ui.R;
-
+/**
+ *     //身份验证方法
+ * */
 class AuthTypeHolder {
     final AuthType authType;
     private final Resources resources;
@@ -39,8 +41,8 @@ class AuthTypeHolder {
                 }
             case CRAM_MD5:
                 return R.string.account_setup_auth_type_encrypted_password;
-            case EXTERNAL:
-                return R.string.account_setup_auth_type_tls_client_certificate;
+/*            case EXTERNAL:
+                return R.string.account_setup_auth_type_tls_client_certificate;*/
 
             case AUTOMATIC:
             case LOGIN:

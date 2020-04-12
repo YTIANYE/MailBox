@@ -1,13 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:dist="http://schemas.android.com/apk/distribution"
+
     xmlns:tools="http://schemas.android.com/tools"
     package="com.fsck.k9" >
+    <!--    android:installLocation="auto"    -->
+
 
     <dist:module dist:instant="true" />
 
-    <!--    android:name="k9-->
+<!--    <uses-feature
+        android:name="android.hardware.touchscreen"
+        android:required="false"/>-->
 
+    <!--不同分辨率的兼容问题是经常遇到的.，对大屏幕的支持还需要以下配置:-->
+<!--    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="true"/>-->
+
+<!--    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>&lt;!&ndash;允许程序开机自动运行&ndash;&gt;
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>&lt;!&ndash;允许程序访问联系人通讯录信息&ndash;&gt;
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS"/>&lt;!&ndash;允许程序读取同步设置，读取Google在线同步设置&ndash;&gt;-->
+
+    <!-- Needed to mark a contact as contacted -->
+<!--    <uses-permission android:name="android.permission.WRITE_CONTACTS"/>&lt;!&ndash;写入联系人,但不可读取&ndash;&gt;-->
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/><!--检测网络状态的权限-->
+    <uses-permission android:name="android.permission.INTERNET"/><!--访问网络权限--><!--java.lang.SecurityException: Permission denied (missing INTERNET permission?)-->
+<!--    <uses-permission android:name="android.permission.VIBRATE"/>&lt;!&ndash;允许程序振动&ndash;&gt;
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>&lt;!&ndash;允许程序在手机屏幕关闭后后台进程仍然运行&ndash;&gt;-->
+<!--    <permission
+        android:name="${applicationId}.permission.READ_MESSAGES"
+        android:description="@string/read_messages_desc"
+        android:label="@string/read_messages_label"
+        android:permissionGroup="android.permission-group.MESSAGES"
+        android:protectionLevel="dangerous"/>
+    <uses-permission android:name="${applicationId}.permission.READ_MESSAGES"/>
+
+    <permission
+        android:name="${applicationId}.permission.DELETE_MESSAGES"
+        android:description="@string/delete_messages_desc"
+        android:label="@string/delete_messages_label"
+        android:permissionGroup="android.permission-group.MESSAGES"
+        android:protectionLevel="dangerous"/>
+    <uses-permission android:name="${applicationId}.permission.DELETE_MESSAGES"/>-->
+
+    <!--    android:name="k9-->
     <application
         android:name="com.fsck.k9.App"
         android:allowTaskReparenting="false"
@@ -116,10 +156,24 @@
             android:configChanges="locale"
             android:label="@string/account_setup_account_type_title"/>
 
+        <!--界面4 收件服务器设置-->
         <activity
             android:name=".activity.setup.AccountSetupIncoming"
             android:configChanges="locale"
             android:label="@string/account_setup_incoming_title"/>
+
+        <!-- XXX Note: this activity is hacked to ignore config changes,
+     since it doesn't currently handle them correctly in code. -->
+        <!-- 检查服务器设置活动-->
+        <activity
+            android:name=".activity.setup.AccountSetupCheckSettings"
+            android:configChanges="keyboardHidden|orientation|locale"
+            android:label="@string/account_setup_check_settings_title"/>
+        <!--界面5 发件服务器设置-->
+        <activity
+            android:name=".activity.setup.AccountSetupOutgoing"
+            android:configChanges="locale"
+            android:label="@string/account_setup_outgoing_title"/>
 
     </application>
 

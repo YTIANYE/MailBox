@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -33,9 +34,9 @@ import com.fsck.k9.mail.ConnectionSecurity;
 import com.fsck.k9.mail.ServerSettings;
 import com.fsck.k9.preferences.Protocols;
 import com.fsck.k9.ui.R;
+import com.fsck.k9.view.ClientCertificateSpinner.OnClientCertificateChangedListener;
 import com.fsck.k9.view.ClientCertificateSpinner;
 import com.fsck.k9.view.ClientCertificateSpinner.OnClientCertificateChangedListener;
-
 import timber.log.Timber;
 
 /**
@@ -281,6 +282,7 @@ public class AccountSetupBasics extends K9Activity
 
         String email = mEmailView.getText().toString();
 
+
         ConnectionSettings connectionSettings = providersXmlDiscovery.discover(email);
         if (connectionSettings != null) {
             finishAutoSetup(connectionSettings);
@@ -345,6 +347,8 @@ public class AccountSetupBasics extends K9Activity
         mAccount.setStoreUri(storeUri);
         mAccount.setTransportUri(transportUri);
 
+        Log.d("debugLog", "LOG_AccountSetupBasics");
+        Log.d("debugLog", "LOG_AccountSetupBasics");
         AccountSetupAccountType.actionSelectAccountType(this, mAccount, false);//跳转到账户类型设置活动
 
         finish();

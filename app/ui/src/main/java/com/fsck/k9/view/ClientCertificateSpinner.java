@@ -45,7 +45,7 @@ public class ClientCertificateSpinner extends LinearLayout {
         setOrientation(LinearLayout.HORIZONTAL);
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        inflater.inflate(R.layout.client_certificate_spinner, this, true);
+        //inflater.inflate(R.layout.client_certificate_spinner, this, true);
 
         mSelection = findViewById(R.id.client_certificate_spinner_button);
         mSelection.setOnClickListener(new OnClickListener() {

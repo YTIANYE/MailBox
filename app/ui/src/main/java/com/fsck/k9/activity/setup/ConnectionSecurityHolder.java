@@ -5,6 +5,10 @@ import android.content.res.Resources;
 import com.fsck.k9.mail.ConnectionSecurity;
 import com.fsck.k9.ui.R;
 
+    /**
+     * 加密方法
+     *
+     */
 class ConnectionSecurityHolder {
     final ConnectionSecurity connectionSecurity;
     private final Resources resources;
