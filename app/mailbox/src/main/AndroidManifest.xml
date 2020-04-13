@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:dist="http://schemas.android.com/apk/distribution"
-
     xmlns:tools="http://schemas.android.com/tools"
     package="com.fsck.k9" >
     <!--    android:installLocation="auto"    -->
@@ -9,29 +8,29 @@
 
     <dist:module dist:instant="true" />
 
-<!--    <uses-feature
+    <uses-feature
         android:name="android.hardware.touchscreen"
-        android:required="false"/>-->
+        android:required="false"/>
 
     <!--不同分辨率的兼容问题是经常遇到的.，对大屏幕的支持还需要以下配置:-->
-<!--    <supports-screens
+    <supports-screens
         android:anyDensity="true"
         android:largeScreens="true"
         android:normalScreens="true"
-        android:smallScreens="true"/>-->
+        android:smallScreens="true"/>
 
-<!--    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>&lt;!&ndash;允许程序开机自动运行&ndash;&gt;
-    <uses-permission android:name="android.permission.READ_CONTACTS"/>&lt;!&ndash;允许程序访问联系人通讯录信息&ndash;&gt;
-    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS"/>&lt;!&ndash;允许程序读取同步设置，读取Google在线同步设置&ndash;&gt;-->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/><!--允许程序开机自动运行-->
+    <uses-permission android:name="android.permission.READ_CONTACTS"/><!--允许程序访问联系人通讯录信息-->
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS"/><!--允许程序读取同步设置，读取Google在线同步设置-->
 
     <!-- Needed to mark a contact as contacted -->
-<!--    <uses-permission android:name="android.permission.WRITE_CONTACTS"/>&lt;!&ndash;写入联系人,但不可读取&ndash;&gt;-->
+    <uses-permission android:name="android.permission.WRITE_CONTACTS"/><!--写入联系人,但不可读取-->
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/><!--检测网络状态的权限-->
     <uses-permission android:name="android.permission.INTERNET"/><!--访问网络权限--><!--java.lang.SecurityException: Permission denied (missing INTERNET permission?)-->
-<!--    <uses-permission android:name="android.permission.VIBRATE"/>&lt;!&ndash;允许程序振动&ndash;&gt;
-    <uses-permission android:name="android.permission.WAKE_LOCK"/>&lt;!&ndash;允许程序在手机屏幕关闭后后台进程仍然运行&ndash;&gt;-->
-<!--    <permission
+    <uses-permission android:name="android.permission.VIBRATE"/><!--允许程序振动-->
+    <uses-permission android:name="android.permission.WAKE_LOCK"/><!--允许程序在手机屏幕关闭后后台进程仍然运行-->
+    <permission
         android:name="${applicationId}.permission.READ_MESSAGES"
         android:description="@string/read_messages_desc"
         android:label="@string/read_messages_label"
@@ -45,7 +44,7 @@
         android:label="@string/delete_messages_label"
         android:permissionGroup="android.permission-group.MESSAGES"
         android:protectionLevel="dangerous"/>
-    <uses-permission android:name="${applicationId}.permission.DELETE_MESSAGES"/>-->
+    <uses-permission android:name="${applicationId}.permission.DELETE_MESSAGES"/>
 
     <!--    android:name="k9-->
     <application
@@ -164,6 +163,7 @@
 
         <!-- XXX Note: this activity is hacked to ignore config changes,
      since it doesn't currently handle them correctly in code. -->
+
         <!-- 检查服务器设置活动-->
         <activity
             android:name=".activity.setup.AccountSetupCheckSettings"
@@ -181,11 +181,7 @@
             android:configChanges="locale"
             android:label="@string/account_setup_options_title"/>
 
-        <activity
-            android:name=".activity.setup.AccountSetupNames"
-            android:configChanges="locale"
-            android:label="@string/account_setup_names_title"/>
-
+        <!--MessageCompose-->
         <activity
             android:name=".activity.MessageCompose"
             android:configChanges="locale"
@@ -223,8 +219,33 @@
                 android:value="com.fsck.k9.directshare.K9ChooserTargetService" />
         </activity>
 
+        <!--界面7 设置用户名称-->
+        <activity
+            android:name=".activity.setup.AccountSetupNames"
+            android:configChanges="locale"
+            android:label="@string/account_setup_names_title"/>
 
+        <!--更新数据库-->
+        <activity
+            android:name=".activity.UpgradeDatabases"
+            android:label="@string/upgrade_databases_title"/>
 
+        <activity
+            android:name=".activity.setup.FolderSettings"
+            android:configChanges="locale"
+            android:label="@string/folder_settings_title"
+            android:theme="@android:style/Theme.Dialog"/>
+
+        <activity-alias
+            android:name=".activity.FolderList"
+            android:targetActivity=".activity.MessageList"
+            android:exported="true" />
+
+        <activity
+            android:name=".ui.managefolders.ManageFoldersActivity"
+            android:label="@string/folders_action" />
+
+        <!---->
         <receiver
             android:name=".service.BootReceiver"
             android:enabled="true">
@@ -239,6 +260,151 @@
             </intent-filter>
         </receiver>
 
+        <receiver
+            android:name=".service.CoreReceiver"
+            android:exported="false"/>
+
+        <receiver
+            android:name=".service.StorageReceiver"
+            android:enabled="true">
+            <intent-filter>
+                <!--
+                android.intent.action.MEDIA_MOUNTED
+
+                     * Broadcast Action:  External media is present and mounted at its mount point.
+                     * The path to the mount point for the removed media is contained in the Intent.mData field.
+                     * The Intent contains an extra with name "read-only" and Boolean value to indicate if the
+                     * media was mounted read only.
+
+                 -->
+                <action android:name="android.intent.action.MEDIA_MOUNTED"/>
+                <!--
+
+                MEDIA_EJECT and MEDIA_UNMOUNTED are not defined here: they have to be dynamically registered
+                otherwise it would make K-9 start at the wrong time
+
+                 -->
+                <data android:scheme="file"/>
+            </intent-filter>
+        </receiver>
+
+<!--        <receiver
+            android:name=".provider.UnreadWidgetProvider"
+            android:icon="@drawable/ic_launcher"
+            android:label="@string/unread_widget_label">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/unread_widget_info"/>
+        </receiver>-->
+
+<!--        <receiver
+            android:name=".widget.list.MessageListWidgetProvider"
+            android:icon="@drawable/message_list_widget_preview"
+            android:label="@string/mail_list_widget_text">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/message_list_widget_info" />
+        </receiver>-->
+
+        <service
+            android:name=".widget.list.MessageListWidgetService"
+            android:enabled="true"
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
+
+        <service
+            android:name=".notification.NotificationActionService"
+            android:enabled="true"/>
+
+        <service
+            android:name=".service.PushService"
+            android:enabled="true"/>
+
+        <service
+            android:name=".service.SleepService"
+            android:enabled="true"/>
+
+        <!--    -->
+        <service
+            android:name=".service.DatabaseUpgradeService"
+            android:exported="false"/>
+
+
+<!--        <service
+            android:name="com.fsck.k9.directshare.K9ChooserTargetService"
+            android:permission="android.permission.BIND_CHOOSER_TARGET_SERVICE" >
+            <intent-filter>
+                <action android:name="android.service.chooser.ChooserTargetService" />
+            </intent-filter>
+        </service>-->
+
+        <service
+            android:name="com.fsck.k9.account.AccountRemoverService"
+            android:permission="android.permission.BIND_JOB_SERVICE"/>
+
+        <provider
+            android:name=".provider.AttachmentProvider"
+            android:authorities="${applicationId}.attachmentprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+
+            <meta-data
+                android:name="de.cketti.safecontentresolver.ALLOW_INTERNAL_ACCESS"
+                android:value="true" />
+
+        </provider>
+
+        <provider
+            android:name=".provider.RawMessageProvider"
+            android:authorities="${applicationId}.rawmessageprovider"
+            android:exported="false">
+
+            <meta-data
+                android:name="de.cketti.safecontentresolver.ALLOW_INTERNAL_ACCESS"
+                android:value="true" />
+
+        </provider>
+
+        <provider
+            android:name=".external.MessageProvider"
+            android:authorities="${applicationId}.messageprovider"
+            android:exported="true"
+            android:grantUriPermissions="true"
+            android:multiprocess="true"
+            android:readPermission="${applicationId}.permission.READ_MESSAGES"
+            android:writePermission="${applicationId}.permission.DELETE_MESSAGES"/>
+
+        <provider
+            android:name=".provider.EmailProvider"
+            android:authorities="${applicationId}.provider.email"
+            android:exported="false"/>
+
+        <provider
+            android:name=".provider.DecryptedFileProvider"
+            android:authorities="${applicationId}.decryptedfileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/decrypted_file_provider_paths" />
+        </provider>
+
+        <provider
+            android:name=".provider.AttachmentTempFileProvider"
+            android:authorities="${applicationId}.tempfileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/temp_file_provider_paths" />
+        </provider>
 
 
     </application>
