@@ -175,6 +175,16 @@
             android:configChanges="locale"
             android:label="@string/account_setup_outgoing_title"/>
 
+        <!--界面6 账户选项-->
+        <activity
+            android:name=".activity.setup.AccountSetupOptions"
+            android:configChanges="locale"
+            android:label="@string/account_setup_options_title"/>
+
+
+
+
+
     </application>
 
 </manifest>
