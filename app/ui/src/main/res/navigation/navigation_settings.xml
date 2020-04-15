@@ -44,14 +44,17 @@
             app:destination="@id/onboardingScreen" />
         <!--id 就是这个 action 的 id, destination 是目的地，要跳转到哪里的-->
 
+        <!--关于-->
         <action
             android:id="@+id/action_settingsListScreen_to_aboutScreen"
             app:destination="@id/aboutScreen" />
 
+        <!--常规设置-->
         <action
             android:id="@+id/action_settingsListScreen_to_generalSettingsScreen"
             app:destination="@id/generalSettingsScreen" />
 
+        <!--添加账户-->
         <action
             android:id="@+id/action_settingsListScreen_to_addAccountScreen"
             app:destination="@id/addAccountScreen" />

@@ -8,6 +8,10 @@ import com.fsck.k9.ui.withArguments
 import com.takisoft.preferencex.PreferenceFragmentCompat
 import org.koin.android.ext.android.inject
 
+/**
+ * 常规设置的fragment
+ * 存放于GeneralSettingActivity
+ */
 class GeneralSettingsFragment : PreferenceFragmentCompat() {
     private val dataStore: GeneralSettingsDataStore by inject()
 

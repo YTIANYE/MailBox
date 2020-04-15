@@ -49,6 +49,8 @@ import timber.log.Timber;
  *尝试查找用户指定的域的默认设置。
  * 如果域是已知的设置被传递到AccountSetupCheckSettings活动。
  * 如果没有找到设置，则将这些设置传递给AccountSetupAccountType活动。
+ *
+ * 创建账户活动
  */
 public class AccountSetupBasics extends K9Activity
     implements OnClickListener, TextWatcher, OnCheckedChangeListener, OnClientCertificateChangedListener {

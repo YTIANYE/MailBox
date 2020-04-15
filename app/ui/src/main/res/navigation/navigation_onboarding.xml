@@ -43,6 +43,7 @@
         android:label="@string/account_setup_basics_title"
         tools:layout="@layout/account_setup_basics"/>
 
+
     <activity
         android:id="@+id/messageListScreen"
         android:name="com.fsck.k9.activity.MessageList"

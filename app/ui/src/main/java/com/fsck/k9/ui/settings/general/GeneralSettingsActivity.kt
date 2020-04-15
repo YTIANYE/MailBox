@@ -19,6 +19,11 @@ import com.fsck.k9.ui.fragmentTransaction
 import com.fsck.k9.ui.fragmentTransactionWithBackStack
 import com.fsck.k9.ui.resolveAttribute
 
+
+/**
+ * 常规设置活动
+ *
+ */
 class GeneralSettingsActivity : K9Activity(), OnPreferenceStartScreenCallback, SearchPreferenceResultListener {
     private lateinit var searchPreferenceActionView: SearchPreferenceActionView
     private lateinit var searchPreferenceMenuItem: MenuItem
@@ -33,7 +38,7 @@ class GeneralSettingsActivity : K9Activity(), OnPreferenceStartScreenCallback, S
 
         if (savedInstanceState == null) {
             fragmentTransaction {
-                add(R.id.generalSettingsContainer, GeneralSettingsFragment.create())
+                add(R.id.generalSettingsContainer, GeneralSettingsFragment.create())    //打开常规设置的 Fragment
             }
         } else {
             searchQuery = savedInstanceState.getString(KEY_SEARCH_QUERY, "")

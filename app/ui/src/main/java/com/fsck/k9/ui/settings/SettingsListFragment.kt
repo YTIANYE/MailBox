@@ -59,10 +59,17 @@ class SettingsListFragment : Fragment() {
         }
     }
 
+
     private fun populateSettingsList(accounts: List<Account>) {
         settingsAdapter.clear()
 
-        val generalSection = Section().apply {
+
+        /**
+         * 常规设置模块
+         */
+/*        val generalSection = Section().apply {
+
+
             val generalSettingsActionItem = SettingsActionItem(
                     getString(R.string.general_settings_title),
                     R.id.action_settingsListScreen_to_generalSettingsScreen,
@@ -70,8 +77,13 @@ class SettingsListFragment : Fragment() {
             )
             add(generalSettingsActionItem)
         }
-        settingsAdapter.add(generalSection)
+        settingsAdapter.add(generalSection)*/
 
+
+        /**
+         * 设置中的 账户模块
+         *
+         */
         val accountSection = Section().apply {
             for (account in accounts) {
                 add(AccountItem(account))

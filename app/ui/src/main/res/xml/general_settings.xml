@@ -7,6 +7,7 @@
     android:title="@string/general_settings_title"
     search:ignore="true">
 
+    <!--显示-->
     <PreferenceScreen
         android:icon="?attr/iconPreferencesDisplay"
         android:key="display_preferences"
@@ -35,6 +36,9 @@
                 search:summary=""
                 android:title="@string/settings_theme_label" />
 
+            <!--在查看消息时选择消息查看主题-->
+            <!--使用固定消息查看主题-->
+            <!--固定消息主题-->
             <CheckBoxPreference
                 android:key="fixed_message_view_theme"
                 android:summaryOff="@string/settings_message_theme_selection_summary_off"
@@ -79,6 +83,7 @@
 
         </PreferenceCategory>
 
+        <!--隐藏统一收件箱-->
         <PreferenceCategory
             android:key="accountlist_preferences"
             android:title="@string/accountlist_preferences">
@@ -204,6 +209,7 @@
 
     </PreferenceScreen>
 
+    <!--交互-->
     <PreferenceScreen
         android:icon="?attr/iconPreferencesInteraction"
         android:key="interaction_preferences"
@@ -242,6 +248,7 @@
 
     </PreferenceScreen>
 
+    <!--通知-->
     <PreferenceScreen
         android:icon="?attr/iconPreferencesNotifications"
         android:key="notification_preferences"
@@ -295,6 +302,7 @@
 
     </PreferenceScreen>
 
+    <!--网络-->
     <PreferenceScreen
         android:icon="?attr/iconPreferencesNetwork"
         android:key="network_preferences"
@@ -312,6 +320,7 @@
 
     </PreferenceScreen>
 
+    <!--隐私-->
     <PreferenceScreen
         android:icon="?attr/iconPreferencesPrivacy"
         android:key="privacy_preferences"
@@ -338,6 +347,7 @@
 
     </PreferenceScreen>
 
+    <!--调试-->
     <PreferenceScreen
         android:icon="?attr/iconPreferencesDebug"
         android:key="debug_preferences"
