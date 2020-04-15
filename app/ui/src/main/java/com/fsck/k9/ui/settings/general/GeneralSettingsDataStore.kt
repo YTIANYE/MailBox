@@ -10,6 +10,10 @@ import com.fsck.k9.job.K9JobManager
 import com.fsck.k9.ui.ThemeManager
 import java.util.concurrent.ExecutorService
 
+
+/**
+ * 常规设置  数据存储
+ * */
 class GeneralSettingsDataStore(
     private val preferences: Preferences,
     private val jobManager: K9JobManager,
@@ -48,6 +52,10 @@ class GeneralSettingsDataStore(
         }
     }
 
+    /**
+     * 设置为 true 或者 false
+     * 应用于 checkbox
+     * */
     override fun putBoolean(key: String, value: Boolean) {
         when (key) {
             "fixed_message_view_theme" -> K9.isFixedMessageViewTheme = value

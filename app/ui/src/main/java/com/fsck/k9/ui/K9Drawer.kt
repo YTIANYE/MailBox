@@ -94,7 +94,11 @@ class K9Drawer(private val parent: MessageList, savedInstanceState: Bundle?) : K
                 .withActivity(parent)
                 .withHeaderBackground(R.drawable.drawer_header_background)//抽屉 上部背景图
 
-        if (!K9.isHideSpecialAccounts) {
+        /**
+         * 隐藏掉全局收件箱
+         * */
+        //if (!K9.isHideSpecialAccounts) {  //如果 全局收件箱不隐藏
+        if(false){
             headerBuilder.addProfiles(ProfileDrawerItem()
                     .withNameShown(true)
                     .withName(R.string.integrated_inbox_title)//全局收件箱

@@ -136,6 +136,11 @@ object K9 : EarlyInit {
             updateLoggingStatus()
         }
 
+
+    /**
+     * 包含APP的一些默认设置
+     * */
+
     @JvmStatic
     var isSensitiveDebugLoggingEnabled: Boolean = false
 
@@ -229,7 +234,8 @@ object K9 : EarlyInit {
     var isUseVolumeKeysForListNavigation = false
 
     @JvmStatic
-    var isHideSpecialAccounts = false
+    //var isHideSpecialAccounts = false  //默认不隐藏全局收件箱
+    var isHideSpecialAccounts = true    //隐藏掉全局邮箱
 
     @JvmStatic
     var isAutoFitWidth: Boolean = false
