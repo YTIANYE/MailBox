@@ -55,15 +55,18 @@
         <action
             android:id="@+id/action_settingsListScreen_to_addAccountScreen"
             app:destination="@id/addAccountScreen" />
-        <action
+        <!--导入设置 导出设置-->
+<!--        <action
             android:id="@+id/action_settingsListScreen_to_settingsExportScreen"
             app:destination="@id/settingsExportScreen" />
         <action
             android:id="@+id/action_settingsListScreen_to_settingsImportScreen"
-            app:destination="@id/settingsImportScreen" />
+            app:destination="@id/settingsImportScreen" />-->
     </fragment>
 
-    <fragment
+
+    <!--导入设置 导出设置-->
+<!--    <fragment
         android:id="@+id/settingsExportScreen"
         android:name="com.fsck.k9.ui.settings.export.SettingsExportFragment"
         android:label="@string/settings_export_title"
@@ -73,6 +76,6 @@
         android:id="@+id/settingsImportScreen"
         android:name="com.fsck.k9.ui.settings.import.SettingsImportFragment"
         android:label="@string/settings_import_title"
-        tools:layout="@layout/fragment_settings_import"/>
+        tools:layout="@layout/fragment_settings_import"/>-->
 
 </navigation>

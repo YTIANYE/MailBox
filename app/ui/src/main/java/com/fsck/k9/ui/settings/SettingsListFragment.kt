@@ -20,7 +20,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
     /**
-     * 设置fragment
+     * 打开设置的fragment
      * 抽屉底部
      * */
 class SettingsListFragment : Fragment() {
@@ -84,10 +84,14 @@ class SettingsListFragment : Fragment() {
             )
             add(addAccountActionItem)
         }
+        //账户
         accountSection.setHeader(SettingsDividerItem(getString(R.string.accounts_title)))
         settingsAdapter.add(accountSection)
 
-        val backupSection = Section().apply {
+        /**
+         * 设置中的 备份模块
+         * */
+/*        val backupSection = Section().apply {
             val exportSettingsActionItem = SettingsActionItem(
                     getString(R.string.settings_export_title),
                     R.id.action_settingsListScreen_to_settingsExportScreen,
@@ -102,19 +106,27 @@ class SettingsListFragment : Fragment() {
             )
             add(importSettingsActionItem)
         }
+        *//*备份*//*
         backupSection.setHeader(SettingsDividerItem(getString(R.string.settings_list_backup_category)))
-        settingsAdapter.add(backupSection)
+        //设置备份模块
+        settingsAdapter.add(backupSection)*/
 
-        val miscSection = Section().apply {
+        /**
+         * 设置中的关于模块
+         */
+
+/*        val miscSection = Section().apply {
             val accountActionItem = SettingsActionItem(
-                getString(R.string.about_action),
+                getString(R.string.about_action),   //关于
                 R.id.action_settingsListScreen_to_aboutScreen,
                 R.attr.iconSettingsAbout
             )
             add(accountActionItem)
         }
+        //杂项
         miscSection.setHeader(SettingsDividerItem(getString(R.string.settings_list_miscellaneous_category)))
-        settingsAdapter.add(miscSection)
+        settingsAdapter.add(miscSection)*/
+
     }
 
     private fun handleItemClick(item: Item<*>) {

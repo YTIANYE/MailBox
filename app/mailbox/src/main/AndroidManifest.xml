@@ -245,6 +245,11 @@
             android:name=".ui.managefolders.ManageFoldersActivity"
             android:label="@string/folders_action" />
 
+        <!-- 设置功能 -->
+        <activity
+            android:name=".ui.settings.SettingsActivity"
+            android:label="@string/prefs_title" />
+
         <!---->
         <receiver
             android:name=".service.BootReceiver"
