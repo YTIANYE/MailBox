@@ -69,10 +69,6 @@ import java.util.List;
 import de.cketti.library.changelog.ChangeLog;
 import timber.log.Timber;
 
-//**********
-//**********
-
-
 /**
  * MessageList is the primary user interface for the program. This Activity
  * shows a list of messages.
@@ -162,18 +158,24 @@ public class MessageList extends K9Activity implements MessageListFragmentListen
         return intent;
     }
 
+    /**
+     * 开始本活动
+     * */
     public static void launch(Context context) {
         Intent intent = new Intent(context, MessageList.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP |
                 Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        context.startActivity(intent);
+        context.startActivity(intent);  //开始本活动
     }
 
 
+    /**
+     * 三种表现类型
+     */
     private enum DisplayMode {
-        MESSAGE_LIST,
-        MESSAGE_VIEW,
-        SPLIT_VIEW
+        MESSAGE_LIST,//消息列表
+        MESSAGE_VIEW,//具体消息视图
+        SPLIT_VIEW//抽屉视图
     }
 
 
@@ -206,6 +208,9 @@ public class MessageList extends K9Activity implements MessageListFragmentListen
      * {@code true} if the message list should be displayed as flat list (i.e. no threading)
      * regardless whether or not message threading was enabled in the settings. This is used for
      * filtered views, e.g. when only displaying the unread messages in a folder.
+     * 如果消息列表显示为平面列表(即无线程)
+     * *不管是否在设置中启用了消息线程。这是用来
+     * *过滤过的视图，例如只显示文件夹中未读的消息。
      */
     private boolean noThreading;
 
@@ -216,6 +221,9 @@ public class MessageList extends K9Activity implements MessageListFragmentListen
      * {@code true} when the message list was displayed once. This is used in
      * {@link #onBackPressed()} to decide whether to go from the message view to the message list or
      * finish the activity.
+     * 当消息列表显示一次时。这是在
+     * * {@link #onBackPressed()}决定是从消息视图转到消息列表还是
+     * *完成活动。
      */
     private boolean messageListWasDisplayed = false;
     private ViewSwitcher viewSwitcher;
@@ -226,33 +234,38 @@ public class MessageList extends K9Activity implements MessageListFragmentListen
         super.onCreate(savedInstanceState);
 
         List<Account> accounts = preferences.getAccounts();
+        //没有用户需先创建用户
         if (accounts.isEmpty()) {
             OnboardingActivity.launch(this);//调用最开始欢迎界面
             finish();
             return;
         }
 
+        //更新数据库
         if (UpgradeDatabases.actionUpgradeDatabases(this, getIntent())) {
             finish();
             return;
         }
 
+        //抽屉视图分割
         if (useSplitView()) {
-            setLayout(R.layout.split_message_list);
+            setLayout(R.layout.split_message_list); //  抽屉形式
         } else {
-            setLayout(R.layout.message_list);
+            setLayout(R.layout.message_list);   //消息列表形式
             viewSwitcher = findViewById(R.id.container);
-            viewSwitcher.setFirstInAnimation(AnimationUtils.loadAnimation(this, R.anim.slide_in_left));
+            //两个视图之间动画处理
+            viewSwitcher.setFirstInAnimation(AnimationUtils.loadAnimation(this, R.anim.slide_in_left));//每个消息条 左面联系人 右面内容
             viewSwitcher.setFirstOutAnimation(AnimationUtils.loadAnimation(this, R.anim.slide_out_right));
             viewSwitcher.setSecondInAnimation(AnimationUtils.loadAnimation(this, R.anim.slide_in_right));
             viewSwitcher.setSecondOutAnimation(AnimationUtils.loadAnimation(this, R.anim.slide_out_left));
             viewSwitcher.setOnSwitchCompleteListener(this);
         }
 
-        initializeActionBar();
+        initializeActionBar();//顶部标题栏
         initializeDrawer(savedInstanceState);
 
         // Enable gesture detection for MessageLists
+        //为消息列表启用 检测
         setupGestureDetector(this);
 
         if (!decodeExtras(getIntent())) {
@@ -316,6 +329,7 @@ public class MessageList extends K9Activity implements MessageListFragmentListen
 
     /**
      * Get references to existing fragments if the activity was restarted.
+     * 如果活动重新启动，则获取对现有片段的引用。
      */
     private void findFragments() {
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -388,6 +402,7 @@ public class MessageList extends K9Activity implements MessageListFragmentListen
         }
     }
 
+    /**抽屉分割视图*/
     private boolean useSplitView() {
         SplitViewMode splitViewMode = K9.getSplitViewMode();
         int orientation = getResources().getConfiguration().orientation;
@@ -404,6 +419,9 @@ public class MessageList extends K9Activity implements MessageListFragmentListen
         messageViewPlaceHolder = layoutInflater.inflate(R.layout.empty_message_view, messageViewContainer, false);
     }
 
+    /**
+     * 选择哪种方式的视图
+     */
     private void displayViews() {
         switch (displayMode) {
             case MESSAGE_LIST: {
@@ -586,11 +604,18 @@ public class MessageList extends K9Activity implements MessageListFragmentListen
         firstBackStackId = savedInstanceState.getInt(STATE_FIRST_BACK_STACK_ID);
     }
 
+    /**
+     * 顶部标题栏
+     */
     private void initializeActionBar() {
         actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
+    /**
+     * 初始化侧滑菜单
+     * @param savedInstanceState
+     */
     private void initializeDrawer(Bundle savedInstanceState) {
         if (!isDrawerEnabled()) {
             return;
@@ -643,13 +668,16 @@ public class MessageList extends K9Activity implements MessageListFragmentListen
         actionDisplaySearch(this, SearchAccount.createUnifiedInboxAccount().getRelatedSearch(), false, false);
     }
 
+    /**
+     * 进入 管理文件夹活动
+     * */
     public void launchManageFoldersScreen() {
         if (account == null) {
             Timber.e("Tried to open \"Manage folders\", but no account selected!");
             return;
         }
 
-        ManageFoldersActivity.launch(this, account);
+        ManageFoldersActivity.launch(this, account);//进入 管理文件夹活动
     }
 
     public void openRealAccount(Account account) {
@@ -703,6 +731,8 @@ public class MessageList extends K9Activity implements MessageListFragmentListen
      * <p>
      * This method is called by {@link #dispatchKeyEvent(KeyEvent)} before any view had the chance
      * to consume this key event.
+     * 在任何视图有机会之前，{@link #dispatchKeyEvent(KeyEvent)}调用此方法
+     * *使用此键事件。
      * </p>
      *
      * @param keyCode
@@ -886,15 +916,19 @@ public class MessageList extends K9Activity implements MessageListFragmentListen
     }
 
     @Override
+    /**
+     * 选项选择
+     *
+     * */
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == android.R.id.home) {
+        if (id == android.R.id.home) {//左上角按钮,打开最左侧抽屉
             if (displayMode != DisplayMode.MESSAGE_VIEW && !isAdditionalMessageListDisplayed()) {
                 if (isDrawerEnabled()) {
                     if (drawer.isOpen()) {
                         drawer.close();
                     } else {
-                        drawer.open();
+                        drawer.open();//打开侧边抽屉
                     }
                 } else {
                     finish();
@@ -1509,11 +1543,15 @@ public class MessageList extends K9Activity implements MessageListFragmentListen
         return false;
     }
 
+    /**
+     * 消息列表视图
+     */
     private void showMessageList() {
         messageListWasDisplayed = true;
         displayMode = DisplayMode.MESSAGE_LIST;
         viewSwitcher.showFirstView();
 
+        /*进入消息列表 fragment */
         messageListFragment.setActiveMessage(null);
 
         if (isDrawerEnabled()) {
@@ -1528,6 +1566,10 @@ public class MessageList extends K9Activity implements MessageListFragmentListen
         configureMenu(menu);
     }
 
+
+    /**
+     * 显示具体消息的 view
+     * */
     private void showMessageView() {
         displayMode = DisplayMode.MESSAGE_VIEW;
 
@@ -1635,9 +1677,9 @@ public class MessageList extends K9Activity implements MessageListFragmentListen
             return;
 
         if (singleFolderMode) {
-            drawer.selectFolder(search.getFolderServerIds().get(0));
+            drawer.selectFolder(search.getFolderServerIds().get(0));    //设置文件夹
         } else if (search.getId().equals(SearchAccount.UNIFIED_INBOX)) {
-            drawer.selectUnifiedInbox();
+            drawer.selectUnifiedInbox();    //文件夹设置
         } else {
             drawer.deselect();
         }

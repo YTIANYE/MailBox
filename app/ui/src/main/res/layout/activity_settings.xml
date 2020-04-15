@@ -8,6 +8,7 @@
 
     <include layout="@layout/toolbar" />
 
+    <!--设置界面-->
     <fragment
         android:id="@+id/nav_host_fragment"
         android:name="androidx.navigation.fragment.NavHostFragment"

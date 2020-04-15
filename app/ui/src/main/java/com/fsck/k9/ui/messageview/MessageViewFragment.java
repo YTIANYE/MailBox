@@ -286,7 +286,7 @@ public class MessageViewFragment extends Fragment implements ConfirmationDialogF
 
     private void displaySubject(String subject) {
         if (TextUtils.isEmpty(subject)) {
-            subject = mContext.getString(R.string.general_no_subject);
+            subject = mContext.getString(R.string.general_no_subject);//(无主题)
         }
 
         mMessageView.setSubject(subject);
@@ -327,6 +327,7 @@ public class MessageViewFragment extends Fragment implements ConfirmationDialogF
             return;
         }
         if (!mController.isMoveCapable(mMessageReference)) {
+            //没有与服务器同步的邮件无法进行拷贝或移动
             Toast toast = Toast.makeText(getActivity(), R.string.move_copy_cannot_copy_unsynced_message, Toast.LENGTH_LONG);
             toast.show();
             return;
@@ -390,6 +391,7 @@ public class MessageViewFragment extends Fragment implements ConfirmationDialogF
             return;
         }
         if (!mController.isMoveCapable(mMessageReference)) {
+            //没有与服务器同步的邮件无法进行拷贝或移动
             Toast toast = Toast.makeText(getActivity(), R.string.move_copy_cannot_copy_unsynced_message, Toast.LENGTH_LONG);
             toast.show();
             return;
@@ -404,6 +406,7 @@ public class MessageViewFragment extends Fragment implements ConfirmationDialogF
                 || (mMessage == null)) {
             return;
         }
+        //没有与服务器同步的邮件无法进行拷贝或移动
         if (!mController.isCopyCapable(mMessageReference)) {
             Toast toast = Toast.makeText(getActivity(), R.string.move_copy_cannot_copy_unsynced_message, Toast.LENGTH_LONG);
             toast.show();
@@ -536,7 +539,7 @@ public class MessageViewFragment extends Fragment implements ConfirmationDialogF
             fragment = ConfirmationDialogFragment.newInstance(dialogId, title, message,
                     confirmText, cancelText);
         } else if (dialogId == R.id.dialog_attachment_progress) {
-            String message = getString(R.string.dialog_attachment_progress_title);
+            String message = getString(R.string.dialog_attachment_progress_title);//正在下载附件
             long size = currentAttachmentViewInfo.size;
             fragment = AttachmentDownloadDialogFragment.newInstance(size, message);
         } else {

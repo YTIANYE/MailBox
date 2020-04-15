@@ -21,6 +21,10 @@ import com.fsck.k9.activity.MessageList;
 import com.fsck.k9.helper.Utility;
 import com.fsck.k9.ui.R;
 
+
+/**
+ * 设置账户名称和名字
+ * */
 public class AccountSetupNames extends K9Activity implements OnClickListener {
     private static final String EXTRA_ACCOUNT = "account";
 
@@ -32,7 +36,7 @@ public class AccountSetupNames extends K9Activity implements OnClickListener {
 
     private Button mDoneButton;
 
-    public static void actionSetNames(Context context, Account account) {
+    public static void actionSetNames(Context context, Account account) {//开始活动
         Intent i = new Intent(context, AccountSetupNames.class);
         i.putExtra(EXTRA_ACCOUNT, account.getUuid());
         context.startActivity(i);
@@ -90,7 +94,7 @@ public class AccountSetupNames extends K9Activity implements OnClickListener {
         }
         mAccount.setName(mName.getText().toString());
         Preferences.getPreferences(getApplicationContext()).saveAccount(mAccount);
-        MessageList.launch(this);
+        MessageList.launch(this);   //进入下一活动
         finish();
     }
 

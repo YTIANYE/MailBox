@@ -32,7 +32,7 @@ public class AccountSetupOptions extends K9Activity implements OnClickListener {
 
     private Account mAccount;
 
-    public static void actionOptions(Context context, Account account, boolean makeDefault) {
+    public static void actionOptions(Context context, Account account, boolean makeDefault) {//开始活动
         Intent i = new Intent(context, AccountSetupOptions.class);
         i.putExtra(EXTRA_ACCOUNT, account.getUuid());
         i.putExtra(EXTRA_MAKE_DEFAULT, makeDefault);
@@ -119,7 +119,7 @@ public class AccountSetupOptions extends K9Activity implements OnClickListener {
             Preferences.getPreferences(this).setDefaultAccount(mAccount);
         }
         Core.setServicesEnabled(this);
-        AccountSetupNames.actionSetNames(this, mAccount);
+        AccountSetupNames.actionSetNames(this, mAccount);//进入下一界面 设置账户名称和名字
         finish();
     }
 

@@ -20,6 +20,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <!--SMTP 服务器-->
             <TextView
                 android:text="@string/account_setup_outgoing_smtp_server_label"
                 android:layout_height="wrap_content"
@@ -35,6 +36,7 @@
                 android:layout_width="fill_parent"
                 android:contentDescription="@string/account_setup_outgoing_smtp_server_label" />
 
+            <!--加密方法-->
             <TextView
                 android:text="@string/account_setup_outgoing_security_label"
                 android:layout_height="wrap_content"
@@ -63,6 +65,7 @@
                 android:layout_width="fill_parent"
                 android:contentDescription="@string/account_setup_outgoing_port_label" />
 
+            <!--要求登录-->
             <CheckBox
                 android:id="@+id/account_require_login"
                 android:layout_width="fill_parent"
@@ -91,6 +94,7 @@
                     android:layout_width="fill_parent"
                     android:contentDescription="@string/account_setup_outgoing_username_label" />
 
+                <!--身份验证方法-->
                 <TextView
                     android:text="@string/account_setup_outgoing_authentication_label"
                     android:layout_height="wrap_content"
@@ -120,6 +124,7 @@
                     android:layout_width="fill_parent"
                     android:contentDescription="@string/account_setup_outgoing_password_label" />
 
+                <!--客户端证书-->
                 <TextView
                     android:id="@+id/account_client_certificate_label"
                     android:text="@string/account_setup_incoming_client_certificate_label"

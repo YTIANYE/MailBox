@@ -21,6 +21,7 @@
                 android:layout_gravity="center_horizontal|center_vertical"
                 android:orientation="vertical">
 
+            <!--为这个账户选择一个名称（可选项）：-->
             <EditText
                     android:id="@+id/account_description"
                     android:singleLine="true"

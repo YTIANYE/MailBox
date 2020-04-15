@@ -9,9 +9,15 @@
 
     The comments are for informational purposes only. Please make sure to adjust the code in
     MessageList.configureMenu() if you make any changes to this file.
+    (顶级)菜单项之前的注释表示组合消息的哪一部分
+    列表/查看项目所属的活动。“MessageList”、“MessageView”或“always”(如:
+    总是显示这个项目，不管我们在什么显示模式)。
+    这些评论仅供参考。请务必调整代码进来
+    如果您对这个文件做了任何更改，可以使用MessageList.configureMenu()。
     -->
 
     <!-- MessageList -->
+    <!--搜索-->
     <item
         android:id="@+id/search"
         android:icon="?attr/iconActionSearch"
@@ -19,6 +25,7 @@
         android:title="@string/search_action"/>
 
     <!-- MessageList -->
+    <!--在服务器上搜索-->
     <item
         android:id="@+id/search_remote"
         android:icon="?attr/iconActionRemoteSearch"
@@ -27,6 +34,7 @@
         android:visible="false"/>
 
     <!-- MessageView -->
+    <!--归档-->
     <item
         android:id="@+id/archive"
         android:icon="?attr/iconActionArchive"
@@ -42,6 +50,7 @@
         android:title="@string/delete_action"/>
 
     <!-- MessageView -->
+    <!--标记为未读-->
     <item
         android:id="@+id/toggle_unread"
         android:icon="?attr/iconActionMarkAsUnread"
@@ -65,6 +74,7 @@
         />
 
     <!-- MessageView -->
+    <!--标记为垃圾邮件-->
     <item
         android:id="@+id/spam"
         android:icon="?attr/iconActionSpam"
@@ -86,6 +96,7 @@
         android:title="@string/copy_action"/>
 
     <!-- MessageView -->
+    <!--发送…-->
     <item
         android:id="@+id/single_message_options"
         android:icon="?attr/iconActionSingleMessageOptions"
@@ -100,7 +111,7 @@
                 android:title="@string/reply_all_action"/>
             <item
                 android:id="@+id/forward"
-                android:title="@string/forward_action"/>
+                android:title="@string/forward_action"/><!--转发-->
             <item
                 android:id="@+id/forward_as_attachment"
                 android:title="@string/forward_as_attachment_action"/>
@@ -111,6 +122,7 @@
     </item>
 
     <!-- MessageView -->
+    <!--重新归档…-->
     <item
         android:id="@+id/refile"
         android:icon="?attr/iconActionSingleMessageOptions"
@@ -138,6 +150,7 @@
         </menu>
     </item>
 
+    <!--显示邮件头-->
     <item android:id="@+id/show_headers"
           app:showAsAction="never"
           android:title="@string/show_headers_action"/>
@@ -147,6 +160,7 @@
           android:title="@string/hide_headers_action"/>
 
     <!-- always -->
+    <!--新邮件-->
     <item
         android:id="@+id/compose"
         android:alphabeticShortcut="c"
@@ -155,6 +169,7 @@
         android:title="@string/compose_action"/>
 
     <!-- MessageList -->
+    <!--排序方式-->
     <item
         android:id="@+id/set_sort"
         android:icon="?attr/iconActionSort"
@@ -199,6 +214,7 @@
         android:title="@string/mark_all_as_read"/>
 
     <!-- MessageList -->
+    <!--发送邮件-->
     <item
         android:id="@+id/send_messages"
         android:alphabeticShortcut="r"
@@ -207,6 +223,7 @@
         android:title="@string/send_messages_action"/>
 
     <!-- MessageList -->
+    <!--清空垃圾箱-->
     <item
         android:id="@+id/empty_trash"
         android:alphabeticShortcut="e"
@@ -214,12 +231,14 @@
         app:showAsAction="never" />
 
     <!-- MessageList -->
+    <!--擦除-->
     <item
         android:id="@+id/expunge"
         app:showAsAction="never"
         android:title="@string/expunge_action"/>
 
     <!-- MessageView -->
+    <!--切换到深色主题-->
     <item
         android:id="@+id/toggle_message_view_theme"
         app:showAsAction="never"

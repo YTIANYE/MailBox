@@ -11,6 +11,8 @@ import com.fsck.k9.K9;
 /**
  * A {@link ViewAnimator} that animates between two child views using different animations
  * depending on which view is displayed.
+ * 一个{@link ViewAnimator}，它使用不同的动画在两个子视图之间进行动画处理
+ * *取决于显示的是哪个视图。
  */
 public class ViewSwitcher extends ViewAnimator implements AnimationListener {
     private Animation mFirstInAnimation;

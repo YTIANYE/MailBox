@@ -219,7 +219,7 @@
                 android:value="com.fsck.k9.directshare.K9ChooserTargetService" />
         </activity>
 
-        <!--界面7 设置用户名称-->
+        <!--界面7 设置账户名称和名字-->
         <activity
             android:name=".activity.setup.AccountSetupNames"
             android:configChanges="locale"

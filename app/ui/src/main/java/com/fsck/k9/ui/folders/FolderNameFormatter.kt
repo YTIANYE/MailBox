@@ -7,8 +7,8 @@ import com.fsck.k9.ui.R
 
 class FolderNameFormatter(private val resources: Resources) {
     fun displayName(folder: Folder): String = when (folder.type) {
-        FolderType.INBOX -> resources.getString(R.string.special_mailbox_name_inbox)
-        FolderType.OUTBOX -> resources.getString(R.string.special_mailbox_name_outbox)
+        FolderType.INBOX -> resources.getString(R.string.special_mailbox_name_inbox)//收件箱
+        FolderType.OUTBOX -> resources.getString(R.string.special_mailbox_name_outbox)//发件箱
         else -> folder.name
     }
 }

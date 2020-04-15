@@ -10,6 +10,12 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import com.fsck.k9.activity.K9Activity
 import com.fsck.k9.ui.R
 
+
+/**
+ * 设置活动
+ * 抽屉侧边进入
+ * */
+
 class SettingsActivity : K9Activity() {
     private lateinit var navController: NavController
 

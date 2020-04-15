@@ -23,6 +23,7 @@
             <!-- Header area -->
             <include layout="@layout/message_view_header"/>
 
+            <!--显示图片-->
             <Button
                 android:id="@+id/show_pictures"
                 style="?android:attr/buttonStyleSmall"
@@ -89,6 +90,7 @@
 
     </com.fsck.k9.view.NonLockingScrollView>
 
+    <!--下载完整邮件-->
     <Button android:id="@+id/download_remainder"
         android:text="@string/message_view_download_remainder"
         android:layout_height="wrap_content"

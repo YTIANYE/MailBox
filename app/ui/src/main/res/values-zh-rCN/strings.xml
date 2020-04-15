@@ -48,8 +48,8 @@ K-9 Mail 是 Android 上一款功能强大的自由 email 客户端。
 <a href="https://github.com/k9mail/k-9/">https://github.com/k9mail/k-9/</a>.
 </p>
     ]]></string>
-  <!--Default signature-->
-  <string name="default_signature">-- \n使用 K-9 Mail 发送自我的Android设备。</string>
+  <!--Default signature--><!--签名-->
+  <string name="default_signature"> \n </string>
   <!--General strings that include the app name-->
   <string name="account_delete_dlg_instructions_fmt">账户“<xliff:g id="account">%s</xliff:g>”将从 K-9 Mail 中删除。</string>
   <!--=== General strings ==================================================================-->

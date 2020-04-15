@@ -593,6 +593,7 @@ object K9 : EarlyInit {
 
     /**
      * Controls when to use the message list split view.
+     * 控制何时使用消息列表拆分视图。
      */
     enum class SplitViewMode {
         ALWAYS,

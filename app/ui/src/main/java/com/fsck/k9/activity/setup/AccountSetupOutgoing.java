@@ -110,7 +110,7 @@ public class AccountSetupOutgoing extends K9Activity implements OnClickListener,
         try {
             if (new URI(mAccount.getStoreUri()).getScheme().startsWith("webdav")) {
                 mAccount.setTransportUri(mAccount.getStoreUri());
-                AccountSetupCheckSettings.actionCheckSettings(this, mAccount, CheckDirection.OUTGOING);
+                AccountSetupCheckSettings.actionCheckSettings(this, mAccount, CheckDirection.OUTGOING);//服务器设置检查
             }
         } catch (URISyntaxException e) {
             // TODO Auto-generated catch block
@@ -464,7 +464,7 @@ public class AccountSetupOutgoing extends K9Activity implements OnClickListener,
                 Preferences.getPreferences(getApplicationContext()).saveAccount(mAccount);
                 finish();
             } else {
-                AccountSetupOptions.actionOptions(this, mAccount, mMakeDefault);
+                AccountSetupOptions.actionOptions(this, mAccount, mMakeDefault);//跳转到下一界面 账户选项
                 finish();
             }
         }
@@ -494,7 +494,7 @@ public class AccountSetupOutgoing extends K9Activity implements OnClickListener,
         uri = backendManager.createTransportUri(server);
         DI.get(LocalKeyStoreManager.class).deleteCertificate(mAccount, newHost, newPort, MailServerDirection.OUTGOING);
         mAccount.setTransportUri(uri);
-        AccountSetupCheckSettings.actionCheckSettings(this, mAccount, CheckDirection.OUTGOING);
+        AccountSetupCheckSettings.actionCheckSettings(this, mAccount, CheckDirection.OUTGOING);//服务器设置检查
     }
 
     public void onClick(View v) {

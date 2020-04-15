@@ -2,15 +2,6 @@
 package com.fsck.k9;
 
 
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Collections;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-
 import android.content.Context;
 import android.text.TextUtils;
 
@@ -20,8 +11,18 @@ import com.fsck.k9.mail.NetworkType;
 import com.fsck.k9.mail.store.StoreConfig;
 import com.fsck.k9.mailstore.StorageManager;
 import com.fsck.k9.mailstore.StorageManager.StorageProvider;
+
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collections;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 
 /**
@@ -115,11 +116,12 @@ public class Account implements BaseAccount, StoreConfig {
 
     /**
      * Storage provider ID, used to locate and manage the underlying DB/file
+     * 存储提供程序ID，用于定位和管理底层DB/文件
      * storage
      */
     private String localStorageProviderId;
     private String transportUri;
-    private String description;
+    private String description;//描述
     private String alwaysBcc;
     private int automaticCheckIntervalMinutes;
     private int displayCount;

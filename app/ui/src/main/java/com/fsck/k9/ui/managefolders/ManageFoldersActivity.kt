@@ -30,6 +30,11 @@ import java.util.Locale
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
+
+/**
+ * 管理文件夹活动
+ *
+ * */
 class ManageFoldersActivity : K9Activity() {
     private val viewModel: ManageFoldersViewModel by viewModel()
     private val folderNameFormatter: FolderNameFormatter by inject()

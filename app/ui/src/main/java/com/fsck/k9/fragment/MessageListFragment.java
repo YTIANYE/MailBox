@@ -180,6 +180,7 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
 
     /**
      * Stores the server ID of the folder that we want to open as soon as possible after load.
+     * 存储我们希望在加载后尽快打开的文件夹的服务器ID。
      */
     private String folderServerId;
 
@@ -206,6 +207,8 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
     /**
      * Relevant messages for the current context when we have to remember the chosen messages
      * between user interactions (e.g. selecting a folder for move operation).
+     * 当我们必须记住所选择的消息时，与当前上下文相关的消息
+     * 在用户交互之间(例如，选择一个文件夹进行移动操作)。
      */
     private List<MessageReference> activeMessages;
     private final ActionModeCallback actionModeCallback = new ActionModeCallback();
@@ -220,6 +223,8 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
     /**
      * {@code true} after {@link #onCreate(Bundle)} was executed. Used in {@link #updateTitle()} to
      * make sure we don't access member variables before initialization is complete.
+     * 在执行{@link #onCreate(Bundle)}之后执行{@code true}。在{@link #updateTitle()}中使用
+     * *确保在初始化完成之前我们不会访问成员变量。
      */
     private boolean initialized = false;
     private LocalBroadcastManager localBroadcastManager;
@@ -234,6 +239,14 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
      * would end up using/modifying the wrong message.
      *
      * The value of this field is {@code 0} when no context menu is currently open.
+     * 存储上下文菜单所打开的消息的惟一ID。
+     * *
+     * *我们必须保存它，因为消息列表可能会在菜单的时间之间发生变化
+     * *当用户点击菜单项时打开。当这种情况发生时，'适配器位置'
+     * *是可通过{@code ContextMenu}对象访问的，该对象可能对应于另一个列表项和我们
+     * *最后会使用/修改错误的消息。
+     * *
+     * *当当前没有上下文菜单打开时，该字段的值为{@code 0}。
      */
     private long contextMenuUniqueId = 0;
 
@@ -243,6 +256,8 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
     /**
      * @return The comparator to use to display messages in an ordered
      *         fashion. Never {@code null}.
+     *         @return比较器，用于按顺序显示消息
+     * *时尚。从不{@code空}。
      */
     private Comparator<Cursor> getComparator() {
         final List<Comparator<Cursor>> chain =
@@ -966,11 +981,11 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
     private void showDialog(int dialogId) {
         DialogFragment fragment;
         if (dialogId == R.id.dialog_confirm_spam) {
-            String title = getString(R.string.dialog_confirm_spam_title);
+            String title = getString(R.string.dialog_confirm_spam_title);//确认移动到垃圾邮件文件夹
 
             int selectionSize = activeMessages.size();
             String message = getResources().getQuantityString(
-                    R.plurals.dialog_confirm_spam_message, selectionSize, selectionSize);
+                    R.plurals.dialog_confirm_spam_message, selectionSize, selectionSize);//您确定要移动 条消息到垃圾箱吗?
 
             String confirmText = getString(R.string.dialog_confirm_spam_confirm_button);
             String cancelText = getString(R.string.dialog_confirm_spam_cancel_button);
@@ -1071,6 +1086,11 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
         messagingController.sendPendingMessages(account, null);
     }
 
+    /**
+     * 长按消息item时 弹出多个相应操作
+     * @param item
+     * @return
+     */
     @Override
     public boolean onContextItemSelected(MenuItem item) {
         if (contextMenuUniqueId == 0) {
@@ -1082,6 +1102,7 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
             return false;
         }
 
+        /*长按某一个消息item时  弹出的选项*/
         int id = item.getItemId();
         if (id == R.id.deselect || id == R.id.select) {
             toggleMessageSelectWithAdapterPosition(adapterPosition);
@@ -1246,6 +1267,7 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
     }
 
     class MessageListActivityListener extends ActivityListener {
+        ////远程搜索失败
         @Override
         public void remoteSearchFailed(String folderServerId, final String err) {
             handler.post(new Runnable() {
@@ -1260,6 +1282,7 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
             });
         }
 
+        //正在向服务器发送查询
         @Override
         public void remoteSearchStarted(String folder) {
             handler.progress(true);
@@ -1271,6 +1294,7 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
             handler.progress(enable);
         }
 
+        //再加载<xliff:g id="messages_to_load">%d</xliff:g>封邮件
         @Override
         public void remoteSearchFinished(String folderServerId, int numResults, int maxResults, List<String> extraResults) {
             handler.progress(false);
@@ -1285,6 +1309,8 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
 
         }
 
+        //获取 %1$d 条来自 %2$d 条结果中
+        //获取%d条结果
         @Override
         public void remoteSearchServerQueryComplete(String folderServerId, int numResults, int maxResults) {
             handler.progress(true);
@@ -1348,6 +1374,13 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
     }
 
 
+    /**
+     * 以下是关于底部视图的操作
+     * 加载25封邮件
+     * @param parent
+     * @return
+     */
+
     private View getFooterView(ViewGroup parent) {
         if (footerView == null) {
             footerView = layoutInflater.inflate(R.layout.message_list_item_footer, parent, false);
@@ -1359,23 +1392,27 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
         return footerView;
     }
 
+    /**
+     * 更新底部视图
+     * 在加载、、、封邮件
+     */
     private void updateFooterView() {
         if (!search.isManualSearch() && currentFolder != null && account != null) {
             if (currentFolder.loading) {
-                updateFooter(context.getString(R.string.status_loading_more));
+                updateFooter(context.getString(R.string.status_loading_more));//正在加载邮件\u2026
             } else if (!currentFolder.moreMessages) {
                 updateFooter(null);
             } else {
                 String message;
                 if (!currentFolder.lastCheckFailed) {
                     if (account.getDisplayCount() == 0) {
-                        message = context.getString(R.string.message_list_load_more_messages_action);
+                        message = context.getString(R.string.message_list_load_more_messages_action);//加载更多邮件
                     } else {
-                        message = String.format(context.getString(R.string.load_more_messages_fmt),
+                        message = String.format(context.getString(R.string.load_more_messages_fmt),//再加载<xliff:g id="messages_to_load">%d</xliff:g>封邮件
                                 account.getDisplayCount());
                     }
                 } else {
-                    message = context.getString(R.string.status_loading_more_failed);
+                    message = context.getString(R.string.status_loading_more_failed);//再次尝试加载更多邮件
                 }
                 updateFooter(message);
             }
@@ -1405,10 +1442,12 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
 
     /**
      * Set selection state for all messages.
-     *
+     *为所有消息设置选择状态。
      * @param selected
      *         If {@code true} all messages get selected. Otherwise, all messages get deselected and
      *         action mode is finished.
+     *         如果{@code true}所有消息都被选中。否则，所有的信息都将被取消选择
+     * *动作模式结束。
      */
     private void setSelectionState(boolean selected) {
         if (selected) {
@@ -1509,6 +1548,7 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
         adapter.notifyDataSetChanged();
     }
 
+    //        //已选择 <xliff:g id="selection_count">%d</xliff:g> 个
     private void updateActionModeTitle() {
         actionMode.setTitle(String.format(getString(R.string.actionbar_selected), selectedCount));
     }
@@ -1627,7 +1667,7 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
 
     /**
      * Display the message move activity.
-     *
+     *消息移动活动。
      * @param messages
      *         Never {@code null}.
      */
@@ -1778,7 +1818,7 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
 
     /**
      * Display a Toast message if any message isn't synchronized
-     *
+     *如果任何消息没有同步，则显示消息
      * @param messages
      *         The messages to copy or move. Never {@code null}.
      * @param operation
@@ -1817,7 +1857,7 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
 
     /**
      * Copy the specified messages to the specified folder.
-     *
+     *将指定的消息复制到指定的文件夹
      * @param messages
      *         List of messages to copy. Never {@code null}.
      * @param destination
@@ -1829,7 +1869,7 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
 
     /**
      * Move the specified messages to the specified folder.
-     *
+     *将指定的消息移动到指定的文件夹。
      * @param messages
      *         The list of messages to move. Never {@code null}.
      * @param destination
@@ -1860,7 +1900,7 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
             if ((operation == FolderOperation.MOVE && !messagingController.isMoveCapable(message)) ||
                     (operation == FolderOperation.COPY && !messagingController.isCopyCapable(message))) {
 
-                Toast.makeText(getActivity(), R.string.move_copy_cannot_copy_unsynced_message,
+                Toast.makeText(getActivity(), R.string.move_copy_cannot_copy_unsynced_message,//没有与服务器同步的邮件无法进行拷贝或移动
                         Toast.LENGTH_LONG).show();
 
                 // XXX return meaningful error value?
@@ -1990,9 +2030,10 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
 
         /**
          * Disables menu options not supported by the account type or current "search view".
-         *
+         *禁用帐户类型或当前“搜索视图”不支持的菜单选项。
          * @param account
          *         The account to query for its capabilities.
+         *         要查询其功能的帐户
          * @param menu
          *         The menu to adapt.
          */
@@ -2142,6 +2183,8 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
     /**
      * We need to do some special clean up when leaving a remote search result screen. If no
      * remote search is in progress, this method does nothing special.
+     * 我们需要做一些特殊的清理时，离开一个远程搜索结果屏幕。如果没有
+     * 远程搜索正在进行中，这个方法没有什么特别的。
      */
     @Override
     public void onStop() {
@@ -2652,6 +2695,7 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
 
     /**
      * Close the context menu when the message it was opened for is no longer in the message list.
+     * 当打开上下文菜单的消息不在消息列表中时，关闭上下文菜单。
      */
     private void updateContextMenu(Cursor cursor) {
         if (contextMenuUniqueId == 0) {
@@ -2690,6 +2734,7 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
 
     /**
      * Starts or finishes the action mode when necessary.
+     * 必要时完成动作模式。
      */
     private void resetActionMode() {
         if (selected.isEmpty()) {
@@ -2722,6 +2767,8 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
      * <p>
      * For non-threaded lists this is simply the number of visibly selected messages. If threaded
      * view is enabled this method counts the number of messages in the selected threads.
+     * 对于非线程列表，这只是明显选中的消息的数量。如果螺纹
+     * *视图已启用此方法计算选定线程中的消息数量。
      * </p>
      */
     private void recalculateSelectionCount() {
@@ -2759,19 +2806,24 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
 
     /**
      * Mark a message as 'active'.
-     *
+     *将消息标记为“活动”。
      * <p>
      * The active message is the one currently displayed in the message view portion of the split
      * view.
+     * 活动消息是当前在拆分的消息视图部分中显示的消息
+     * *视图。
      * </p>
      *
      * @param messageReference
      *         {@code null} to not mark any message as being 'active'.
      */
+
+    /*启动方式*/
     public void setActiveMessage(MessageReference messageReference) {
         activeMessage = messageReference;
 
         // Reload message list with modified query that always includes the active message
+        //使用始终包含活动消息的修改查询重新加载消息列表
         if (isAdded()) {
             restartLoader();
         }

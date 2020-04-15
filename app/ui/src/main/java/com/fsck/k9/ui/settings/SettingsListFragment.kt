@@ -18,6 +18,11 @@ import com.xwray.groupie.kotlinandroidextensions.ViewHolder
 import kotlinx.android.synthetic.main.fragment_settings_list.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
+
+    /**
+     * 设置fragment
+     * 抽屉底部
+     * */
 class SettingsListFragment : Fragment() {
     private val viewModel: SettingsViewModel by viewModel()
 
@@ -73,7 +78,7 @@ class SettingsListFragment : Fragment() {
             }
 
             val addAccountActionItem = SettingsActionItem(
-                    getString(R.string.add_account_action),
+                    getString(R.string.add_account_action),//添加账户
                     R.id.action_settingsListScreen_to_addAccountScreen,
                     R.attr.iconSettingsAccountAdd
             )

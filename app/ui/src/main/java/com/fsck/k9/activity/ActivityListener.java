@@ -73,9 +73,9 @@ public class ActivityListener extends SimpleMessagingListener {
             String displayName;
             if (account != null) {
                 if (folderServerId.equals(account.getInboxFolder())) {
-                    displayName = context.getString(R.string.special_mailbox_name_inbox);
+                    displayName = context.getString(R.string.special_mailbox_name_inbox);//收件箱
                 } else if (folderServerId.equals(account.getOutboxFolder())) {
-                    displayName = context.getString(R.string.special_mailbox_name_outbox);
+                    displayName = context.getString(R.string.special_mailbox_name_outbox);//发件箱
                 } else {
                     displayName = folderName;
                 }
@@ -84,16 +84,16 @@ public class ActivityListener extends SimpleMessagingListener {
             }
 
             if (loadingHeaderFolderServerId != null) {
-                return context.getString(R.string.status_loading_account_folder_headers,
+                return context.getString(R.string.status_loading_account_folder_headers,//正在接收邮件头:
                         loadingAccountDescription, displayName, progress);
             } else {
-                return context.getString(R.string.status_loading_account_folder,
+                return context.getString(R.string.status_loading_account_folder,//正在接收
                         loadingAccountDescription, displayName, progress);
             }
         } else if (sendingAccountDescription != null) {
-            return context.getString(R.string.status_sending_account, sendingAccountDescription, progress);
+            return context.getString(R.string.status_sending_account, sendingAccountDescription, progress);//正在发送
         } else if (processingAccountDescription != null) {
-            return context.getString(R.string.status_processing_account, processingAccountDescription,
+            return context.getString(R.string.status_processing_account, processingAccountDescription,//正在处理
                     processingCommandTitle != null ? processingCommandTitle : "", progress);
         } else {
             return "";

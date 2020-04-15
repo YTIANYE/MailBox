@@ -533,9 +533,9 @@ public class AccountSetupCheckSettings extends K9Activity implements OnClickList
             String sentFolderInternalId = "Sent";
             String trashFolderInternalId = "Trash";
 
-            localStore.createLocalFolder(draftsFolderInternalId, getString(R.string.special_mailbox_name_drafts));
-            localStore.createLocalFolder(sentFolderInternalId, getString(R.string.special_mailbox_name_sent));
-            localStore.createLocalFolder(trashFolderInternalId, getString(R.string.special_mailbox_name_trash));
+            localStore.createLocalFolder(draftsFolderInternalId, getString(R.string.special_mailbox_name_drafts));//草稿箱
+            localStore.createLocalFolder(sentFolderInternalId, getString(R.string.special_mailbox_name_sent));//已发送
+            localStore.createLocalFolder(trashFolderInternalId, getString(R.string.special_mailbox_name_trash));//垃圾箱
 
             account.setDraftsFolder(draftsFolderInternalId, SpecialFolderSelection.MANUAL);
             account.setSentFolder(sentFolderInternalId, SpecialFolderSelection.MANUAL);

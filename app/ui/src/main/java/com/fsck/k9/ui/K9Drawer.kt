@@ -70,7 +70,7 @@ class K9Drawer(private val parent: MessageList, savedInstanceState: Bundle?) : K
         get() = drawer.isDrawerOpen
 
     init {
-        accountHeader = buildAccountHeader()
+        accountHeader = buildAccountHeader()//创建账户头
 
         drawer = DrawerBuilder()
                 .withActivity(parent)
@@ -83,16 +83,22 @@ class K9Drawer(private val parent: MessageList, savedInstanceState: Bundle?) : K
         addFooterItems()
     }
 
+
+    /**
+     * 创建账户头
+     * 位于抽屉顶部
+     *
+     * */
     private fun buildAccountHeader(): AccountHeader {
         val headerBuilder = AccountHeaderBuilder()
                 .withActivity(parent)
-                .withHeaderBackground(R.drawable.drawer_header_background)
+                .withHeaderBackground(R.drawable.drawer_header_background)//抽屉 上部背景图
 
         if (!K9.isHideSpecialAccounts) {
             headerBuilder.addProfiles(ProfileDrawerItem()
                     .withNameShown(true)
-                    .withName(R.string.integrated_inbox_title)
-                    .withEmail(parent.getString(R.string.integrated_inbox_detail))
+                    .withName(R.string.integrated_inbox_title)//全局收件箱
+                    .withEmail(parent.getString(R.string.integrated_inbox_detail))//全局收件箱中的所有邮件
                     .withIcon(IconicsDrawable(parent, FontAwesome.Icon.faw_users)
                             .colorRes(R.color.material_drawer_background)
                             .backgroundColor(IconicsColor.colorInt(Color.GRAY))
@@ -134,10 +140,10 @@ class K9Drawer(private val parent: MessageList, savedInstanceState: Bundle?) : K
         return headerBuilder
                 .withOnAccountHeaderListener(object : AccountHeader.OnAccountHeaderListener {
                     override fun onProfileChanged(view: View?, profile: IProfile<*>, current: Boolean): Boolean {
-                        if (profile.identifier == DRAWER_ID_UNIFIED_INBOX) {
+                        if (profile.identifier == DRAWER_ID_UNIFIED_INBOX) {//全局收件箱
                             parent.openUnifiedInbox()
                             return false
-                        } else {
+                        } else {    //其他收件箱
                             val account = (profile as ProfileDrawerItem).tag as Account
                             parent.openRealAccount(account)
                             updateUserAccountsAndFolders(account)
@@ -148,19 +154,27 @@ class K9Drawer(private val parent: MessageList, savedInstanceState: Bundle?) : K
                 .build()
     }
 
+    /**
+     * 抽屉 底部选项
+     * 添加管理文件夹和设置选项
+     *
+     * */
+
     private fun addFooterItems() {
-        if (!unifiedInboxSelected) {
+        /*去掉管理文件夹 */
+
+/*        if (!unifiedInboxSelected) {
             drawer.addStickyFooterItem(
                 PrimaryDrawerItem()
-                    .withName(R.string.folders_action)
+                    .withName(R.string.folders_action)//管理文件夹
                     .withIcon(folderIconProvider.iconFolderResId)
                     .withIdentifier(DRAWER_ID_FOLDERS)
                     .withSelectable(false)
             )
-        }
+        }*/
 
         drawer.addStickyFooterItem(PrimaryDrawerItem()
-            .withName(R.string.preferences_action)
+            .withName(R.string.preferences_action)//设置  抽屉底部
             .withIcon(getResId(R.attr.iconActionSettings))
             .withIdentifier(DRAWER_ID_PREFERENCES)
             .withSelectable(false)
@@ -180,6 +194,9 @@ class K9Drawer(private val parent: MessageList, savedInstanceState: Bundle?) : K
         return folderNameFormatter.displayName(folder)
     }
 
+    /**
+     * 更新账户和文件夹
+     * */
     fun updateUserAccountsAndFolders(account: Account?) {
         if (account == null) {
             selectUnifiedInbox()
@@ -200,7 +217,7 @@ class K9Drawer(private val parent: MessageList, savedInstanceState: Bundle?) : K
                 observe(parent, foldersObserver)
             }
 
-            updateFooterItems()
+            updateFooterItems()     //更新底部
         }
     }
 
@@ -209,17 +226,21 @@ class K9Drawer(private val parent: MessageList, savedInstanceState: Bundle?) : K
         foldersLiveData = null
     }
 
+
+    /**
+     * 抽屉 更新底部
+     * */
     private fun updateFooterItems() {
         drawer.removeAllStickyFooterItems()
-        addFooterItems()
+        addFooterItems()    //添加管理文件夹和 设置
     }
 
     private fun createItemClickListener(): OnDrawerItemClickListener {
         return object : OnDrawerItemClickListener {
             override fun onItemClick(view: View?, position: Int, drawerItem: IDrawerItem<*>): Boolean {
                 when (drawerItem.identifier) {
-                    DRAWER_ID_PREFERENCES -> SettingsActivity.launch(parent)
-                    DRAWER_ID_FOLDERS -> parent.launchManageFoldersScreen()
+                    DRAWER_ID_PREFERENCES -> SettingsActivity.launch(parent)//进入设置活动
+                    DRAWER_ID_FOLDERS -> parent.launchManageFoldersScreen()//进入管理文件夹活动
                     else -> {
                         val folder = drawerItem.tag as Folder
                         parent.openFolder(folder.serverId)
@@ -230,6 +251,10 @@ class K9Drawer(private val parent: MessageList, savedInstanceState: Bundle?) : K
         }
     }
 
+
+    /**
+     * 设置用户的文件夹
+     */
     private fun setUserFolders(folders: List<DisplayFolder>?) {
         clearUserFolders()
 
@@ -277,14 +302,14 @@ class K9Drawer(private val parent: MessageList, savedInstanceState: Bundle?) : K
     fun selectFolder(folderServerId: String) {
         unifiedInboxSelected = false
         openedFolderServerId = folderServerId
-        for (drawerId in userFolderDrawerIds) {
+        for (drawerId in userFolderDrawerIds) {     //设置文件夹
             val folder = drawer.getDrawerItem(drawerId)!!.tag as Folder
             if (folder.serverId == folderServerId) {
                 drawer.setSelection(drawerId, false)
                 return
             }
         }
-        updateFooterItems()
+        updateFooterItems()//更新抽屉底部选项
     }
 
     fun deselect() {
@@ -293,16 +318,20 @@ class K9Drawer(private val parent: MessageList, savedInstanceState: Bundle?) : K
         drawer.deselect()
     }
 
+
+    /**
+     * 文件夹设置
+     * */
     fun selectUnifiedInbox() {
         unifiedInboxSelected = true
         openedFolderServerId = null
         accentColor = 0 // Unified inbox does not have folders, so color does not matter
         selectedColor = 0
-        accountHeader.setActiveProfile(DRAWER_ID_UNIFIED_INBOX)
+        accountHeader.setActiveProfile(DRAWER_ID_UNIFIED_INBOX)//全局收件箱
         accountHeader.headerBackgroundView.setColorFilter(0xFFFFFFFFL.toInt(), PorterDuff.Mode.MULTIPLY)
         removeFoldersObserver()
         clearUserFolders()
-        updateFooterItems()
+        updateFooterItems()     //更新抽屉底部选项
     }
 
     private data class DrawerColors(
@@ -350,8 +379,8 @@ class K9Drawer(private val parent: MessageList, savedInstanceState: Bundle?) : K
         private const val DRAWER_FOLDER_SHIFT: Int = 2
         private const val DRAWER_ACCOUNT_SHIFT: Int = 16
 
-        private const val DRAWER_ID_UNIFIED_INBOX: Long = 0
-        private const val DRAWER_ID_PREFERENCES: Long = 1
-        private const val DRAWER_ID_FOLDERS: Long = 2
+        private const val DRAWER_ID_UNIFIED_INBOX: Long = 0 //全局收件箱
+        private const val DRAWER_ID_PREFERENCES: Long = 1   //设置
+        private const val DRAWER_ID_FOLDERS: Long = 2   //管理文件夹
     }
 }

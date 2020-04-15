@@ -4,20 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_settings"
     app:startDestination="@id/settingsListScreen">
-<!--    导航设置-->
+<!--    设置界面   -->
 
+    <!--欢迎使用 MailBox-->
     <activity
         android:id="@+id/onboardingScreen"
         android:name="com.fsck.k9.ui.onboarding.OnboardingActivity"
         android:label="@string/welcome_message_title"
         tools:layout="@layout/activity_onboarding"/>
 
+    <!--关于-->
     <fragment
         android:id="@+id/aboutScreen"
         android:name="com.fsck.k9.ui.settings.AboutFragment"
         android:label="@string/about_action"
         tools:layout="@layout/fragment_about"/>
 
+    <!--常规设置-->
     <activity
         android:id="@+id/generalSettingsScreen"
         android:name="com.fsck.k9.ui.settings.general.GeneralSettingsActivity"
