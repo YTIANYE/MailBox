@@ -334,7 +334,7 @@ public class MessageList extends K9Activity implements MessageListFragmentListen
     private void findFragments() {
         FragmentManager fragmentManager = getSupportFragmentManager();
         messageListFragment = (MessageListFragment) fragmentManager.findFragmentById(R.id.message_list_container);
-        messageViewFragment = (MessageViewFragment) fragmentManager.findFragmentById(R.id.message_view_container);
+        messageViewFragment = (MessageViewFragment) fragmentManager.findFragmentById(R.id.message_view_container);//显示详细消息内容
 
         if (messageListFragment != null) {
             initializeFromLocalSearch(messageListFragment.getLocalSearch());
@@ -1057,7 +1057,7 @@ public class MessageList extends K9Activity implements MessageListFragmentListen
 
     /**
      * Hide menu items not appropriate for the current context.
-     *
+     *  隐藏不适合当前上下文的菜单项。
      * <p><strong>Note:</strong>
      * Please adjust the comments in {@code res/menu/message_list_option.xml} if you change the
      * visibility of a menu item in this method.
@@ -1066,7 +1066,10 @@ public class MessageList extends K9Activity implements MessageListFragmentListen
      * @param menu
      *         The {@link Menu} instance that should be modified. May be {@code null}; in that case
      *         the method does nothing and immediately returns.
+     *         应该修改的{@link菜单}实例。可以是{@code null};在这种情况下
+     * *    该方法不做任何事，并立即返回。
      */
+
     private void configureMenu(Menu menu) {
         if (menu == null) {
             return;
@@ -1261,14 +1264,14 @@ public class MessageList extends K9Activity implements MessageListFragmentListen
                 messageListFragment.setActiveMessage(messageReference);
             }
 
-            MessageViewFragment fragment = MessageViewFragment.newInstance(messageReference);
+            MessageViewFragment fragment = MessageViewFragment.newInstance(messageReference);//显示详细消息内容
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.message_view_container, fragment);
             messageViewFragment = fragment;
             ft.commit();
 
             if (displayMode != DisplayMode.SPLIT_VIEW) {
-                showMessageView();
+                showMessageView();  //显示详细消息内容
             }
         }
     }

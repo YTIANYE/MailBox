@@ -19,6 +19,7 @@
         app:showAsAction="always"
         android:icon="?attr/iconActionMarkAsUnread"
     />
+    <!--归档-->
     <item
         android:id="@+id/archive"
         android:title="@string/archive_action"
@@ -48,6 +49,7 @@
         app:showAsAction="ifRoom"
         android:icon="?attr/iconActionUnflag"
     />
+    <!--标记为垃圾邮件-->
     <item
         android:id="@+id/spam"
         android:title="@string/spam_action"

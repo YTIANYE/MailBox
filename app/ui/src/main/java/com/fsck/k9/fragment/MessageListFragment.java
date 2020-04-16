@@ -347,12 +347,15 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        if (view == footerView) {
+        if (view == footerView) {   //footerView 最先端加载更多邮件
+            //加载更多消息
             if (currentFolder != null && !search.isManualSearch() && currentFolder.moreMessages) {
 
                 messagingController.loadMoreMessages(account, folderServerId, null);
 
-            } else if (currentFolder != null && isRemoteSearch() &&
+            }
+            //搜索
+            else if (currentFolder != null && isRemoteSearch() &&
                     extraSearchResults != null && extraSearchResults.size() > 0) {
 
                 int numResults = extraSearchResults.size();
@@ -429,6 +432,7 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
     }
 
     @Override
+    /**初始化 view */
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
 
@@ -614,7 +618,7 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
 
         if (singleFolderMode) {
             listView.addFooterView(getFooterView(listView));
-            updateFooterView();
+            updateFooterView(); //更新底部视图
         }
 
         listView.setAdapter(adapter);
@@ -723,6 +727,12 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
         }
     }
 
+    /**
+     * 处理   message_list_fragment
+     * 下拉刷新
+     * @param layout
+     */
+
     private void initializePullToRefresh(View layout) {
         swipeRefreshLayout = layout.findViewById(R.id.swiperefresh);
         listView = layout.findViewById(R.id.message_list);
@@ -753,10 +763,10 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
 
     private void initializeLayout() {
         listView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
-        listView.setLongClickable(true);
+        listView.setLongClickable(true);    //可以长按
         listView.setFastScrollEnabled(true);
         listView.setScrollingCacheEnabled(false);
-        listView.setOnItemClickListener(this);
+        listView.setOnItemClickListener(this);  // 点击item
 
         registerForContextMenu(listView);
     }
@@ -773,10 +783,11 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
         }
     }
 
+    /** 回复*/
     private void onReply(MessageReference messageReference) {
         fragmentListener.onReply(messageReference);
     }
-
+    /**回复全部*/
     private void onReplyAll(MessageReference messageReference) {
         fragmentListener.onReplyAll(messageReference);
     }
@@ -789,10 +800,12 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
         fragmentListener.onForwardAsAttachment(messageReference);
     }
 
+    /** 重新发送*/
     private void onResendMessage(MessageReference messageReference) {
         fragmentListener.onResendMessage(messageReference);
     }
 
+    /**更改用于消息列表的排序类型和排序顺序。*/
     public void changeSort(SortType sortType) {
         Boolean sortAscending = (this.sortType == sortType) ? !this.sortAscending : null;
         changeSort(sortType, sortAscending);
@@ -800,6 +813,7 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
 
     /**
      * User has requested a remote search.  Setup the bundle and start the intent.
+     * 用户请求远程搜索。设置bundle并启动intent。
      */
     private void onRemoteSearchRequested() {
         String searchAccount;
@@ -821,6 +835,7 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
 
     /**
      * Change the sort type and sort order used for the message list.
+     * 更改用于消息列表的排序类型和排序顺序。
      *
      * @param sortType
      *         Specifies which field to use for sorting the message list.
@@ -993,11 +1008,11 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
             fragment = ConfirmationDialogFragment.newInstance(dialogId, title, message,
                     confirmText, cancelText);
         } else if (dialogId == R.id.dialog_confirm_delete) {
-            String title = getString(R.string.dialog_confirm_delete_title);
+            String title = getString(R.string.dialog_confirm_delete_title);//删除确认
 
             int selectionSize = activeMessages.size();
             String message = getResources().getQuantityString(
-                    R.plurals.dialog_confirm_delete_messages, selectionSize,
+                    R.plurals.dialog_confirm_delete_messages, selectionSize,    //您确定要删除  条消息吗?
                     selectionSize);
 
             String confirmText = getString(R.string.dialog_confirm_delete_confirm_button);
@@ -1006,8 +1021,8 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
             fragment = ConfirmationDialogFragment.newInstance(dialogId, title, message,
                     confirmText, cancelText);
         } else if (dialogId == R.id.dialog_confirm_mark_all_as_read) {
-            String title = getString(R.string.dialog_confirm_mark_all_as_read_title);
-            String message = getString(R.string.dialog_confirm_mark_all_as_read_message);
+            String title = getString(R.string.dialog_confirm_mark_all_as_read_title);//确认标为已读
+            String message = getString(R.string.dialog_confirm_mark_all_as_read_message);//要标记所有邮件为已读吗？
 
             String confirmText = getString(R.string.dialog_confirm_mark_all_as_read_confirm_button);
             String cancelText = getString(R.string.dialog_confirm_mark_all_as_read_cancel_button);
@@ -1015,7 +1030,7 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
             fragment = ConfirmationDialogFragment.newInstance(dialogId, title, message, confirmText, cancelText);
         } else if (dialogId == R.id.dialog_confirm_empty_trash) {
             String title = getString(R.string.dialog_confirm_empty_trash_title);
-            String message = getString(R.string.dialog_confirm_empty_trash_message);
+            String message = getString(R.string.dialog_confirm_empty_trash_message);//你想清空垃圾邮件夹吗？
 
             String confirmText = getString(R.string.dialog_confirm_delete_confirm_button);
             String cancelText = getString(R.string.dialog_confirm_delete_cancel_button);
@@ -1034,6 +1049,7 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
         return "dialog-" + dialogId;
     }
 
+    /** 排序方式 全选   点击后的操作*/
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -1069,10 +1085,10 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
             return false;
         }
 
-        if (id == R.id.send_messages) {
+        if (id == R.id.send_messages) { //发送邮件
             onSendPendingMessages();
             return true;
-        } else if (id == R.id.expunge) {
+        } else if (id == R.id.expunge) {    //擦除
             if (currentFolder != null) {
                 onExpunge(account, currentFolder.serverId);
             }
@@ -1082,6 +1098,7 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
         }
     }
 
+    //尝试发送发件箱中的任何消息。
     public void onSendPendingMessages() {
         messagingController.sendPendingMessages(account, null);
     }
@@ -1104,33 +1121,41 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
 
         /*长按某一个消息item时  弹出的选项*/
         int id = item.getItemId();
-        if (id == R.id.deselect || id == R.id.select) {
+        //选择 取消选择
+/*        if (id == R.id.deselect || id == R.id.select) {
             toggleMessageSelectWithAdapterPosition(adapterPosition);
-        } else if (id == R.id.reply) {
+        } else */if (id == R.id.reply) {
             onReply(getMessageAtPosition(adapterPosition));
-        } else if (id == R.id.reply_all) {
+        }
+        /*else if (id == R.id.reply_all) {  //回复全部
             onReplyAll(getMessageAtPosition(adapterPosition));
-        } else if (id == R.id.forward) {
+        } */
+        else if (id == R.id.forward) {
             onForward(getMessageAtPosition(adapterPosition));
-        } else if (id == R.id.forward_as_attachment) {
+        } /*else if (id == R.id.forward_as_attachment) {    //转发为附件
             onForwardAsAttachment(getMessageAtPosition(adapterPosition));
-        } else if (id == R.id.send_again) {
+        }*/
+            /*else if (id == R.id.send_again) {     //重新发送
             onResendMessage(getMessageAtPosition(adapterPosition));
             selectedCount = 0;
-        } else if (id == R.id.same_sender) {
+        }*/
+        /*else if (id == R.id.same_sender) {    //来自这个发件人的更多邮件
             Cursor cursor = (Cursor) adapter.getItem(adapterPosition);
             String senderAddress = MlfUtils.getSenderAddressFromCursor(cursor);
             if (senderAddress != null) {
                 fragmentListener.showMoreFromSameSender(senderAddress);
             }
-        } else if (id == R.id.delete) {
+        } */
+        else if (id == R.id.delete) { //删除
             MessageReference message = getMessageAtPosition(adapterPosition);
             onDelete(message);
         } else if (id == R.id.mark_as_read) {
             setFlag(adapterPosition, Flag.SEEN, true);
         } else if (id == R.id.mark_as_unread) {
             setFlag(adapterPosition, Flag.SEEN, false);
-        } else if (id == R.id.flag) {
+        }
+        //添加星标 移除星标
+        else if (id == R.id.flag) {
             setFlag(adapterPosition, Flag.FLAGGED, true);
         } else if (id == R.id.unflag) {
             setFlag(adapterPosition, Flag.FLAGGED, false);
@@ -1142,14 +1167,18 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
             onMove(getMessageAtPosition(adapterPosition));
         } else if (id == R.id.copy) {
             onCopy(getMessageAtPosition(adapterPosition));
-        } else if (id == R.id.debug_delete_locally) {       // debug options
+        } /*else if (id == R.id.debug_delete_locally) {       // 调试/删除消息正文
             onDebugClearLocally(getMessageAtPosition(adapterPosition));
-        }
+        }*/
 
         contextMenuUniqueId = 0;
         return true;
     }
 
+
+    /***
+     * 创建长按 消息 item 后的操作菜单
+     * */
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
@@ -1162,7 +1191,7 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
         }
 
         getActivity().getMenuInflater().inflate(R.menu.message_list_item_context, menu);
-        menu.findItem(R.id.debug_delete_locally).setVisible(K9.DEVELOPER_MODE);
+        //menu.findItem(R.id.debug_delete_locally).setVisible(K9.DEVELOPER_MODE); //调试/删除消息正文
 
         contextMenuUniqueId = cursor.getLong(uniqueIdColumn);
         Account account = getAccountFromCursor(cursor);
@@ -1173,20 +1202,20 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
 
         menu.setHeaderTitle(subject);
 
-        if (selected.contains(contextMenuUniqueId)) {
-            menu.findItem(R.id.select).setVisible(false);
+/*        if (selected.contains(contextMenuUniqueId)) {
+            menu.findItem(R.id.select).setVisible(false);//选择
         } else {
-            menu.findItem(R.id.deselect).setVisible(false);
-        }
+            menu.findItem(R.id.deselect).setVisible(false);//取消选择
+        }*/
 
         if (read) {
-            menu.findItem(R.id.mark_as_read).setVisible(false);
+            menu.findItem(R.id.mark_as_read).setVisible(false);//标记为已读
         } else {
             menu.findItem(R.id.mark_as_unread).setVisible(false);
         }
 
         if (flagged) {
-            menu.findItem(R.id.flag).setVisible(false);
+            menu.findItem(R.id.flag).setVisible(false);//添加星标
         } else {
             menu.findItem(R.id.unflag).setVisible(false);
         }
@@ -1195,10 +1224,10 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
             menu.findItem(R.id.copy).setVisible(false);
         }
 
-        if (!messagingController.isMoveCapable(account)) {
-            menu.findItem(R.id.move).setVisible(false);
-            menu.findItem(R.id.archive).setVisible(false);
-            menu.findItem(R.id.spam).setVisible(false);
+        if (!messagingController.isMoveCapable(account)) {//默认的应该是不可以移动
+            menu.findItem(R.id.move).setVisible(false);//移动
+            menu.findItem(R.id.archive).setVisible(false);//归档
+            menu.findItem(R.id.spam).setVisible(false);//标记为垃圾邮件
         }
 
         if (!account.hasArchiveFolder()) {
@@ -1223,7 +1252,7 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
 
     /**
      * Handle a select or unselect swipe event.
-     *
+     *处理选择或取消选择滑动事件。
      * @param downMotion
      *         Event that started the swipe
      * @param selected
@@ -1607,6 +1636,11 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
         computeBatchDirection();
     }
 
+    /**
+     * 对选中的设置星标
+     * @param flag
+     * @param newState
+     */
     private void setFlagForSelected(final Flag flag, final boolean newState) {
         if (selected.isEmpty()) {
             return;
@@ -1746,6 +1780,7 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
         startActivityForResult(intent, requestCode);
     }
 
+    /** 归档*/
     private void onArchive(MessageReference message) {
         onArchive(Collections.singletonList(message));
     }
@@ -1785,7 +1820,7 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
 
     /**
      * Move messages to the spam folder.
-     *
+     *  移动到垃圾箱
      * @param messages
      *         The messages to move to the spam folder. Never {@code null}.
      */
@@ -2090,6 +2125,10 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
             }
         }
 
+        /**
+         * 点击item时的相应操作
+         * */
+
         @Override
         public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
             /*
@@ -2117,7 +2156,7 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
             } else if (id == R.id.archive) {    // only if the account supports this
                 onArchive(getCheckedMessages());
                 selectedCount = 0;
-            } else if (id == R.id.spam) {
+            } else if (id == R.id.spam) {   //移动到垃圾箱
                 onSpam(getCheckedMessages());
                 selectedCount = 0;
             } else if (id == R.id.move) {
@@ -2220,6 +2259,7 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
         super.onStop();
     }
 
+    /** 全选*/
     public void selectAll() {
         setSelectionState(true);
     }
@@ -2475,7 +2515,7 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
         if (hasConnectivity) {
             onRemoteSearchRequested();
         } else {
-            Toast.makeText(getActivity(), getText(R.string.remote_search_unavailable_no_network),
+            Toast.makeText(getActivity(), getText(R.string.remote_search_unavailable_no_network),//服务器搜索需要网络连接
                     Toast.LENGTH_SHORT).show();
         }
     }

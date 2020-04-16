@@ -1,26 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <!--长按某一个消息item时的选项-->
-     <item
+
+    <!--//选择-->
+    <!--取消选择-->
+<!--     <item
         android:id="@+id/select"
         android:title="@string/select_action"/>
+
     <item android:id="@+id/deselect"
-          android:title="@string/deselect_action"/><!--取消选择-->
-    <item
+          android:title="@string/deselect_action"/>-->
+
+
+    <!--回复全部-->
+<!--    <item
          android:id="@+id/reply_all"
-         android:title="@string/reply_all_action"/><!--回复全部-->
+         android:title="@string/reply_all_action"/>-->
+
      <item
          android:id="@+id/reply"
          android:title="@string/reply_action"/>
-     <item
+
+    <!--重新发送-->
+<!--     <item
          android:id="@+id/send_again"
-         android:title="@string/send_again_action"/>
+         android:title="@string/send_again_action"/>-->
+
      <item
          android:id="@+id/forward"
          android:title="@string/forward_action"/>
-     <item
+
+    <!--转发为附件-->
+<!--     <item
          android:id="@+id/forward_as_attachment"
-         android:title="@string/forward_as_attachment_action"/>
+         android:title="@string/forward_as_attachment_action"/>-->
     <item
         android:id="@+id/delete"
         android:title="@string/delete_action"
@@ -45,23 +58,30 @@
         android:id="@+id/copy"
         android:title="@string/copy_action"
     />
+
+    <!--添加星标-->
     <item
         android:id="@+id/flag"
         android:title="@string/flag_action"
     />
+    <!--移除星标-->
     <item
         android:id="@+id/unflag"
         android:title="@string/unflag_action"
     />
+
+    <!--标记为垃圾邮件-->
     <item
         android:id="@+id/spam"
         android:title="@string/spam_action"
     />
-    <item
+    <!--来自这个发件人的更多邮件-->
+<!--    <item
         android:id="@+id/same_sender"
-        android:title="@string/from_same_sender" /><!--来自这个发件人的更多邮件-->
-    <item
+        android:title="@string/from_same_sender" />-->
+<!--    <item
         android:id="@+id/debug_delete_locally"
         android:title="@string/debug_delete_local_body"
-        /><!--调试/删除消息正文-->
+        />-->
+    <!--调试/删除消息正文-->
 </menu>

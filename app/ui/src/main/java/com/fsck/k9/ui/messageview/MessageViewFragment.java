@@ -56,6 +56,9 @@ import java.util.Locale;
 
 import timber.log.Timber;
 
+/**
+ * 显示具体消息内容的 view
+ */
 
 public class MessageViewFragment extends Fragment implements ConfirmationDialogFragmentListener,
         AttachmentViewCallback, OnClickShowCryptoKeyListener {

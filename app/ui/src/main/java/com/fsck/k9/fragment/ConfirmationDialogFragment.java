@@ -12,6 +12,9 @@ import androidx.fragment.app.DialogFragment;
 
 import timber.log.Timber;
 
+/**
+ * 确认dialogFragment
+ * */
 public class ConfirmationDialogFragment extends DialogFragment implements OnClickListener,
         OnCancelListener {
     private ConfirmationDialogFragmentListener mListener;

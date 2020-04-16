@@ -662,6 +662,10 @@ public class MessagingController {
         }
     }
 
+    /**
+     * 加载更多消息
+     * */
+
 
     public void loadMoreMessages(Account account, String folder, MessagingListener listener) {
         try {
@@ -1499,6 +1503,7 @@ public class MessagingController {
 
     /**
      * Attempt to send any messages that are sitting in the Outbox.
+     * 尝试发送发件箱中的任何消息。
      */
     public void sendPendingMessages(final Account account,
             MessagingListener listener) {
