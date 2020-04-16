@@ -37,7 +37,8 @@ class AccountSetupAccountType : K9Activity() {
         decodeArguments()
         Log.d("debugLog", "LOG_AccountSetupAccountType")
         Log.d("debugLog", "LOG_AccountSetupAccountType")
-        findViewById<View>(R.id.pop).setOnClickListener { setupPop3Account() }
+        setupPop3Account()  //去掉按钮触发   直接设置为POP3
+        //findViewById<View>(R.id.pop).setOnClickListener { setupPop3Account() }
         //findViewById<View>(R.id.imap).setOnClickListener { setupImapAccount() }
     }
 
@@ -87,6 +88,7 @@ class AccountSetupAccountType : K9Activity() {
         account.transportUri = transportUri.toString()
     }
 
+    //收件服务器设置 活动的入口
     private fun returnAccountTypeSelectionResult() {
         AccountSetupIncoming.actionIncomingSettings(this, account, makeDefault)     //收件服务器设置 活动的入口
         finish()
