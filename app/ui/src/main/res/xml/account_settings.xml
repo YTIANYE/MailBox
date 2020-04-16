@@ -9,35 +9,48 @@
     android:key="main"
     android:title="@string/account_settings_title_fmt"><!--通用设置    即    用户设置 -->
 
+    <!--用户名 -->
+    <com.takisoft.preferencex.AutoSummaryEditTextPreference
+        android:dialogTitle="@string/account_settings_description_label"
+        android:key="account_description"
+        android:title="@string/account_settings_description_label" />
+
+    <!--账户颜色 -->
+    <com.takisoft.preferencex.ColorPickerPreference
+        android:key="chip_color"
+        android:summary="@string/account_settings_color_summary"
+        android:title="@string/account_settings_color_label"
+        app:pref_colors="@array/account_colors" />
+
     <!--通用设置下的 常规设置-->
-    <PreferenceScreen
+<!--    <PreferenceScreen
         android:icon="?attr/iconSettingsGeneral"
         android:key="account_settings"
         android:title="@string/account_settings_general_title">
 
-        <!--用户名 -->
+        &lt;!&ndash;用户名 &ndash;&gt;
         <com.takisoft.preferencex.AutoSummaryEditTextPreference
             android:dialogTitle="@string/account_settings_description_label"
             android:key="account_description"
             android:title="@string/account_settings_description_label" />
 
-        <!--默认用户 -->
+        &lt;!&ndash;默认用户 &ndash;&gt;
         <CheckBoxPreference
             android:key="account_default"
             android:summary="@string/account_settings_default_summary"
             android:title="@string/account_settings_default_label" />
 
-        <!--账户颜色 -->
+        &lt;!&ndash;账户颜色 &ndash;&gt;
         <com.takisoft.preferencex.ColorPickerPreference
             android:key="chip_color"
             android:summary="@string/account_settings_color_summary"
             android:title="@string/account_settings_color_label"
             app:pref_colors="@array/account_colors" />
 
-    </PreferenceScreen>
+    </PreferenceScreen>-->
 
     <!--阅读邮件-->
-    <PreferenceScreen
+<!--    <PreferenceScreen
         android:icon="?attr/iconPreferencesReadMail"
         android:key="reading_mail"
         android:title="@string/account_settings_reading_mail">
@@ -55,10 +68,10 @@
             android:summary="@string/account_settings_mark_message_as_read_on_view_summary"
             android:title="@string/account_settings_mark_message_as_read_on_view_label" />
 
-    </PreferenceScreen>
+    </PreferenceScreen>-->
 
     <!--接收邮件-->
-    <PreferenceScreen
+<!--    <PreferenceScreen
         android:icon="?attr/iconPreferencesFetchMail"
         android:key="incoming_prefs"
         android:title="@string/account_settings_sync">
@@ -103,7 +116,7 @@
             android:summary="%s"
             android:title="@string/account_settings_folder_sync_mode_label" />
 
-        <!-- Temporarily disabled. See GH-4253
+        &lt;!&ndash; Temporarily disabled. See GH-4253
         <ListPreference
             android:dialogTitle="@string/account_settings_folder_push_mode_label"
             android:entries="@array/folder_push_mode_entries"
@@ -111,7 +124,7 @@
             android:key="folder_push_mode"
             android:summary="%s"
             android:title="@string/account_settings_folder_push_mode_label" />
-        -->
+        &ndash;&gt;
 
         <CheckBoxPreference
             android:defaultValue="true"
@@ -140,7 +153,7 @@
             android:summary="@string/account_settings_incoming_summary"
             android:title="@string/account_settings_incoming_label" />
 
-        <!-- Temporarily disabled. See GH-4253
+        &lt;!&ndash; Temporarily disabled. See GH-4253
         <PreferenceScreen
             android:key="push_advanced"
             android:title="@string/account_settings_push_advanced_title">
@@ -164,12 +177,12 @@
                 android:title="@string/idle_refresh_period_label" />
 
         </PreferenceScreen>
-        -->
+        &ndash;&gt;
 
-    </PreferenceScreen>
+    </PreferenceScreen>-->
 
     <!--发送邮件-->
-    <PreferenceScreen
+<!--    <PreferenceScreen
         android:icon="?attr/iconPreferencesCompose"
         android:key="composing"
         android:title="@string/account_settings_composition">
@@ -243,10 +256,10 @@
             android:summary="@string/account_settings_outgoing_summary"
             android:title="@string/account_settings_outgoing_label" />
 
-    </PreferenceScreen>
+    </PreferenceScreen>-->
 
     <!--文件夹-->
-    <PreferenceScreen
+<!--    <PreferenceScreen
         android:icon="?attr/iconPreferencesFolders"
         android:key="folders"
         android:title="@string/account_settings_folders">
@@ -305,10 +318,10 @@
             android:summary="%s"
             android:title="@string/trash_folder_label" />
 
-    </PreferenceScreen>
+    </PreferenceScreen>-->
 
     <!--通知-->
-    <PreferenceScreen
+<!--    <PreferenceScreen
         android:icon="?attr/iconPreferencesNotifications"
         android:key="notifications"
         android:title="@string/notifications_title">
@@ -408,10 +421,10 @@
             android:summary="@string/account_settings_notification_open_system_notifications_summary"
             android:title="@string/account_settings_notification_open_system_notifications_label" />
 
-    </PreferenceScreen>
+    </PreferenceScreen>-->
 
     <!--搜索-->
-    <PreferenceScreen
+<!--    <PreferenceScreen
         android:icon="?attr/iconPreferencesSearch"
         android:key="search"
         android:title="@string/account_settings_search">
@@ -430,10 +443,10 @@
             android:summary="%s"
             android:title="@string/account_settings_remote_search_num_label" />
 
-    </PreferenceScreen>
+    </PreferenceScreen>-->
 
     <!--端到端加密-->
-    <PreferenceScreen
+<!--    <PreferenceScreen
         android:icon="?attr/iconPreferencesCrypto"
         android:key="openpgp"
         android:title="@string/account_settings_crypto">
@@ -481,6 +494,6 @@
             android:summary="@string/ac_transfer_setting_summary"
             android:title="@string/ac_transfer_setting_title" />
 
-    </PreferenceScreen>
+    </PreferenceScreen>-->
 
 </PreferenceScreen>

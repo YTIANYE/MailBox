@@ -326,6 +326,9 @@ class AccountSettingsFragment : PreferenceFragmentCompat(), ConfirmationDialogFr
         return viewModel.getAccountBlocking(accountUuid)
     }
 
+    /**
+    *   右上键 移除账户
+    * */
     private fun onDeleteAccount() {
         val dialogFragment = ConfirmationDialogFragment.newInstance(
                 DIALOG_DELETE_ACCOUNT,
