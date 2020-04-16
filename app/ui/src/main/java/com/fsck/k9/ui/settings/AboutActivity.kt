@@ -28,7 +28,7 @@ class AboutFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         version.text = getVersionNumber()
-        versionLayout.setOnClickListener { displayChangeLog() }
+        //versionLayout.setOnClickListener { displayChangeLog() }
 
         val year = Integer.toString(Calendar.getInstance().get(Calendar.YEAR))
         copyright.text = getString(R.string.app_copyright_fmt, year, year)
@@ -45,7 +45,7 @@ class AboutFragment : Fragment() {
             startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.app_source_url))))
         }
 
-        changelog.setOnClickListener { displayChangeLog() }
+        //changelog.setOnClickListener { displayChangeLog() }
 
         revisions.setOnClickListener {
             startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.app_revision_url))))
@@ -61,7 +61,7 @@ class AboutFragment : Fragment() {
     }
 
     private fun displayChangeLog() {
-        ChangeLog(requireActivity()).fullLogDialog.show()
+        //ChangeLog(requireActivity()).fullLogDialog.show()
     }
 
     private fun getVersionNumber(): String {
