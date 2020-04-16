@@ -101,6 +101,9 @@ public class AccountSetupOptions extends K9Activity implements OnClickListener {
                                             .getAutomaticCheckIntervalMinutes());
         SpinnerOption.setSpinnerOptionValue(mDisplayCountView, mAccount
                                             .getDisplayCount());
+
+
+        onDone();   //直接默认的账户选项  跳过设置阶段
     }
 
     private void onDone() {

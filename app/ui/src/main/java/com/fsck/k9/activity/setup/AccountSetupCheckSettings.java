@@ -109,9 +109,9 @@ public class AccountSetupCheckSettings extends K9Activity implements OnClickList
         setLayout(R.layout.account_setup_check_settings);
         mMessageView = findViewById(R.id.message);
         mProgressBar = findViewById(R.id.progress);
-        findViewById(R.id.cancel).setOnClickListener(this);
+        //findViewById(R.id.cancel).setOnClickListener(this);   //去掉底部取消按钮
 
-        setMessage(R.string.account_setup_check_settings_retr_info_msg);
+        setMessage(R.string.account_setup_check_settings_retr_info_msg);//正在获取账户信息\u2026
         mProgressBar.setIndeterminate(true);
 
         String accountUuid = getIntent().getStringExtra(EXTRA_ACCOUNT);
@@ -146,7 +146,7 @@ public class AccountSetupCheckSettings extends K9Activity implements OnClickList
     }
 
     private void setMessage(final int resId) {
-        mMessageView.setText(getString(resId));
+        mMessageView.setText(getString(resId));// 不设置提示文字
     }
 
     private void acceptKeyDialog(final int msgResId, final CertificateValidationException ex) {

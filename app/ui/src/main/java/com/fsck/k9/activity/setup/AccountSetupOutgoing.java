@@ -221,6 +221,8 @@ public class AccountSetupOutgoing extends K9Activity implements OnClickListener,
             failure(e);
         }
 
+        onNext();   //跳过发件服务器设置界面  选择默认设置
+
     }
 
     /**

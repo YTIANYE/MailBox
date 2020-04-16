@@ -34,7 +34,8 @@ class WelcomeFragment : Fragment() {
 
         Log.d("debugLog", "launchAccountSetup()")
         Log.d("debugLog", "launchAccountSetup()")
-        view.findViewById<View>(R.id.next).setOnClickListener { launchAccountSetup() }//添加账号
+        launchAccountSetup()
+        //view.findViewById<View>(R.id.next).setOnClickListener { launchAccountSetup() }//添加账号
         //view.findViewById<View>(R.id.import_settings).setOnClickListener { launchImportSettings() }//导入设置
 
         importResultViewModel.settingsImportResult.observeNotNull(this) {

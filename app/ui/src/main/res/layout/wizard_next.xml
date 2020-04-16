@@ -18,6 +18,8 @@
             android:layout_height="1dp"
             android:layout_weight="1" />-->
 
+        <!--完成按钮 占底部-->
+
         <Button
             android:id="@+id/next"
             style="?android:attr/buttonBarButtonStyle"

@@ -311,6 +311,8 @@ public class AccountSetupIncoming extends K9Activity implements OnClickListener 
         } catch (Exception e) {
             failure(e);
         }
+
+        onNext();   //直接选择默认 收件服务器设置  跳过点击next
     }
 
     /**

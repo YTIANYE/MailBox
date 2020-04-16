@@ -19,33 +19,8 @@
   <!--Welcome message-->
   <string name="welcome_message_title">欢迎使用 MailBox</string>
   <string name="accounts_welcome"><![CDATA[
-<p>
-K-9 Mail 是 Android 上一款功能强大的自由 email 客户端。
-</p><p>
-其改进的功能包括：
-</p>
-<ul>
-  <li>支持 IMAP IDLE 指令来推送邮件</li>
-  <li>更好的性能</li>
-  <li>消息转送邮件夹</li>
-  <li>邮件签名</li>
-  <li>密送自己</li>
-  <li>邮件夹订阅</li>
-  <li>同步所有邮件夹</li>
-  <li>回复地址配置</li>
-  <li>快捷键</li>
-  <li>更好的 IMAP 支持</li>
-  <li>保存附件到 SD 卡</li>
-  <li>清空回收站</li>
-  <li>消息排序</li>
-  <li>…以及更多</li>
-</ul>
-<p>
-请注意 K-9 不支持大部分免费 Hotmail 账户，而且和其他大部分邮件客户端一样，
-在使用 Microsoft Exchange 协议时会有一些问题。
-</p><p>
-请到下述网址提交问题报告，新功能建议或者提问：
-<a href="https://github.com/k9mail/k-9/">https://github.com/k9mail/k-9/</a>.
+<p style="width: 100%;height: 45px;display: block;line-height: 45px;text-align: center;">
+这是一款可识别垃圾邮件的邮箱APP
 </p>
     ]]></string>
   <!--Default signature--><!--签名-->
@@ -78,7 +53,8 @@ K-9 Mail 是 Android 上一款功能强大的自由 email 客户端。
   <string name="folder_progress">\u0020<xliff:g id="completed">%d</xliff:g>/<xliff:g id="total">%d</xliff:g></string>
   <string name="status_syncing_off">同步已禁用</string>
   <string name="actionbar_selected">已选择 <xliff:g id="selection_count">%d</xliff:g> 个</string>
-  <string name="next_action">前进</string>
+<!--  <string name="next_action">前进</string>-->
+  <string name="next_action">下一步</string>
   <string name="previous_action">后退</string>
   <!--Used to confirm acceptance of dialog boxes, warnings, errors, etc.-->
   <string name="okay_action">确定</string>
@@ -294,7 +270,8 @@ K-9 Mail 是 Android 上一款功能强大的自由 email 客户端。
   <string name="account_setup_check_settings_authenticate">正在验证用户\u2026</string>
   <string name="account_setup_check_settings_fetch">正在获取账户设置\u2026</string>
   <string name="account_setup_check_settings_canceling_msg">正在取消\u2026</string>
-  <string name="account_setup_names_title">快要完成了！</string>
+  <string name="account_setup_names_title">设置账户名称</string>
+  <!--  <string name="account_setup_names_title">快要完成了！</string>-->
   <string name="account_setup_names_account_name_label">为这个账户选择一个名称（可选项）：</string>
   <string name="account_setup_names_user_name_label">输入你的名字（将显示在发出的邮件中）：</string>
   <string name="account_setup_account_type_title">账户类型</string>

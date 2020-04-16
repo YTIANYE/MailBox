@@ -7,6 +7,7 @@
 
     <include layout="@layout/toolbar" />
 
+    <!--正在检查收件发件服务器-->
     <ScrollView
             android:layout_width="fill_parent"
             android:layout_height="0dp"
@@ -33,6 +34,8 @@
                     android:focusable="true"
                     />
 
+            <!--隐藏掉转圈圈-->
+
             <ProgressBar
                     android:id="@+id/progress"
                     android:layout_height="wrap_content"
@@ -42,5 +45,6 @@
         </LinearLayout>
     </ScrollView>
 
-    <include layout="@layout/wizard_cancel"/>
+    <!--取消按钮-->
+<!--    <include layout="@layout/wizard_cancel"/>-->
 </LinearLayout>
