@@ -39,6 +39,11 @@ import org.openintents.openpgp.OpenPgpApiManager
 import org.openintents.openpgp.util.OpenPgpKeyPreference
 import org.openintents.openpgp.util.OpenPgpProviderUtil
 
+
+/**
+ * 用户设置的  fragment
+ *
+ * */
 class AccountSettingsFragment : PreferenceFragmentCompat(), ConfirmationDialogFragmentListener {
     private val viewModel: AccountSettingsViewModel by sharedViewModel()
     private val dataStoreFactory: AccountSettingsDataStoreFactory by inject()
@@ -89,6 +94,9 @@ class AccountSettingsFragment : PreferenceFragmentCompat(), ConfirmationDialogFr
         initializeCryptoSettings(account)
     }
 
+    /**
+     * 右上角 移除账户
+     * */
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.account_settings_option, menu)
@@ -130,6 +138,8 @@ class AccountSettingsFragment : PreferenceFragmentCompat(), ConfirmationDialogFr
         }
     }
 
+
+    /*        <!--界面5 发件服务器设置-->*/
     private fun initializeOutgoingServer() {
         findPreference<Preference>(PREFERENCE_OUTGOING_SERVER)?.onClick {
             AccountSetupOutgoing.actionEditOutgoingSettings(requireActivity(), accountUuid)
@@ -204,7 +214,7 @@ class AccountSettingsFragment : PreferenceFragmentCompat(), ConfirmationDialogFr
         if (isPgpConfigured) {
             pgpProviderName = getOpenPgpProviderName(pgpProvider)
             if (pgpProviderName == null) {
-                Toast.makeText(requireContext(), R.string.account_settings_openpgp_missing, Toast.LENGTH_LONG).show()
+                Toast.makeText(requireContext(), R.string.account_settings_openpgp_missing, Toast.LENGTH_LONG).show()//OpenPGP 应用丢失 - 它已被卸载了吗？
 
                 pgpProvider = null
                 removeOpenPgpProvider(account)
@@ -225,7 +235,7 @@ class AccountSettingsFragment : PreferenceFragmentCompat(), ConfirmationDialogFr
         (findPreference<Preference>(PREFERENCE_OPENPGP_ENABLE) as SwitchPreference).apply {
             if (!isPgpConfigured) {
                 isChecked = false
-                setSummary(R.string.account_settings_crypto_summary_off)
+                setSummary(R.string.account_settings_crypto_summary_off)//未设置 OpenPGP 应用
                 oneTimeClickListener(clickHandled = false) {
                     val context = requireContext().applicationContext
                     val openPgpProviderPackages = OpenPgpProviderUtil.getOpenPgpProviderPackages(context)
@@ -239,7 +249,7 @@ class AccountSettingsFragment : PreferenceFragmentCompat(), ConfirmationDialogFr
                 }
             } else {
                 isChecked = true
-                summary = getString(R.string.account_settings_crypto_summary_on, pgpProviderName)
+                summary = getString(R.string.account_settings_crypto_summary_on, pgpProviderName)//已连接到 %s
                 oneTimeClickListener {
                     removeOpenPgpProvider(account)
                     configureCryptoPreferences(account)

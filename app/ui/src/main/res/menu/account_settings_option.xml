@@ -2,6 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <!--移除账户-->
     <item
         android:id="@+id/delete_account"
         android:title="@string/remove_account_action"

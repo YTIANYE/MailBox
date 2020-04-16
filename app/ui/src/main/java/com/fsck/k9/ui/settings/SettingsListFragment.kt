@@ -149,11 +149,11 @@ class SettingsListFragment : Fragment() {
     }
 
     private fun launchAccountSettings(account: Account) {
-        AccountSettingsActivity.start(requireActivity(), account.uuid)
+        AccountSettingsActivity.start(requireActivity(), account.uuid)  //账户设置活动
     }
 
     private fun launchOnboarding() {
-        findNavController().navigate(R.id.action_settingsListScreen_to_onboardingScreen)
+        findNavController().navigate(R.id.action_settingsListScreen_to_onboardingScreen)    //添加新的账户        设置中
         requireActivity().finish()
     }
 }

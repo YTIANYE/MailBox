@@ -255,6 +255,11 @@
             android:name=".ui.settings.general.GeneralSettingsActivity"
             android:label="@string/general_settings_title" />-->
 
+        <!--通用设置 账户设置-->
+        <activity
+            android:name=".ui.settings.account.AccountSettingsActivity"
+            android:label="@string/account_settings_title_fmt" />
+
         <!---->
         <receiver
             android:name=".service.BootReceiver"

@@ -33,6 +33,7 @@
         android:label="@string/account_setup_basics_title"
         tools:layout="@layout/account_setup_basics"/>
 
+    <!--设置的fragment-->
     <fragment
         android:id="@+id/settingsListScreen"
         android:name="com.fsck.k9.ui.settings.SettingsListFragment"

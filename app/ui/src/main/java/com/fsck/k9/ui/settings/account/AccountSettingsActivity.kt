@@ -19,6 +19,11 @@ import kotlinx.android.synthetic.main.activity_account_settings.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import timber.log.Timber
 
+/**
+ *
+ * 账户设置活动
+ */
+
 @Suppress("PLUGIN_WARNING")
 class AccountSettingsActivity : K9Activity(), OnPreferenceStartScreenCallback {
     private val accountViewModel: AccountSettingsViewModel by viewModel()
@@ -48,7 +53,7 @@ class AccountSettingsActivity : K9Activity(), OnPreferenceStartScreenCallback {
 
         accountSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
-                onAccountSelected(selectedAccountUuid = accountSpinner.selection.uuid)
+                onAccountSelected(selectedAccountUuid = accountSpinner.selection.uuid)  //  设置中点击用户  跳转到用户设置  通用设置
             }
 
             override fun onNothingSelected(parent: AdapterView<*>) = Unit
@@ -59,9 +64,10 @@ class AccountSettingsActivity : K9Activity(), OnPreferenceStartScreenCallback {
         }
     }
 
+    /*用户被选中时   设置中点击用户*/
     private fun onAccountSelected(selectedAccountUuid: String) {
         if (selectedAccountUuid != accountUuid) {
-            start(this, selectedAccountUuid)
+            start(this, selectedAccountUuid)    //启动 设置账户活动
             finish()
         }
     }
@@ -85,6 +91,9 @@ class AccountSettingsActivity : K9Activity(), OnPreferenceStartScreenCallback {
         }
     }
 
+    /**
+     * 添加用户设置的 fragment
+     * */
     private fun addAccountSettingsFragment() {
         val needToAddFragment = supportFragmentManager.findFragmentById(R.id.accountSettingsContainer) == null
         if (needToAddFragment && !fragmentAdded) {
@@ -109,7 +118,7 @@ class AccountSettingsActivity : K9Activity(), OnPreferenceStartScreenCallback {
         preferenceScreen: PreferenceScreen
     ): Boolean {
         fragmentTransactionWithBackStack {
-            replace(R.id.accountSettingsContainer, AccountSettingsFragment.create(accountUuid, preferenceScreen.key))
+            replace(R.id.accountSettingsContainer, AccountSettingsFragment.create(accountUuid, preferenceScreen.key))   //进入用户设置界面
         }
 
         return true
@@ -125,6 +134,7 @@ class AccountSettingsActivity : K9Activity(), OnPreferenceStartScreenCallback {
         private const val ARG_START_SCREEN_KEY = "startScreen"
 
         @JvmStatic
+        //  启动本活动
         fun start(context: Context, accountUuid: String) {
             val intent = Intent(context, AccountSettingsActivity::class.java).apply {
                 putExtra(ARG_ACCOUNT_UUID, accountUuid)
