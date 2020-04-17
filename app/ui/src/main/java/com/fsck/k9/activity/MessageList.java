@@ -1075,6 +1075,9 @@ public class MessageList extends K9Activity implements MessageListFragmentListen
      * *    该方法不做任何事，并立即返回。
      */
 
+    /**
+     * 隐藏不适合当前上下文的菜单项
+     * */
     private void configureMenu(Menu menu) {
         if (menu == null) {
             return;
@@ -1082,6 +1085,7 @@ public class MessageList extends K9Activity implements MessageListFragmentListen
 
         /*
          * Set visibility of menu items related to the message view
+         * 设置与消息视图相关的菜单项的可见性
          */
 
         if (displayMode == DisplayMode.MESSAGE_LIST
@@ -1089,7 +1093,9 @@ public class MessageList extends K9Activity implements MessageListFragmentListen
                 || !messageViewFragment.isInitialized()) {
             menu.findItem(R.id.next_message).setVisible(false);
             menu.findItem(R.id.previous_message).setVisible(false);
-            menu.findItem(R.id.single_message_options).setVisible(false);
+            //menu.findItem(R.id.single_message_options).setVisible(false);     //listview 右上角三个点 菜单 中的  发送
+            menu.findItem(R.id.reply).setVisible(false);
+            menu.findItem(R.id.forward).setVisible(false);
             menu.findItem(R.id.delete).setVisible(false);
             menu.findItem(R.id.compose).setVisible(false);
             menu.findItem(R.id.archive).setVisible(false);
@@ -1103,6 +1109,7 @@ public class MessageList extends K9Activity implements MessageListFragmentListen
             menu.findItem(R.id.hide_headers).setVisible(false);
         } else {
             // hide prev/next buttons in split mode
+            //隐藏分屏模式下的prev/next按钮
             if (displayMode != DisplayMode.MESSAGE_VIEW) {
                 menu.findItem(R.id.next_message).setVisible(false);
                 menu.findItem(R.id.previous_message).setVisible(false);
@@ -1122,6 +1129,7 @@ public class MessageList extends K9Activity implements MessageListFragmentListen
                 next.getIcon().setAlpha(canDoNext ? 255 : 127);
             }
 
+            //主题设置
             MenuItem toggleTheme = menu.findItem(R.id.toggle_message_view_theme);
             if (K9.isFixedMessageViewTheme()) {
                 toggleTheme.setVisible(false);
@@ -1149,10 +1157,12 @@ public class MessageList extends K9Activity implements MessageListFragmentListen
             menu.findItem(R.id.toggle_unread).setIcon(ta.getDrawable(0));
             ta.recycle();
 
+            //删除选项设置
             menu.findItem(R.id.delete).setVisible(K9.isMessageViewDeleteActionVisible());
 
             /*
              * Set visibility of copy, move, archive, spam in action bar and refile submenu
+             * 设置可见性的复制，移动，存档，垃圾邮件在行动栏和refile子菜单
              */
             if (messageViewFragment.isCopyCapable()) {
                 menu.findItem(R.id.copy).setVisible(K9.isMessageViewCopyActionVisible());
@@ -1161,6 +1171,10 @@ public class MessageList extends K9Activity implements MessageListFragmentListen
                 menu.findItem(R.id.copy).setVisible(false);
                 menu.findItem(R.id.refile_copy).setVisible(false);
             }
+
+            /*
+            * 能否移动相关设置
+            * */
 
             if (messageViewFragment.isMoveCapable()) {  //默认是不可以移动的
                 boolean canMessageBeArchived = messageViewFragment.canMessageBeArchived();
@@ -1186,11 +1200,16 @@ public class MessageList extends K9Activity implements MessageListFragmentListen
                 //menu.findItem(R.id.refile).setVisible(true);    //重新归档
             }
 
-            if (messageViewFragment.allHeadersVisible()) {
+/*            消息view 右上角菜单
+            显示邮件头 隐藏邮件头 都不显示*/
+            menu.findItem(R.id.hide_headers).setVisible(false);
+            menu.findItem(R.id.show_headers).setVisible(false);
+            //显示邮件头
+/*            if (messageViewFragment.allHeadersVisible()) {
                 menu.findItem(R.id.show_headers).setVisible(false);
             } else {
                 menu.findItem(R.id.hide_headers).setVisible(false);
-            }
+            }*/
         }
 
 
@@ -1213,17 +1232,22 @@ public class MessageList extends K9Activity implements MessageListFragmentListen
             menu.findItem(R.id.empty_trash).setVisible(false);
             menu.findItem(R.id.mark_all_as_read).setVisible(false);
         } else {
+
+
+
             //menu.findItem(R.id.set_sort).setVisible(true);
             menu.findItem(R.id.set_sort).setVisible(false);  //去掉排序;
             menu.findItem(R.id.select_all).setVisible(true);
             menu.findItem(R.id.compose).setVisible(true);
-            menu.findItem(R.id.mark_all_as_read).setVisible(
-                    messageListFragment.isMarkAllAsReadSupported());
+/*            menu.findItem(R.id.mark_all_as_read).setVisible(
+                    messageListFragment.isMarkAllAsReadSupported());*/
+            menu.findItem(R.id.mark_all_as_read).setVisible(false);     //去掉全部标记为已读
 
             if (!messageListFragment.isSingleAccountMode()) {
                 menu.findItem(R.id.expunge).setVisible(false);
                 menu.findItem(R.id.send_messages).setVisible(false);
             } else {
+                //发送邮件
                 menu.findItem(R.id.send_messages).setVisible(messageListFragment.isOutbox());
                 //擦除
                 menu.findItem(R.id.expunge).setVisible(messageListFragment.isRemoteFolder() &&

@@ -96,7 +96,8 @@
         android:title="@string/copy_action"/>
 
     <!-- MessageView -->
-    <!--发送…-->
+    <!--…右上角三个点菜单  中的发送部分 -->
+<!--
     <item
         android:id="@+id/single_message_options"
         android:icon="?attr/iconActionSingleMessageOptions"
@@ -111,7 +112,7 @@
                 android:title="@string/reply_all_action"/>
             <item
                 android:id="@+id/forward"
-                android:title="@string/forward_action"/><!--转发-->
+                android:title="@string/forward_action"/>&lt;!&ndash;转发&ndash;&gt;
             <item
                 android:id="@+id/forward_as_attachment"
                 android:title="@string/forward_as_attachment_action"/>
@@ -120,6 +121,16 @@
                 android:title="@string/send_alternate_action"/>
         </menu>
     </item>
+-->
+
+    <!--回复-->
+    <item
+        android:id="@+id/reply"
+        android:title="@string/reply_action"/>
+    <!--转发-->
+    <item
+        android:id="@+id/forward"
+        android:title="@string/forward_action"/>
 
     <!-- MessageView -->
     <!--重新归档…-->

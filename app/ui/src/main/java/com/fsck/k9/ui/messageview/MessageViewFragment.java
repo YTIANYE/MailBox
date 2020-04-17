@@ -188,24 +188,25 @@ public class MessageViewFragment extends Fragment implements ConfirmationDialogF
 
         mMessageView.setOnMenuItemClickListener(new OnMenuItemClickListener() {
             @Override
+            /*messageview 右上角菜单  发送 */
             public boolean onMenuItemClick(MenuItem item) {
                 int id = item.getItemId();
                 if (id == R.id.reply) {
                     onReply();
                     return true;
-                } else if (id == R.id.reply_all) {
+                } /*else if (id == R.id.reply_all) {
                     onReplyAll();
                     return true;
-                } else if (id == R.id.forward) {
+                } */else if (id == R.id.forward) {
                     onForward();
                     return true;
-                } else if (id == R.id.forward_as_attachment) {
+                } /*else if (id == R.id.forward_as_attachment) {//转发为附件
                     onForwardAsAttachment();
                     return true;
-                } else if (id == R.id.share) {
+                } else if (id == R.id.share) {  //分享
                     onSendAlternate();
                     return true;
-                }
+                }*/
                 return false;
             }
         });
