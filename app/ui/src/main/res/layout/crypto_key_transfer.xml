@@ -18,6 +18,7 @@
         android:paddingLeft="12dp"
         android:paddingRight="12dp">
 
+        <!--通过自动加密配置消息安全地与其它设备共享您的端到端配置。-->
         <TextView
             style="?android:textAppearanceMedium"
             android:layout_width="wrap_content"
@@ -41,6 +42,7 @@
             android:layout_marginTop="24dp"
             android:orientation="vertical">
 
+            <!--消息将会发送到您的地址：-->
             <TextView
                 style="?android:textAppearanceMedium"
                 android:layout_width="wrap_content"

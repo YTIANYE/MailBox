@@ -36,6 +36,10 @@ import com.fsck.k9.view.ToolableViewAnimator;
 import org.openintents.openpgp.OpenPgpError;
 
 
+/**
+ * 具体消息 消息头部分
+ * */
+
 public class MessageTopView extends LinearLayout {
 
     public static final int PROGRESS_MAX = 1000;
@@ -77,6 +81,7 @@ public class MessageTopView extends LinearLayout {
         mDownloadRemainder = findViewById(R.id.download_remainder);
         mDownloadRemainder.setVisibility(View.GONE);
 
+        //显示图片按钮和监听事件
         showPicturesButton = findViewById(R.id.show_pictures);
         setShowPicturesButtonListener();
 
@@ -89,12 +94,13 @@ public class MessageTopView extends LinearLayout {
         showPicturesButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                showPicturesInAllContainerViews();
+                showPicturesInAllContainerViews();  //在本view中 显示图片
                 showPicturesButtonClicked = true;
             }
         });
     }
 
+    //在本view中 显示图片
     private void showPicturesInAllContainerViews() {
         View messageContainerViewCandidate = containerView.getChildAt(0);
         if (messageContainerViewCandidate instanceof MessageContainerView) {
@@ -130,6 +136,8 @@ public class MessageTopView extends LinearLayout {
 
         if (view.hasHiddenExternalImages() && !showPicturesButtonClicked) {
             showShowPicturesButton();
+            //hideShowPicturesButton();       //隐藏掉显示图片按钮
+            //showPicturesInAllContainerViews();  //跳过点击按钮，直接显示图片
         }
     }
 

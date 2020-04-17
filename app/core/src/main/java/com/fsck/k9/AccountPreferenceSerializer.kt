@@ -502,6 +502,10 @@ class AccountPreferenceSerializer(
         }
     }
 
+        /**
+         * 初始化一些默认设置
+         * */
+
     fun loadDefaults(account: Account) {
         with(account) {
             localStorageProviderId = storageManager.defaultProviderId
@@ -521,7 +525,8 @@ class AccountPreferenceSerializer(
             folderTargetMode = FolderMode.NOT_SECOND_CLASS
             sortType = DEFAULT_SORT_TYPE
             setSortAscending(DEFAULT_SORT_TYPE, DEFAULT_SORT_ASCENDING)
-            showPictures = ShowPictures.NEVER
+            //showPictures = ShowPictures.NEVER
+            showPictures = ShowPictures.ALWAYS
             isSignatureBeforeQuotedText = false
             expungePolicy = Expunge.EXPUNGE_IMMEDIATELY
             autoExpandFolder = null

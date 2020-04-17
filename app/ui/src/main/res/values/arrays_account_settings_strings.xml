@@ -67,6 +67,7 @@
         <item>@string/account_settings_folder_display_mode_not_second_class</item>
     </string-array>
 
+    <!--显示图片设置-->
     <string-array name="show_pictures_entries">
         <item>@string/account_settings_show_pictures_never</item>
         <item>@string/account_settings_show_pictures_only_from_contacts</item>
