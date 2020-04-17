@@ -1,0 +1,34 @@
+[
+    {
+        "merged": "E:\\AndroidStudioProject\\MailBox\\app\\core\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\ic_arrow_down_24dp.xml",
+        "source": "C:\\Users\\YTY\\.gradle\\caches\\transforms-2\\files-2.1\\47c1e9558043dafa125a9937deb8c72c\\preference-1.1.0\\res\\drawable-v21\\ic_arrow_down_24dp.xml"
+    },
+    {
+        "merged": "E:\\AndroidStudioProject\\MailBox\\app\\core\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_edit_text_material.xml",
+        "source": "C:\\Users\\YTY\\.gradle\\caches\\transforms-2\\files-2.1\\52773b1239f1f2503d3a71c6da1ecf68\\appcompat-1.1.0\\res\\drawable-v21\\abc_edit_text_material.xml"
+    },
+    {
+        "merged": "E:\\AndroidStudioProject\\MailBox\\app\\core\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_btn_colored_material.xml",
+        "source": "C:\\Users\\YTY\\.gradle\\caches\\transforms-2\\files-2.1\\52773b1239f1f2503d3a71c6da1ecf68\\appcompat-1.1.0\\res\\drawable-v21\\abc_btn_colored_material.xml"
+    },
+    {
+        "merged": "E:\\AndroidStudioProject\\MailBox\\app\\core\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_list_divider_material.xml",
+        "source": "C:\\Users\\YTY\\.gradle\\caches\\transforms-2\\files-2.1\\52773b1239f1f2503d3a71c6da1ecf68\\appcompat-1.1.0\\res\\drawable-v21\\abc_list_divider_material.xml"
+    },
+    {
+        "merged": "E:\\AndroidStudioProject\\MailBox\\app\\core\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\notification_action_background.xml",
+        "source": "C:\\Users\\YTY\\.gradle\\caches\\transforms-2\\files-2.1\\5d752c4150afb75dc64ad009c2bed78d\\core-1.1.0\\res\\drawable-v21\\notification_action_background.xml"
+    },
+    {
+        "merged": "E:\\AndroidStudioProject\\MailBox\\app\\core\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_dialog_material_background.xml",
+        "source": "C:\\Users\\YTY\\.gradle\\caches\\transforms-2\\files-2.1\\52773b1239f1f2503d3a71c6da1ecf68\\appcompat-1.1.0\\res\\drawable-v21\\abc_dialog_material_background.xml"
+    },
+    {
+        "merged": "E:\\AndroidStudioProject\\MailBox\\app\\core\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\preference_list_divider_material.xml",
+        "source": "C:\\Users\\YTY\\.gradle\\caches\\transforms-2\\files-2.1\\47c1e9558043dafa125a9937deb8c72c\\preference-1.1.0\\res\\drawable-v21\\preference_list_divider_material.xml"
+    },
+    {
+        "merged": "E:\\AndroidStudioProject\\MailBox\\app\\core\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_action_bar_item_background_material.xml",
+        "source": "C:\\Users\\YTY\\.gradle\\caches\\transforms-2\\files-2.1\\52773b1239f1f2503d3a71c6da1ecf68\\appcompat-1.1.0\\res\\drawable-v21\\abc_action_bar_item_background_material.xml"
+    }
+]

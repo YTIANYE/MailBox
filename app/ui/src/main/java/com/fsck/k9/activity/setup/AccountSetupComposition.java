@@ -115,7 +115,7 @@ public class AccountSetupComposition extends K9Activity {
         if (mAccountSignatureUse.isChecked()) {
             mAccount.setSignature(mAccountSignature.getText().toString());
             boolean isSignatureBeforeQuotedText = mAccountSignatureBeforeLocation.isChecked();
-            mAccount.setSignatureBeforeQuotedText(isSignatureBeforeQuotedText);
+            mAccount.setSignatureBeforeQuotedText(isSignatureBeforeQuotedText); //在引用文本之前使用签名
         }
 
         Preferences.getPreferences(getApplicationContext()).saveAccount(mAccount);

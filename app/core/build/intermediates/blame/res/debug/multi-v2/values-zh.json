@@ -1,0 +1,34 @@
+{
+    "logs": [
+        {
+            "outputFile": "E:\\AndroidStudioProject\\MailBox\\app\\core\\build\\intermediates\\res\\merged\\debug\\values-zh\\values-zh.xml",
+            "map": [
+                {
+                    "source": "E:\\AndroidStudioProject\\MailBox\\plugins\\openpgp-api-lib\\openpgp-api\\build\\intermediates\\packaged_res\\debug\\values-zh\\values-zh.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,111",
+                        "endColumns": "55,58",
+                        "endOffsets": "106,165"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "E:\\AndroidStudioProject\\MailBox\\app\\core\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-zh\\values-zh.xml",
+            "map": [
+                {
+                    "source": "E:\\AndroidStudioProject\\MailBox\\plugins\\openpgp-api-lib\\openpgp-api\\build\\intermediates\\packaged_res\\debug\\values-zh\\values-zh.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,111",
+                        "endColumns": "55,58",
+                        "endOffsets": "106,165"
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "E:\\AndroidStudioProject\\MailBox\\app\\core\\build\\intermediates\\res\\merged\\debug\\xml\\decrypted_file_provider_paths.xml",
+        "source": "E:\\AndroidStudioProject\\MailBox\\app\\core\\src\\main\\res\\xml\\decrypted_file_provider_paths.xml"
+    },
+    {
+        "merged": "E:\\AndroidStudioProject\\MailBox\\app\\core\\build\\intermediates\\res\\merged\\debug\\xml\\temp_file_provider_paths.xml",
+        "source": "E:\\AndroidStudioProject\\MailBox\\app\\core\\src\\main\\res\\xml\\temp_file_provider_paths.xml"
+    }
+]

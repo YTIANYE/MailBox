@@ -24,7 +24,7 @@
 </p>
     ]]></string>
   <!--Default signature--><!--签名-->
-  <string name="default_signature"> \n </string>
+  <string name="default_signature">    </string>
   <!--General strings that include the app name-->
 <!--  <string name="account_delete_dlg_instructions_fmt">账户“<xliff:g id="account">%s</xliff:g>”将从 K-9 Mail 中删除。</string>-->
   <string name="account_delete_dlg_instructions_fmt">账户“<xliff:g id="account">%s</xliff:g>”将被删除。</string>

@@ -502,10 +502,6 @@ class AccountPreferenceSerializer(
         }
     }
 
-        /**
-         * 初始化一些默认设置
-         * */
-
     fun loadDefaults(account: Account) {
         with(account) {
             localStorageProviderId = storageManager.defaultProviderId

@@ -67,6 +67,7 @@
                     android:layout_width="fill_parent"
                     android:contentDescription="@string/account_settings_always_bcc_label"/>
 
+            <!--使用 签名 的 CheckBox-->
             <CheckBox
                     android:id="@+id/account_signature_use"
                     android:layout_width="fill_parent"
