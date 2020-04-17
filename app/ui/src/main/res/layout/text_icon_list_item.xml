@@ -11,6 +11,7 @@
     android:minHeight="?android:attr/listPreferredItemHeightSmall"
     android:paddingLeft="8dp">
 
+    <!--账户设置-->
     <ImageView
         android:id="@+id/icon"
         android:layout_width="40dp"
