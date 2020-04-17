@@ -2510,6 +2510,9 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
                 messagingController.supportsExpunge(account);
     }
 
+    /**
+     * 远程搜索
+     * */
     public void onRemoteSearch() {
         // Remote search is useless without the network.
         if (hasConnectivity) {

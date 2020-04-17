@@ -937,10 +937,12 @@ public class MessageList extends K9Activity implements MessageListFragmentListen
                 goBack();
             }
             return true;
-        } else if (id == R.id.compose) {
+        }
+        //写新邮件
+        else if (id == R.id.compose) {
             messageListFragment.onCompose();
             return true;
-        } else if (id == R.id.toggle_message_view_theme) {
+        } else if (id == R.id.toggle_message_view_theme) {  //切换到深色主题
             onToggleTheme();
             return true;
         } else if (id == R.id.set_sort_date) {     // MessageList
@@ -967,13 +969,16 @@ public class MessageList extends K9Activity implements MessageListFragmentListen
         } else if (id == R.id.select_all) {
             messageListFragment.selectAll();
             return true;
-        } else if (id == R.id.search) {
+        }
+        //  搜索
+        else if (id == R.id.search) {
             messageListFragment.onSearchRequested();
             return true;
         } else if (id == R.id.search_remote) {
             messageListFragment.onRemoteSearch();
             return true;
-        } else if (id == R.id.mark_all_as_read) {
+        }
+        else if (id == R.id.mark_all_as_read) {
             messageListFragment.confirmMarkAllAsRead();
             return true;
         } else if (id == R.id.next_message) {   // MessageView
@@ -1131,6 +1136,7 @@ public class MessageList extends K9Activity implements MessageListFragmentListen
             }
 
             // Set title of menu item to toggle the read state of the currently displayed message
+            //设置菜单项的标题，以切换当前显示的消息的读取状态
             int[] drawableAttr;
             if (messageViewFragment.isMessageRead()) {
                 menu.findItem(R.id.toggle_unread).setTitle(R.string.mark_as_unread_action);
@@ -1156,7 +1162,7 @@ public class MessageList extends K9Activity implements MessageListFragmentListen
                 menu.findItem(R.id.refile_copy).setVisible(false);
             }
 
-            if (messageViewFragment.isMoveCapable()) {
+            if (messageViewFragment.isMoveCapable()) {  //默认是不可以移动的
                 boolean canMessageBeArchived = messageViewFragment.canMessageBeArchived();
                 boolean canMessageBeMovedToSpam = messageViewFragment.canMessageBeMovedToSpam();
 
@@ -1169,12 +1175,15 @@ public class MessageList extends K9Activity implements MessageListFragmentListen
                 menu.findItem(R.id.refile_move).setVisible(true);
                 menu.findItem(R.id.refile_archive).setVisible(canMessageBeArchived);
                 menu.findItem(R.id.refile_spam).setVisible(canMessageBeMovedToSpam);
-            } else {
+            } else {    //消息view 右上角菜单设置
+                //menu.findItem(R.id.move).setVisible(true);
                 menu.findItem(R.id.move).setVisible(false);
                 menu.findItem(R.id.archive).setVisible(false);
-                menu.findItem(R.id.spam).setVisible(false);
-
+                //menu.findItem(R.id.archive).setVisible(true);   //归档
+                menu.findItem(R.id.spam).setVisible(false);     //标记为垃圾邮件设置为 不显示
+                //menu.findItem(R.id.spam).setVisible(true);
                 menu.findItem(R.id.refile).setVisible(false);
+                //menu.findItem(R.id.refile).setVisible(true);    //重新归档
             }
 
             if (messageViewFragment.allHeadersVisible()) {
@@ -1187,9 +1196,11 @@ public class MessageList extends K9Activity implements MessageListFragmentListen
 
         /*
          * Set visibility of menu items related to the message list
+         * 设置与消息列表相关的菜单项的可见性
          */
 
         // Hide both search menu items by default and enable one when appropriate
+        //在默认情况下隐藏两个搜索菜单项，并在适当的时候启用一个
         menu.findItem(R.id.search).setVisible(false);
         menu.findItem(R.id.search_remote).setVisible(false);
 
@@ -1202,7 +1213,8 @@ public class MessageList extends K9Activity implements MessageListFragmentListen
             menu.findItem(R.id.empty_trash).setVisible(false);
             menu.findItem(R.id.mark_all_as_read).setVisible(false);
         } else {
-            menu.findItem(R.id.set_sort).setVisible(true);
+            //menu.findItem(R.id.set_sort).setVisible(true);
+            menu.findItem(R.id.set_sort).setVisible(false);  //去掉排序;
             menu.findItem(R.id.select_all).setVisible(true);
             menu.findItem(R.id.compose).setVisible(true);
             menu.findItem(R.id.mark_all_as_read).setVisible(
@@ -1213,17 +1225,22 @@ public class MessageList extends K9Activity implements MessageListFragmentListen
                 menu.findItem(R.id.send_messages).setVisible(false);
             } else {
                 menu.findItem(R.id.send_messages).setVisible(messageListFragment.isOutbox());
+                //擦除
                 menu.findItem(R.id.expunge).setVisible(messageListFragment.isRemoteFolder() &&
                         messageListFragment.shouldShowExpungeAction());
             }
+            //清空垃圾箱
             menu.findItem(R.id.empty_trash).setVisible(messageListFragment.isShowingTrashFolder());
 
             // If this is an explicit local search, show the option to search on the server
+            //如果这是显式的本地搜索，则显示在服务器上搜索的选项
             if (!messageListFragment.isRemoteSearch() &&
                     messageListFragment.isRemoteSearchAllowed()) {
-                menu.findItem(R.id.search_remote).setVisible(true);
+                //menu.findItem(R.id.search_remote).setVisible(true);
+                menu.findItem(R.id.search_remote).setVisible(false);
             } else if (!messageListFragment.isManualSearch()) {
-                menu.findItem(R.id.search).setVisible(true);
+                //menu.findItem(R.id.search).setVisible(true);
+                menu.findItem(R.id.search).setVisible(false);
             }
         }
     }
