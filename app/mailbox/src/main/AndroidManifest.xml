@@ -20,11 +20,13 @@
         android:smallScreens="true"/>
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/><!--允许程序开机自动运行-->
-    <uses-permission android:name="android.permission.READ_CONTACTS"/><!--允许程序访问联系人通讯录信息-->
+<!--    <uses-permission android:name="android.permission.READ_CONTACTS"/>-->
+    <!--允许程序访问联系人通讯录信息-->
     <uses-permission android:name="android.permission.READ_SYNC_SETTINGS"/><!--允许程序读取同步设置，读取Google在线同步设置-->
 
     <!-- Needed to mark a contact as contacted -->
-    <uses-permission android:name="android.permission.WRITE_CONTACTS"/><!--写入联系人,但不可读取-->
+<!--    <uses-permission android:name="android.permission.WRITE_CONTACTS"/>-->
+    <!--写入联系人,但不可读取-->
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/><!--检测网络状态的权限-->
     <uses-permission android:name="android.permission.INTERNET"/><!--访问网络权限--><!--java.lang.SecurityException: Permission denied (missing INTERNET permission?)-->
