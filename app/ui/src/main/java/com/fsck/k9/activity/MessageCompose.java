@@ -1197,7 +1197,7 @@ public class MessageCompose extends K9Activity implements OnClickListener,
         try {
             switch (action) {
                 case REPLY:
-                case REPLY_ALL: {
+                case REPLY_ALL: {   //回复全部
                     processMessageToReplyTo(messageViewInfo);
                     break;
                 }
@@ -1205,7 +1205,7 @@ public class MessageCompose extends K9Activity implements OnClickListener,
                     processMessageToForward(messageViewInfo, false);
                     break;
                 }
-                case FORWARD_AS_ATTACHMENT: {
+                case FORWARD_AS_ATTACHMENT: {   //转发为附件
                     processMessageToForward(messageViewInfo, true);
                     break;
                 }
@@ -1836,12 +1836,12 @@ public class MessageCompose extends K9Activity implements OnClickListener,
     };
 
     public enum Action {
-        COMPOSE(R.string.compose_title_compose),
+        COMPOSE(R.string.compose_title_compose),    //新邮件
         REPLY(R.string.compose_title_reply),
-        REPLY_ALL(R.string.compose_title_reply_all),
-        FORWARD(R.string.compose_title_forward),
-        FORWARD_AS_ATTACHMENT(R.string.compose_title_forward_as_attachment),
-        EDIT_DRAFT(R.string.compose_title_compose);
+        REPLY_ALL(R.string.compose_title_reply_all),    //全部回复
+        FORWARD(R.string.compose_title_forward),    //转发
+        FORWARD_AS_ATTACHMENT(R.string.compose_title_forward_as_attachment),    //转发为附件
+        EDIT_DRAFT(R.string.compose_title_compose); //新邮件
 
         private final int titleResource;
 

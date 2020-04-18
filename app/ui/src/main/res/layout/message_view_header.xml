@@ -260,15 +260,17 @@
                         android:layout_centerVertical="true"
                         android:id="@+id/status_icon_strip"
                         >
-
+                        <!--邮件头 分享按钮-->
                         <ImageView
                             android:id="@+id/icon_single_message_options"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:src="?iconActionSingleMessageOptions"
-                            android:padding="8dp"
+
+                            android:padding="12dp"
                             android:background="?selectableItemBackground"
                             />
+                        <!--android:src="?iconActionSingleMessageOptions"-->
+                        <!--                            android:padding="8dp"-->
 
                     </LinearLayout>
 

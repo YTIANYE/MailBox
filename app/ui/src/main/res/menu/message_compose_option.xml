@@ -29,6 +29,7 @@
         android:title="@string/save_draft_action"
         android:icon="?attr/iconActionSave"
         />
+    <!--丢弃-->
     <item
         android:id="@+id/discard"
         android:alphabeticShortcut="q"
@@ -48,6 +49,7 @@
         android:title="@string/enable_encryption"
         app:showAsAction="never"
         />
+    <!--禁用加密-->
     <item
         android:id="@+id/openpgp_encrypt_disable"
         android:alphabeticShortcut="c"

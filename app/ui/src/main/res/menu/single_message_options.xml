@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--messageview 点击分享按钮 弹出的菜单-->
     <item
         android:id="@+id/reply"
         android:title="@string/reply_action"/>
@@ -9,9 +11,11 @@
     <item
         android:id="@+id/forward"
         android:title="@string/forward_action"/>
+    <!--转发为附件-->
     <item
         android:id="@+id/forward_as_attachment"
         android:title="@string/forward_as_attachment_action"/>
+    <!--分享-->
     <item
         android:id="@+id/share"
         android:title="@string/send_alternate_action"/>

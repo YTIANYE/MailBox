@@ -22,7 +22,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.widget.PopupMenu;
 import androidx.appcompat.widget.PopupMenu.OnMenuItemClickListener;
 
 import com.fsck.k9.Account;
@@ -124,7 +123,8 @@ public class MessageHeader extends LinearLayout implements OnClickListener, OnLo
 
         mContactBadge = findViewById(R.id.contact_badge);
 
-        singleMessageOptionIcon = findViewById(R.id.icon_single_message_options);
+        /*邮件头 分享按钮*/
+        //singleMessageOptionIcon = findViewById(R.id.icon_single_message_options);
 
         mSubjectView = findViewById(R.id.subject);
         mAdditionalHeadersView = findViewById(R.id.additional_headers_view);
@@ -145,7 +145,8 @@ public class MessageHeader extends LinearLayout implements OnClickListener, OnLo
         mFontSizes.setViewTextSize(mBccView, mFontSizes.getMessageViewBCC());
         mFontSizes.setViewTextSize(mBccLabel, mFontSizes.getMessageViewBCC());
 
-        singleMessageOptionIcon.setOnClickListener(this);
+        /*邮件头 分享按钮*/
+//        singleMessageOptionIcon.setOnClickListener(this);
 
         mFromView.setOnClickListener(this);
         mToView.setOnClickListener(this);
@@ -174,12 +175,14 @@ public class MessageHeader extends LinearLayout implements OnClickListener, OnLo
             expand((TextView)view, ((TextView)view).getEllipsize() != null);
         } else if (id == R.id.crypto_status_icon) {
             onCryptoClickListener.onCryptoClick();
-        } else if (id == R.id.icon_single_message_options) {
+        }
+        /*邮件头 分享按钮*/
+        /*else if (id == R.id.icon_single_message_options) {
             PopupMenu popupMenu = new PopupMenu(getContext(), view);
             popupMenu.setOnMenuItemClickListener(onMenuItemClickListener);
             popupMenu.inflate(R.menu.single_message_options);
             popupMenu.show();
-        }
+        }*/
     }
 
     @Override
