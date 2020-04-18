@@ -535,7 +535,7 @@ public class MessageViewFragment extends Fragment implements ConfirmationDialogF
             fragment = ConfirmationDialogFragment.newInstance(dialogId, title, message,
                     confirmText, cancelText);
         } else if (dialogId == R.id.dialog_confirm_spam) {
-            String title = getString(R.string.dialog_confirm_spam_title);
+            String title = getString(R.string.dialog_confirm_spam_title);//确认移动到垃圾邮件文件夹
             String message = getResources().getQuantityString(R.plurals.dialog_confirm_spam_message, 1);
             String confirmText = getString(R.string.dialog_confirm_spam_confirm_button);
             String cancelText = getString(R.string.dialog_confirm_spam_cancel_button);

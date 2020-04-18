@@ -983,6 +983,8 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
         messagingController.expunge(account, folderServerId);
     }
 
+    /**清空垃圾箱
+     * */
     public void onEmptyTrash() {
         if (isShowingTrashFolder()) {
             showDialog(R.id.dialog_confirm_empty_trash);
@@ -1161,7 +1163,7 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
             setFlag(adapterPosition, Flag.FLAGGED, false);
         } else if (id == R.id.archive) {        // only if the account supports this
             onArchive(getMessageAtPosition(adapterPosition));
-        } else if (id == R.id.spam) {
+        } else if (id == R.id.spam) {   //标记为垃圾邮件
             onSpam(getMessageAtPosition(adapterPosition));
         } else if (id == R.id.move) {
             onMove(getMessageAtPosition(adapterPosition));
@@ -1214,11 +1216,14 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
             menu.findItem(R.id.mark_as_unread).setVisible(false);
         }
 
-        if (flagged) {
+        /*去掉长按item时 关于星标的操作*/
+        menu.findItem(R.id.flag).setVisible(false);//添加星标
+        menu.findItem(R.id.unflag).setVisible(false);
+/*        if (flagged) {
             menu.findItem(R.id.flag).setVisible(false);//添加星标
         } else {
             menu.findItem(R.id.unflag).setVisible(false);
-        }
+        }*/
 
         if (!messagingController.isCopyCapable(account)) {
             menu.findItem(R.id.copy).setVisible(false);
@@ -1235,8 +1240,9 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
         }
 
         if (!account.hasSpamFolder()) {
-            menu.findItem(R.id.spam).setVisible(false);
+            menu.findItem(R.id.spam).setVisible(false);////标记为垃圾邮件
         }
+        //menu.findItem(R.id.spam).setVisible(true);////标记为垃圾邮件
 
     }
 
@@ -1825,15 +1831,18 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
      *         The messages to move to the spam folder. Never {@code null}.
      */
     private void onSpam(List<MessageReference> messages) {
-        if (K9.isConfirmSpam()) {
+        if (K9.isConfirmSpam()) {   //提示确认移动到垃圾箱
             // remember the message selection for #onCreateDialog(int)
             activeMessages = messages;
-            showDialog(R.id.dialog_confirm_spam);
+            showDialog(R.id.dialog_confirm_spam);   //确认移动到垃圾邮件文件夹
         } else {
             onSpamConfirmed(messages);
         }
     }
 
+    /**
+    * 将邮件移动到垃圾箱
+    * */
     private void onSpamConfirmed(List<MessageReference> messages) {
         Map<Account, List<MessageReference>> messagesByAccount = groupMessagesByAccount(messages);
 
@@ -2118,6 +2127,7 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
             }
         }
 
+        /**显示星标*/
         public void showFlag(boolean show) {
             if (actionMode != null) {
                 mFlag.setVisible(show);
@@ -2147,7 +2157,7 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
                 setFlagForSelected(Flag.SEEN, true);
             } else if (id == R.id.mark_as_unread) {
                 setFlagForSelected(Flag.SEEN, false);
-            } else if (id == R.id.flag) {
+            } else if (id == R.id.flag) {       //星标
                 setFlagForSelected(Flag.FLAGGED, true);
             } else if (id == R.id.unflag) {
                 setFlagForSelected(Flag.FLAGGED, false);
@@ -2176,6 +2186,9 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
     }
 
     @Override
+    /**
+     * dialog 点击确认按钮
+     * */
     public void doPositiveClick(int dialogId) {
         if (dialogId == R.id.dialog_confirm_spam) {
             onSpamConfirmed(activeMessages);

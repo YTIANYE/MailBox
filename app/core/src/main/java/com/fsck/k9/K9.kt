@@ -176,6 +176,7 @@ object K9 : EarlyInit {
 
     @JvmStatic
     var isConfirmSpam = false
+    //var isConfirmSpam = true    //提示确认移动到垃圾箱 修改默认为可以
 
     @JvmStatic
     var isConfirmDeleteFromNotification = true

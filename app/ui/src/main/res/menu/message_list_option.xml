@@ -145,6 +145,7 @@
                 android:title="@string/archive_action"/>
 
             <!-- MessageView -->
+            <!--标记为垃圾邮件-->
             <item
                 android:id="@+id/refile_spam"
                 android:title="@string/spam_action"/>

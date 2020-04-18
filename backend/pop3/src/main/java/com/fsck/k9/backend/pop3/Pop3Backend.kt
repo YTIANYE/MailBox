@@ -28,13 +28,18 @@ class Pop3Backend(
 
     override val supportsSeenFlag = false
     override val supportsExpunge = false
-    override val supportsMove = false
+
+    override val supportsMove = false   //默认
+    //override val supportsMove = true
+
     override val supportsCopy = false
     override val supportsUpload = false
     override val supportsTrashFolder = false
     override val supportsSearchByDate = false
     override val isPushCapable = false
-    override val isDeleteMoveToTrash = false
+
+    override val isDeleteMoveToTrash = true     //删除时自动归类到垃圾箱
+    //override val isDeleteMoveToTrash = false  //默认
 
     override fun refreshFolderList() {
         commandRefreshFolderList.refreshFolderList()

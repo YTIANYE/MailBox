@@ -136,7 +136,7 @@ public class Account implements BaseAccount, StoreConfig {
     private String sentFolder;
     private String trashFolder;
     private String archiveFolder;
-    private String spamFolder;
+    private String spamFolder;  //垃圾邮箱
     private SpecialFolderSelection draftsFolderSelection;
     private SpecialFolderSelection sentFolderSelection;
     private SpecialFolderSelection trashFolderSelection;
