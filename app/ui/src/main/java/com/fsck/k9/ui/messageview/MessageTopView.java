@@ -221,6 +221,7 @@ public class MessageTopView extends LinearLayout {
         mHeaderContainer.setVisibility(View.VISIBLE);
     }
 
+    /*设置主题*/
     public void setSubject(@NonNull String subject) {
         mHeaderContainer.setSubject(subject);
     }

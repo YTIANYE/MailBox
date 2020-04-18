@@ -7,6 +7,8 @@
               android:layout_gravity="center_vertical"
         >
 
+    <!--listitem  布局-->
+
     <com.fsck.k9.ui.ContactBadge
             android:id="@+id/contact_badge"
             android:layout_marginRight="10dp"

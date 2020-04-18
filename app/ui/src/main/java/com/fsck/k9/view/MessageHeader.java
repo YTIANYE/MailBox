@@ -67,7 +67,7 @@ public class MessageHeader extends LinearLayout implements OnClickListener, OnLo
     private ImageView mCryptoStatusIcon;
 
     private View mChip;
-    private CheckBox mFlagged;
+    private CheckBox mFlagged;  //邮件头中的星标
     private int defaultSubjectColor;
     private TextView mAdditionalHeadersView;
     private View singleMessageOptionIcon;
@@ -130,7 +130,7 @@ public class MessageHeader extends LinearLayout implements OnClickListener, OnLo
         mAdditionalHeadersView = findViewById(R.id.additional_headers_view);
         mChip = findViewById(R.id.chip);
         mDateView = findViewById(R.id.date);
-        mFlagged = findViewById(R.id.flagged);
+        //mFlagged = findViewById(R.id.flagged);  //messageview  header 中的星标
 
         defaultSubjectColor = mSubjectView.getCurrentTextColor();
         mFontSizes.setViewTextSize(mSubjectView, mFontSizes.getMessageViewSubject());
@@ -226,7 +226,7 @@ public class MessageHeader extends LinearLayout implements OnClickListener, OnLo
     }
 
     public void setOnFlagListener(OnClickListener listener) {
-        mFlagged.setOnClickListener(listener);
+        //  mFlagged.setOnClickListener(listener);  邮件头 星标
     }
 
     public boolean additionalHeadersVisible() {
@@ -340,7 +340,7 @@ public class MessageHeader extends LinearLayout implements OnClickListener, OnLo
         updateAddressField(mBccView, bcc, mBccLabel);
         mAnsweredIcon.setVisibility(message.isSet(Flag.ANSWERED) ? View.VISIBLE : View.GONE);
         mForwardedIcon.setVisibility(message.isSet(Flag.FORWARDED) ? View.VISIBLE : View.GONE);
-        mFlagged.setChecked(message.isSet(Flag.FLAGGED));
+        // mFlagged.setChecked(message.isSet(Flag.FLAGGED));    //邮件头中的星标
 
         mChip.setBackgroundColor(mAccount.getChipColor());
 

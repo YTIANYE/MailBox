@@ -128,7 +128,10 @@ class MessageListAdapter internal constructor(
         }
     }
 
+    /**
+     * messageitem 布局设置*/
     override fun newView(context: Context, cursor: Cursor, parent: ViewGroup): View {
+
         val view = layoutInflater.inflate(R.layout.message_list_item, parent, false)
 
         val holder = MessageViewHolder(view, listItemListener)
@@ -145,7 +148,8 @@ class MessageListAdapter internal constructor(
         appearance.fontSizes.setViewTextSize(holder.preview, appearance.fontSizes.messageListPreview)
         appearance.fontSizes.setViewTextSize(holder.threadCount, appearance.fontSizes.messageListSubject) // thread count is next to subject
 
-        holder.flagged.isVisible = appearance.stars
+       // holder.flagged.isVisible = appearance.stars
+        holder.flagged.isVisible = false    //listitem   星标修改为不显示
         holder.flagged.setOnClickListener(holder)
 
         view.tag = holder

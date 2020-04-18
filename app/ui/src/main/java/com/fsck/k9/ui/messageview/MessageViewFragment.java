@@ -186,9 +186,9 @@ public class MessageViewFragment extends Fragment implements ConfirmationDialogF
             }
         });
 
+        /*messageview 右上角菜单  发送 */
         mMessageView.setOnMenuItemClickListener(new OnMenuItemClickListener() {
             @Override
-            /*messageview 右上角菜单  发送 */
             public boolean onMenuItemClick(MenuItem item) {
                 int id = item.getItemId();
                 if (id == R.id.reply) {

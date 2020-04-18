@@ -1217,7 +1217,7 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
         }
 
         /*去掉长按item时 关于星标的操作*/
-        menu.findItem(R.id.flag).setVisible(false);//添加星标
+        menu.findItem(R.id.flag).setVisible(false);
         menu.findItem(R.id.unflag).setVisible(false);
 /*        if (flagged) {
             menu.findItem(R.id.flag).setVisible(false);//添加星标
@@ -1618,7 +1618,7 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
         }
 
         actionModeCallback.showMarkAsRead(isBatchRead);
-        actionModeCallback.showFlag(isBatchFlag);
+        actionModeCallback.showFlag(isBatchFlag);   //显示星标 有无
     }
 
     private void setFlag(int adapterPosition, final Flag flag, final boolean newState) {
@@ -2130,6 +2130,7 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
         /**显示星标*/
         public void showFlag(boolean show) {
             if (actionMode != null) {
+                //mFlag.setVisible(!show);    //均不可见
                 mFlag.setVisible(show);
                 mUnflag.setVisible(!show);
             }
