@@ -1,11 +1,6 @@
 package com.fsck.k9.activity.compose;
 
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-
 import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -15,9 +10,10 @@ import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.Menu;
+
 import androidx.annotation.Nullable;
 import androidx.loader.app.LoaderManager;
-import android.view.Menu;
 
 import com.fsck.k9.Account;
 import com.fsck.k9.Identity;
@@ -43,11 +39,18 @@ import com.fsck.k9.message.MessageBuilder;
 import com.fsck.k9.message.PgpMessageBuilder;
 import com.fsck.k9.ui.R;
 import com.fsck.k9.view.RecipientSelectView.Recipient;
+
 import org.openintents.openpgp.OpenPgpApiManager;
 import org.openintents.openpgp.OpenPgpApiManager.OpenPgpApiManagerCallback;
 import org.openintents.openpgp.OpenPgpApiManager.OpenPgpProviderError;
 import org.openintents.openpgp.OpenPgpApiManager.OpenPgpProviderState;
 import org.openintents.openpgp.util.OpenPgpApi;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 import timber.log.Timber;
 
 
@@ -324,10 +327,10 @@ public class RecipientPresenter {
             menu.findItem(R.id.openpgp_sign_only_disable).setVisible(false);
         }
 
-        boolean noContactPickerAvailable = !hasContactPicker();
+/*        boolean noContactPickerAvailable = !hasContactPicker();
         if (noContactPickerAvailable) {
-            menu.findItem(R.id.add_from_contacts).setVisible(false);
-        }
+            menu.findItem(R.id.add_from_contacts).setVisible(false);    //从联系人中添加
+        }*/
     }
 
     public void onSwitchAccount(Account account) {

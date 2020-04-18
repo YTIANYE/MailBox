@@ -981,9 +981,9 @@ public class MessageCompose extends K9Activity implements OnClickListener,
             checkToSaveDraftAndSave();
         } else if (id == R.id.discard) {
             askBeforeDiscard();
-        } else if (id == R.id.add_from_contacts) {
+        }/* else if (id == R.id.add_from_contacts) {    //从联系人中添加
             recipientPresenter.onMenuAddFromContacts();
-        } else if (id == R.id.openpgp_encrypt_disable) {
+        } */else if (id == R.id.openpgp_encrypt_disable) {
             recipientPresenter.onMenuToggleEncryption();
             updateMessageFormat();
         } else if (id == R.id.openpgp_encrypt_enable) {
@@ -1001,9 +1001,9 @@ public class MessageCompose extends K9Activity implements OnClickListener,
             recipientPresenter.onMenuSetSignOnly(false);
         } else if (id == R.id.add_attachment) {
             attachmentPresenter.onClickAddAttachment(recipientPresenter);
-        } else if (id == R.id.read_receipt) {
+        } /*else if (id == R.id.read_receipt) {     //已读回执
             onReadReceipt();
-        } else {
+        }*/ else {
             return super.onOptionsItemSelected(item);
         }
         return true;
