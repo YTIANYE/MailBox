@@ -5,7 +5,6 @@
     package="com.fsck.k9" >
     <!--    android:installLocation="auto"    -->
 
-
     <dist:module dist:instant="true" />
 
     <uses-feature

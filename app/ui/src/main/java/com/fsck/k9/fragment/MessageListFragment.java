@@ -1477,7 +1477,8 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
 
     /**
      * Set selection state for all messages.
-     *为所有消息设置选择状态。
+     *全选时
+     * 为所有消息设置选择状态。
      * @param selected
      *         If {@code true} all messages get selected. Otherwise, all messages get deselected and
      *         action mode is finished.
@@ -1592,6 +1593,7 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
         actionModeCallback.showSelectAll(selected.size() != adapter.getCount());
     }
 
+    /** 选择多项时的头部 已读未读  有无标记*/
     private void computeBatchDirection() {
         boolean isBatchFlag = false;
         boolean isBatchRead = false;
@@ -1617,7 +1619,8 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
             }
         }
 
-        actionModeCallback.showMarkAsRead(isBatchRead);
+        //全选时 头部按钮
+        actionModeCallback.showMarkAsRead(isBatchRead); //显示是否已读
         actionModeCallback.showFlag(isBatchFlag);   //显示星标 有无
     }
 
@@ -2130,8 +2133,8 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
         /**显示星标*/
         public void showFlag(boolean show) {
             if (actionMode != null) {
-                //mFlag.setVisible(!show);    //均不可见
-                mFlag.setVisible(show);
+                mFlag.setVisible(!show);    //在选择多个邮件时 上方按钮 flag均不可见
+                //mFlag.setVisible(show);
                 mUnflag.setVisible(!show);
             }
         }
