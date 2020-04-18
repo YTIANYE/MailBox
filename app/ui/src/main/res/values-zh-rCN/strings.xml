@@ -19,9 +19,30 @@
   <!--Welcome message-->
   <string name="welcome_message_title">欢迎使用 MailBox</string>
   <string name="accounts_welcome"><![CDATA[
-<p style="width: 100%;height: 45px;display: block;line-height: 45px;text-align: center;">
-这是一款可识别垃圾邮件的邮箱APP
+<p>MailBox 是一款安卓端可识别垃圾邮件的邮箱APP</p>
+<p> &#160;&#160;&#160;&#160; &#160;&#160;&#160;&#160; </p>
+<p>说明：</p>
+<ul>
+  <li>邮箱支持POP3/SMTP协议</li>
+  <li>只能使用支持该协议的邮箱账号登录</li>
+  <li>目前可以使用网易163或126邮箱登录</li>
+  <li>请检查网易邮箱是否开启POP3/SMTP服务</li>
+</ul>
+<p> &#160;&#160;&#160;&#160; &#160;&#160;&#160;&#160; </p>
+<p>开启POP3/SMTP服务方法：</p>
+<ul>
+  <li>登录邮箱进入设置，开启POP3/SMTP服务</li>
+  <li>设置授权密码</li>
+  <li>使用本客户端登录邮箱时的密码为授权密码</li>
+  <li>授权密码只显示一次</li>
+  <li>请记录密码或下次重新申请授权密码</li>
+</ul>
+<p> &#160;&#160;&#160;&#160; &#160;&#160;&#160;&#160; </p>
+<p>
+MailBox代码托管在YTIANYE的GitHub：
+<a href="https://github.com/YTIANYE/MailBox">https://github.com/YTIANYE/MailBox</a>.
 </p>
+<p>感谢：K-9 Mail的开发者提供的帮助</p>
     ]]></string>
   <!--Default signature--><!--签名-->
   <string name="default_signature">    </string>
