@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="account_colors">
+        <item>0xFFFFB300</item> <!-- Amber 600 -->
+        <item>0xFFFB8C00</item> <!-- Orange 600 -->
+        <item>0xFFF4511E</item> <!-- Deep orange 600 -->
+        <item>0xFFE53935</item> <!-- Red 600 -->
+
+        <item>0xFFC0CA33</item> <!-- Lime 600 -->
+        <item>0xFF7CB342</item> <!-- Light green 600 -->
+        <item>0xFF388E3C</item> <!-- Green 700 -->
+        <item>0xFF00897B</item> <!-- Teal 600 -->
+
+        <item>0xFF00ACC1</item> <!-- Cyan 600 -->
+        <item>0xFF039BE5</item> <!-- Light blue 600 -->
+        <item>0xFF1976D2</item> <!-- Blue 700 -->
+        <item>0xFF3949AB</item> <!-- Indigo 600 -->
+
+        <item>0xFFE91E63</item> <!-- Pink 500 -->
+        <item>0xFF8E24AA</item> <!-- Purple 600 -->
+        <item>0xFF5E35B1</item> <!-- Deep purple 600 -->
+        <item>0xFF455A64</item> <!-- Blue gray 700 -->
+    </integer-array>
+    <string-array name="autodownload_message_size_values" translatable="false">
+        <item>1024</item>
+        <item>2048</item>
+        <item>4096</item>
+        <item>8192</item>
+        <item>16384</item>
+        <item>32768</item>
+        <item>65536</item>
+        <item>131072</item>
+        <item>262144</item>
+        <item>524288</item>
+        <item>1048576</item>
+        <item>2097152</item>
+        <item>5242880</item>
+        <item>10485760</item>
+        <item>0</item>
+    </string-array>
+    <string-array name="background_ops_values" translatable="false">
+        <item>WHEN_CHECKED_AUTO_SYNC</item>
+        <item>ALWAYS</item>
+        <item>NEVER</item>
+    </string-array>
+    <string-array name="check_frequency_values" translatable="false">
+        <item>-1</item>
+        <item>15</item>
+        <item>30</item>
+        <item>60</item>
+        <item>120</item>
+        <item>180</item>
+        <item>360</item>
+        <item>720</item>
+        <item>1440</item>
+    </string-array>
+    <string-array name="confirm_action_values" translatable="false">
+        <item>delete</item>
+        <item>delete_starred</item>
+        <item>delete_notif</item>
+        <item>spam</item>
+        <item>discard</item>
+        <item>mark_all_read</item>
+    </string-array>
+    <string-array name="delete_policy_values" translatable="false">
+        <item>NEVER</item>
+        <item>ON_DELETE</item>
+        <item>MARK_AS_READ</item>
+    </string-array>
+    <string-array name="display_count_values" translatable="false">
+        <item>10</item>
+        <item>25</item>
+        <item>50</item>
+        <item>100</item>
+        <item>250</item>
+        <item>500</item>
+        <item>1000</item>
+        <item>2500</item>
+        <item>5000</item>
+        <item>10000</item>
+        <item>0</item>
+    </string-array>
+    <integer-array name="drawer_account_accent_color_dark_theme">
+        <item>0xFFFFB300</item> <!-- Amber 600 -->
+        <item>0xFFFF9800</item> <!-- Orange 500 -->
+        <item>0xFFFF7043</item> <!-- Deep orange 400 -->
+        <item>0xFFEF5350</item> <!-- Red 400 -->
+
+        <item>0xFFC0CA33</item> <!-- Lime 600 -->
+        <item>0xFF7CB342</item> <!-- Light green 600 -->
+        <item>0xFF4CAF50</item> <!-- Green 500 -->
+        <item>0xFF4DB6AC</item> <!-- Teal 300 -->
+
+        <item>0xFF00ACC1</item> <!-- Cyan 600 -->
+        <item>0xFF03A9F4</item> <!-- Light blue 500 -->
+        <item>0xFF42A5F5</item> <!-- Blue 400 -->
+        <item>0xFF9FA8DA</item> <!-- Indigo 200 -->
+
+        <item>0xFFF48FB1</item> <!-- Pink 200 -->
+        <item>0xFFCE93D8</item> <!-- Purple 200 -->
+        <item>0xFFB39DDB</item> <!-- Deep purple 200 -->
+        <item>0xFF90A4AE</item> <!-- Blue gray 300 -->
+    </integer-array>
+    <string-array name="expunge_policy_values" translatable="false">
+        <item>EXPUNGE_IMMEDIATELY</item>
+        <item>EXPUNGE_ON_POLL</item>
+        <item>EXPUNGE_MANUALLY</item>
+    </string-array>
+    <string-array name="folder_display_mode_values" translatable="false">
+        <item>ALL</item>
+        <item>FIRST_CLASS</item>
+        <item>FIRST_AND_SECOND_CLASS</item>
+        <item>NOT_SECOND_CLASS</item>
+    </string-array>
+    <string-array name="folder_notify_new_mail_mode_values" translatable="false">
+        <item>ALL</item>
+        <item>FIRST_CLASS</item>
+        <item>FIRST_AND_SECOND_CLASS</item>
+        <item>NOT_SECOND_CLASS</item>
+        <item>NONE</item>
+    </string-array>
+    <string-array name="folder_push_mode_values" translatable="false">
+        <item>ALL</item>
+        <item>FIRST_CLASS</item>
+        <item>FIRST_AND_SECOND_CLASS</item>
+        <item>NOT_SECOND_CLASS</item>
+        <item>NONE</item>
+    </string-array>
+    <string-array name="folder_sync_mode_values" translatable="false">
+        <item>ALL</item>
+        <item>FIRST_CLASS</item>
+        <item>FIRST_AND_SECOND_CLASS</item>
+        <item>NOT_SECOND_CLASS</item>
+        <item>NONE</item>
+    </string-array>
+    <string-array name="folder_target_mode_values" translatable="false">
+        <item>ALL</item>
+        <item>FIRST_CLASS</item>
+        <item>FIRST_AND_SECOND_CLASS</item>
+        <item>NOT_SECOND_CLASS</item>
+    </string-array>
+    <string-array name="idle_refresh_period_values" translatable="false">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>6</item>
+        <item>12</item>
+        <item>24</item>
+        <item>36</item>
+        <item>48</item>
+        <item>60</item>
+    </string-array>
+    <string-array name="language_values" translatable="false">
+        <item/>
+        <item>af</item>
+        <item>az</item>
+        <item>in</item>
+        <item>ms</item>
+        <item>bm</item>
+        <item>br</item>
+        <item>ca</item>
+        <item>cs</item>
+        <item>cy</item>
+        <item>da</item>
+        <item>de</item>
+        <item>et</item>
+        <item>en</item>
+        <item>es</item>
+        <item>eo</item>
+        <item>eu</item>
+        <item>ee</item>
+        <item>fr</item>
+        <item>fr_CA</item>
+        <item>ff</item>
+        <item>ga</item>
+        <item>gd</item>
+        <item>gl</item>
+        <item>ha</item>
+        <item>hr</item>
+        <item>xs</item>
+        <item>zu</item>
+        <item>is</item>
+        <item>it</item>
+        <item>rw</item>
+        <item>rn</item>
+        <item>sw</item>
+        <item>lv</item>
+        <item>lt</item>
+        <item>hu</item>
+        <item>mt</item>
+        <item>nl</item>
+        <item>no</item>
+        <item>nb</item>
+        <item>uz</item>
+        <item>pl</item>
+        <item>pt_PT</item>
+        <item>pt_BR</item>
+        <item>ru</item>
+        <item>ro</item>
+        <item>sq</item>
+        <item>sk</item>
+        <item>sl</item>
+        <item>so</item>
+        <item>fi</item>
+        <item>sv</item>
+        <item>vi</item>
+        <item>tr</item>
+        <item>wo</item>
+        <item>yo</item>
+        <item>el</item>
+        <item>ab</item>
+        <item>be</item>
+        <item>bg</item>
+        <item>ky</item>
+        <item>kk</item>
+        <item>mk</item>
+        <item>sr</item>
+        <item>uk</item>
+        <item>hy</item>
+        <item>iw</item>
+        <item>ur</item>
+        <item>ar</item>
+        <item>ps</item>
+        <item>fa</item>
+        <item>am</item>
+        <item>hi</item>
+        <item>te</item>
+        <item>kn</item>
+        <item>th</item>
+        <item>ko</item>
+        <item>zh_CN</item>
+        <item>zh_TW</item>
+        <item>ja</item>
+    </string-array>
+    <string-array name="lock_screen_notification_visibility_values" translatable="false">
+        <item name="0">NOTHING</item>
+        <item name="1">APP_NAME</item>
+        <item name="2">MESSAGE_COUNT</item>
+        <item name="3">SENDERS</item>
+        <item name="4">EVERYTHING</item>
+    </string-array>
+    <string-array name="message_age_values" translatable="false">
+        <item>-1</item>
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>7</item>
+        <item>14</item>
+        <item>21</item>
+        <item>28</item>
+        <item>56</item>
+        <item>84</item>
+        <item>168</item>
+        <item>365</item>
+    </string-array>
+    <string-array name="message_format_values" translatable="false">
+        <item>TEXT</item>
+        <item>HTML</item>
+        <item>AUTO</item>
+    </string-array>
+    <string-array name="message_theme_values" translatable="false">
+        <item>light</item>
+        <item>dark</item>
+        <item>global</item>
+    </string-array>
+    <string-array name="messageview_visible_refile_actions_values" translatable="false">
+        <item>delete</item>
+        <item>archive</item>
+        <item>move</item>
+        <item>copy</item>
+        <item>spam</item>
+    </string-array>
+    <string-array name="notification_hide_subject_values" translatable="false">
+        <item name="1">NEVER</item>
+        <item name="2">WHEN_LOCKED</item>
+        <item name="3">ALWAYS</item>
+    </string-array>
+    <string-array name="notification_quick_delete_values" translatable="false">
+        <item name="1">NEVER</item>
+        <item name="2">FOR_SINGLE_MSG</item>
+        <item name="3">ALWAYS</item>
+    </string-array>
+    <string-array name="preview_lines_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
+    <string-array name="push_limit_values" translatable="false">
+        <item>5</item>
+        <item>10</item>
+        <item>25</item>
+        <item>50</item>
+        <item>100</item>
+        <item>250</item>
+        <item>500</item>
+        <item>1000</item>
+    </string-array>
+    <string-array name="quote_style_values" translatable="false">
+        <item>PREFIX</item>
+        <item>HEADER</item>
+    </string-array>
+    <string-array name="remote_search_num_results_values" translatable="false">
+        <item>10</item>
+        <item>25</item>
+        <item>50</item>
+        <item>100</item>
+        <item>250</item>
+        <item>500</item>
+        <item>1000</item>
+        <item>0</item>
+    </string-array>
+    <string-array name="searchable_values" translatable="false">
+        <item>ALL</item>
+        <item>DISPLAYABLE</item>
+        <item>NONE</item>
+    </string-array>
+    <string-array name="show_pictures_values" translatable="false">
+        <item>NEVER</item>
+        <item>ONLY_FROM_CONTACTS</item>
+        <item>ALWAYS</item>
+    </string-array>
+    <string-array name="splitview_mode_values" translatable="false">
+        <item>ALWAYS</item>
+        <item>NEVER</item>
+        <item>WHEN_IN_LANDSCAPE</item>
+    </string-array>
+    <string-array name="supported_languages" translatable="false">
+        <item/>
+        <item>in</item>
+        <item>br</item>
+        <item>ca</item>
+        <item>cs</item>
+        <item>cy</item>
+        <item>da</item>
+        <item>de</item>
+        <item>et</item>
+        <item>en</item>
+        <item>es</item>
+        <item>eo</item>
+        <item>eu</item>
+        <item>fr</item>
+        <item>gd</item>
+        <item>gl</item>
+        <item>hr</item>
+        <item>is</item>
+        <item>it</item>
+        <item>lv</item>
+        <item>lt</item>
+        <item>hu</item>
+        <item>nl</item>
+        <item>nb</item>
+        <item>pl</item>
+        <item>pt_PT</item>
+        <item>pt_BR</item>
+        <item>ru</item>
+        <item>ro</item>
+        <item>sq</item>
+        <item>sk</item>
+        <item>sl</item>
+        <item>fi</item>
+        <item>sv</item>
+        <item>tr</item>
+        <item>el</item>
+        <item>bg</item>
+        <item>sr</item>
+        <item>uk</item>
+        <item>iw</item>
+        <item>ar</item>
+        <item>fa</item>
+        <item>ko</item>
+        <item>zh_CN</item>
+        <item>zh_TW</item>
+        <item>ja</item>
+    </string-array>
+    <string-array name="theme_values" translatable="false">
+        <item>light</item>
+        <item>dark</item>
+        <item>follow_system</item>
+    </string-array>
+    <string-array name="theme_values_legacy" translatable="false">
+        <item>follow_system</item>
+        <item>dark</item>
+    </string-array>
+    <string-array name="vibrate_pattern_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+    <string-array name="vibrate_times_label" translatable="false">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+    <string-array name="volume_navigation_values" translatable="false">
+        <item>message</item>
+        <item>list</item>
+    </string-array>
+</resources>

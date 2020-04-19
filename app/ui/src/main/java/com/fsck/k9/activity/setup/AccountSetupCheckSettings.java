@@ -55,6 +55,7 @@ import timber.log.Timber;
  * 
  * XXX NOTE: The manifest for this app has it ignore config changes, because
  * it doesn't correctly deal with restarting while its thread is running.
+ * 这个应用程序的清单会忽略配置更改，因为它在线程运行时不能正确地处理重启。
  */
 public class AccountSetupCheckSettings extends K9Activity implements OnClickListener,
         ConfirmationDialogFragmentListener {
