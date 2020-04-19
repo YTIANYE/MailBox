@@ -59,7 +59,8 @@ android {
     buildToolsVersion buildConfig.buildTools
     defaultConfig {
         applicationId "com.fsck.MailBox"
-        testApplicationId "com.fsck.k9.tests"
+        //testApplicationId "com.fsck.k9.tests"
+        testApplicationId "com.fsck.MailBox.tests"
 //        minSdkVersion 15
 //        targetSdkVersion 28
         minSdkVersion buildConfig.minSdk
@@ -98,8 +99,8 @@ android {
             applicationIdSuffix ".debug"
             testCoverageEnabled rootProject.testCoverage
 
-            //minifyEnabled true
-            minifyEnabled false
+            minifyEnabled true
+            //minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 
             buildConfigField "boolean", "DEVELOPER_MODE", "true"
