@@ -37,6 +37,8 @@ public class MessageWebView extends WebView {
     /**
      * Configure a web view to load or not load network data. A <b>true</b> setting here means that
      * network data will be blocked.
+     * 配置web视图以加载或不加载网络数据。这里的设置意味着
+     * *网络数据将被阻塞。
      * @param shouldBlockNetworkData True if network data should be blocked, false to allow network data.
      */
     public void blockNetworkData(final boolean shouldBlockNetworkData) {

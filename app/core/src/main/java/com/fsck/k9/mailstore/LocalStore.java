@@ -77,6 +77,7 @@ import timber.log.Timber;
 /**
  * <pre>
  * Implements a SQLite database backed local store for Messages.
+ * 为消息实现SQLite数据库支持的本地存储。
  * </pre>
  */
 public class LocalStore {
@@ -314,6 +315,7 @@ public class LocalStore {
         }
     }
 
+    /**  清除表数据    threads messages messages_fulltext*/
 
     public void clear() throws MessagingException {
         if (K9.isDebugLoggingEnabled()) {

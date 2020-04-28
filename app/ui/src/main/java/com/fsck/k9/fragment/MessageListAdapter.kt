@@ -103,7 +103,7 @@ class MessageListAdapter internal constructor(
 
     private val activeFolderServerId: String?
         get() = activeMessage?.folderServerId
-
+    //获取消息的id
     private val activeUid: String?
         get() = activeMessage?.uid
 

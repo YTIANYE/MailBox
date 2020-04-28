@@ -2,12 +2,14 @@ package com.fsck.k9.message.html
 
 class DisplayHtml(private val settings: HtmlSettings) {
 
+    //没有文本
     fun wrapStatusMessage(status: CharSequence): String {
         return wrapMessageContent("<div style=\"text-align:center; color: grey;\">$status</div>")
     }
 
     fun wrapMessageContent(messageContent: CharSequence): String {
         // Include a meta tag so the WebView will not use a fixed viewport width of 980 px
+        //包含一个元标签，这样WebView就不会使用980像素的固定视口宽度
         return "<html dir=\"auto\"><head><meta name=\"viewport\" content=\"width=device-width\"/>" +
                 cssStyleTheme() +
                 cssStylePre() +

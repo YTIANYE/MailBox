@@ -9,6 +9,7 @@ import com.fsck.k9.mailstore.MigrationsHelper;
 
 public class Migrations {
     @SuppressWarnings("fallthrough")
+    /**  更新数据库操作 */
     public static void upgradeDatabase(SQLiteDatabase db, MigrationsHelper migrationsHelper) {
         boolean shouldBuildFtsTable = false;
         switch (db.getVersion()) {
@@ -103,9 +104,10 @@ public class Migrations {
         }
     }
 
+    /** 创建数据库的 表*/
     private static void buildFtsTable(SQLiteDatabase db, MigrationsHelper migrationsHelper) {
         LocalStore localStore = migrationsHelper.getLocalStore();
         FullTextIndexer fullTextIndexer = new FullTextIndexer(localStore, db);
-        fullTextIndexer.indexAllMessages();
+        fullTextIndexer.indexAllMessages();//向所有文件夹中 插入 全部消息
     }
 }

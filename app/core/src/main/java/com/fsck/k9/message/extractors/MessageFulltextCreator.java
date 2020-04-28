@@ -26,6 +26,7 @@ public class MessageFulltextCreator {
         return new MessageFulltextCreator(textPartFinder);
     }
 
+    /**  由消息中提取出 fulltext */
     public String createFulltext(@NonNull Message message) {
         Part textPart = textPartFinder.findFirstTextPart(message);
         if (textPart == null || hasEmptyBody(textPart)) {

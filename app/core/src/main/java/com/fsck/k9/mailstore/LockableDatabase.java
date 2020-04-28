@@ -1,11 +1,6 @@
 package com.fsck.k9.mailstore;
 
 
-import java.io.File;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReadWriteLock;
-import java.util.concurrent.locks.ReentrantReadWriteLock;
-
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
@@ -13,6 +8,12 @@ import android.database.sqlite.SQLiteException;
 import com.fsck.k9.K9;
 import com.fsck.k9.helper.FileHelper;
 import com.fsck.k9.mail.MessagingException;
+
+import java.io.File;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReadWriteLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
+
 import timber.log.Timber;
 
 import static java.lang.System.currentTimeMillis;
@@ -26,6 +27,8 @@ public class LockableDatabase {
      *
      * @param <T>
      *            Return value type for {@link #doDbWork(SQLiteDatabase)}
+     *
+     *            主要实现对数据库额操作，增删改查
      */
     public interface DbCallback<T> {
         /**
@@ -40,6 +43,7 @@ public class LockableDatabase {
         T doDbWork(SQLiteDatabase db) throws WrappedException, MessagingException;
     }
 
+    /*主要实现对数据库表操作。比如给表添加索引、创建触发器和修改表结构等*/
     public interface SchemaDefinition {
         int getVersion();
 
@@ -97,6 +101,7 @@ public class LockableDatabase {
             Timber.d("LockableDatabase: Opening DB %s due to mount event on StorageProvider: %s", uUid, providerId);
 
             try {
+                /*打开或创建数据库*/
                 openOrCreateDataspace();
             } catch (UnavailableStorageException e) {
                 Timber.e(e, "Unable to open DB on mount");
@@ -361,7 +366,7 @@ public class LockableDatabase {
     }
 
     /**
-     *
+     *  打开或创建数据空间
      * @throws UnavailableStorageException
      */
     private void openOrCreateDataspace() throws UnavailableStorageException {
@@ -370,6 +375,7 @@ public class LockableDatabase {
         try {
             final File databaseFile = prepareStorage(mStorageProviderId);
             try {
+                /*打开或创建数据库*/
                 doOpenOrCreateDb(databaseFile);
             } catch (SQLiteException e) {
                 // TODO handle this error in a better way!
@@ -377,6 +383,7 @@ public class LockableDatabase {
                 if (databaseFile.exists() && !databaseFile.delete()) {
                     Timber.d("Failed to remove %s that couldn't be opened", databaseFile);
                 }
+                /*打开或创建数据库*/
                 doOpenOrCreateDb(databaseFile);
             }
 
@@ -390,6 +397,9 @@ public class LockableDatabase {
         }
     }
 
+    /**
+     * 打开或创建数据库
+     * */
     private void doOpenOrCreateDb(final File databaseFile) {
         if (StorageManager.InternalStorageProvider.ID.equals(mStorageProviderId)) {
             // internal storage

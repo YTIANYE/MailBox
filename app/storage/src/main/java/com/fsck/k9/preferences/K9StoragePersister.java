@@ -1,22 +1,25 @@
 package com.fsck.k9.preferences;
 
 
-import java.util.HashMap;
-import java.util.Map;
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteStatement;
 import android.os.SystemClock;
+
 import androidx.annotation.CheckResult;
 
 import com.fsck.k9.helper.Utility;
 import com.fsck.k9.preferences.migrations.StorageMigrations;
 import com.fsck.k9.preferences.migrations.StorageMigrationsHelper;
+
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.HashMap;
+import java.util.Map;
+
 import timber.log.Timber;
 
 
@@ -31,6 +34,7 @@ public class K9StoragePersister implements StoragePersister {
     }
 
     private SQLiteDatabase openDB() {
+        /*打开或创建数据酷*/
         SQLiteDatabase db = context.openOrCreateDatabase(DB_NAME, Context.MODE_PRIVATE, null);
 
         db.beginTransaction();

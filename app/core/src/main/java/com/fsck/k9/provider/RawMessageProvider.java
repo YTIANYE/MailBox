@@ -1,12 +1,6 @@
 package com.fsck.k9.provider;
 
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.util.Collections;
-import java.util.List;
-
 import android.content.ContentProvider;
 import android.content.ContentValues;
 import android.database.Cursor;
@@ -14,6 +8,7 @@ import android.database.MatrixCursor;
 import android.net.Uri;
 import android.os.ParcelFileDescriptor;
 import android.provider.OpenableColumns;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -29,7 +24,15 @@ import com.fsck.k9.mailstore.LocalFolder;
 import com.fsck.k9.mailstore.LocalMessage;
 import com.fsck.k9.mailstore.LocalStore;
 import com.fsck.k9.mailstore.LocalStoreProvider;
+
 import org.openintents.openpgp.util.OpenPgpApi.OpenPgpDataSource;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.util.Collections;
+import java.util.List;
+
 import timber.log.Timber;
 
 
@@ -131,7 +134,7 @@ public class RawMessageProvider extends ContentProvider {
         String messageReferenceString = segments.get(0);
         MessageReference messageReference = MessageReference.parse(messageReferenceString);
 
-        ParcelFileDescriptor parcelFileDescriptor = openMessage(messageReference);
+        ParcelFileDescriptor parcelFileDescriptor = openMessage(messageReference);  //打开消息
         if (parcelFileDescriptor == null) {
             throw new FileNotFoundException("Message missing or cannot be opened!");
         }
@@ -139,6 +142,7 @@ public class RawMessageProvider extends ContentProvider {
     }
 
     @Nullable
+    /**打开消息*/
     private ParcelFileDescriptor openMessage(MessageReference messageReference) {
         try {
             OpenPgpDataSource openPgpDataSource = getRawMessageDataSource(messageReference);

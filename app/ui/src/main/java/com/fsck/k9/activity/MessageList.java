@@ -364,7 +364,7 @@ public class MessageList extends K9Activity implements MessageListFragmentListen
         // so, open the referenced message.
         if (!hasMessageListFragment && messageViewFragment == null &&
                 messageReference != null) {
-            openMessage(messageReference);
+            openMessage(messageReference);  //打开消息 传入账户 文件夹 消息id
         }
     }
 
@@ -1292,11 +1292,12 @@ public class MessageList extends K9Activity implements MessageListFragmentListen
     }
 
     @Override
+    /** 打开消息 */
     public void openMessage(MessageReference messageReference) {
         Account account = preferences.getAccount(messageReference.getAccountUuid());
         String folderServerId = messageReference.getFolderServerId();
 
-        if (folderServerId.equals(account.getDraftsFolder())) {
+        if (folderServerId.equals(account.getDraftsFolder())) {     //草稿
             MessageActions.actionEditDraft(this, messageReference);
         } else {
             messageViewContainer.removeView(messageViewPlaceHolder);
@@ -1306,6 +1307,7 @@ public class MessageList extends K9Activity implements MessageListFragmentListen
             }
 
             MessageViewFragment fragment = MessageViewFragment.newInstance(messageReference);//显示详细消息内容
+            //创建一个事务 然后提交
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.message_view_container, fragment);
             messageViewFragment = fragment;

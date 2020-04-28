@@ -52,6 +52,12 @@ dependencies {
     //引入ButterKnife
 /*    implementation 'com.jakewharton:butterknife:10.0.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.0.0'*/
+
+    // 查看SQLite基本操作
+    compile 'com.facebook.stetho:stetho:1.5.0'
+    // 网络操作--有网络操作添加
+    compile 'com.facebook.stetho:stetho-okhttp3:1.5.0'
+    compile 'com.squareup.okhttp3:okhttp:3.9.0'
 }
 
 android {

@@ -2,6 +2,29 @@
 package com.fsck.k9.mail.internet;
 
 
+import androidx.annotation.NonNull;
+
+import com.fsck.k9.mail.Address;
+import com.fsck.k9.mail.Body;
+import com.fsck.k9.mail.BodyFactory;
+import com.fsck.k9.mail.BodyPart;
+import com.fsck.k9.mail.DefaultBodyFactory;
+import com.fsck.k9.mail.Message;
+import com.fsck.k9.mail.MessagingException;
+import com.fsck.k9.mail.Multipart;
+import com.fsck.k9.mail.Part;
+
+import org.apache.commons.io.IOUtils;
+import org.apache.james.mime4j.MimeException;
+import org.apache.james.mime4j.dom.field.DateTimeField;
+import org.apache.james.mime4j.field.DefaultFieldParser;
+import org.apache.james.mime4j.io.EOLConvertingInputStream;
+import org.apache.james.mime4j.parser.ContentHandler;
+import org.apache.james.mime4j.parser.MimeStreamParser;
+import org.apache.james.mime4j.stream.BodyDescriptor;
+import org.apache.james.mime4j.stream.Field;
+import org.apache.james.mime4j.stream.MimeConfig;
+
 import java.io.BufferedWriter;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -15,33 +38,13 @@ import java.util.Locale;
 import java.util.Set;
 import java.util.TimeZone;
 
-import androidx.annotation.NonNull;
-
-import com.fsck.k9.mail.Address;
-import com.fsck.k9.mail.Body;
-import com.fsck.k9.mail.BodyFactory;
-import com.fsck.k9.mail.BodyPart;
-import com.fsck.k9.mail.DefaultBodyFactory;
-import com.fsck.k9.mail.Message;
-import com.fsck.k9.mail.MessagingException;
-import com.fsck.k9.mail.Multipart;
-import com.fsck.k9.mail.Part;
-import org.apache.commons.io.IOUtils;
-import org.apache.james.mime4j.MimeException;
-import org.apache.james.mime4j.dom.field.DateTimeField;
-import org.apache.james.mime4j.field.DefaultFieldParser;
-import org.apache.james.mime4j.io.EOLConvertingInputStream;
-import org.apache.james.mime4j.parser.ContentHandler;
-import org.apache.james.mime4j.parser.MimeStreamParser;
-import org.apache.james.mime4j.stream.BodyDescriptor;
-import org.apache.james.mime4j.stream.Field;
-import org.apache.james.mime4j.stream.MimeConfig;
 import timber.log.Timber;
 
 
 /**
  * An implementation of Message that stores all of it's metadata in RFC 822 and
  * RFC 2045 style headers.
+ * 这是一个消息实现的视图，它将所有的元数据存储在RFC 822和RFC 2045样式头中。
  */
 public class MimeMessage extends Message {
     private MimeHeader mHeader = new MimeHeader();
@@ -145,6 +148,7 @@ public class MimeMessage extends Message {
     /**
      * Sets the sent date object member as well as *adds* the 'Date' header
      * instead of setting it (for performance reasons).
+     * 设置发送的日期对象成员，并*添加* ' date '标头，而不是设置它(出于性能原因)。
      *
      * @see #mSentDate
      * @param sentDate
@@ -207,6 +211,7 @@ public class MimeMessage extends Message {
     /**
      * Returns a list of the given recipient type from this message. If no addresses are
      * found the method returns an empty array.
+     * 从此消息返回给定收件人类型的列表。如果没有找到地址，该方法将返回一个空数组。
      */
     @Override
     public Address[] getRecipients(RecipientType type) {
@@ -254,6 +259,7 @@ public class MimeMessage extends Message {
 
     /**
      * Returns the unfolded, decoded value of the Subject header.
+     * 返回展开的、已解码的主题标头值。
      */
     @Override
     public String getSubject() {

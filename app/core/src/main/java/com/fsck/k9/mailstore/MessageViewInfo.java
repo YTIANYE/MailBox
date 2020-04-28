@@ -1,27 +1,31 @@
 package com.fsck.k9.mailstore;
 
 
-import java.util.Collections;
-import java.util.List;
-
 import com.fsck.k9.mail.Message;
 import com.fsck.k9.mail.Part;
 
+import java.util.Collections;
+import java.util.List;
+
+
+/**
+ * 用于 显示消息具体信息 的类
+ * */
 
 public class MessageViewInfo {
     public final Message message;
     public final boolean isMessageIncomplete;
     public final Part rootPart;
-    public final String subject;
+    public final String subject;    //消息主题
     public final boolean isSubjectEncrypted;
     public final AttachmentResolver attachmentResolver;
-    public final String text;
+    public final String text;   //消息文本
     public final CryptoResultAnnotation cryptoResultAnnotation;
     public final List<AttachmentViewInfo> attachments;
     public final String extraText;
     public final List<AttachmentViewInfo> extraAttachments;
 
-
+    /*构造函数*/
     public MessageViewInfo(
             Message message, boolean isMessageIncomplete, Part rootPart,
             String subject, boolean isSubjectEncrypted,
@@ -53,6 +57,7 @@ public class MessageViewInfo {
         return new MessageViewInfo(message, isMessageIncomplete, null, null, false, null, null, null, null, null, null);
     }
 
+    /** 为元数据创造 messageViewInfo */
     public static MessageViewInfo createForMetadataOnly(Message message, boolean isMessageIncomplete) {
         return new MessageViewInfo(message, isMessageIncomplete, null, null, false, null, null, null, null, null, null);
     }

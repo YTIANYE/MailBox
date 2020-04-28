@@ -21,6 +21,9 @@ public class LocalMessageLoader extends AsyncTaskLoader<LocalMessage> {
     private final boolean onlyLoadMetadata;
     private LocalMessage message;
 
+    /**
+     * 构造函数
+     * */
     public LocalMessageLoader(Context context, MessagingController controller, Account account,
                               MessageReference messageReference, boolean onlyLoadMetaData) {
         super(context);
@@ -48,6 +51,7 @@ public class LocalMessageLoader extends AsyncTaskLoader<LocalMessage> {
     }
 
     @Override
+    /** 从数据库中加载消息 */
     public LocalMessage loadInBackground() {
         try {
             if (onlyLoadMetadata) {

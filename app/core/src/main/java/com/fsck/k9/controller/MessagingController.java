@@ -204,6 +204,7 @@ public class MessagingController {
         controllerThread.join(1000L);
     }
 
+    /** 获取队列中的命令然后执行 */
     private void runInBackground() {
         Process.setThreadPriority(Process.THREAD_PRIORITY_BACKGROUND);
         while (!stopped) {
@@ -656,7 +657,7 @@ public class MessagingController {
             LocalMessage localMessage = localFolder.getMessage(messageServerId);
 
             if (localMessage == null) {
-                Message message = backend.fetchMessage(folderServerId, messageServerId, fetchProfile);
+                Message message = backend.fetchMessage(folderServerId, messageServerId, fetchProfile);//获取消息
                 localFolder.appendMessages(Collections.singletonList(message));
             }
         }
@@ -1025,6 +1026,7 @@ public class MessagingController {
 
     /**
      * Processes a pending mark read or unread command.
+     * 处理挂起的“已读”或“未读”命令。
      */
     void processPendingSetFlag(PendingSetFlag command, Account account) throws MessagingException {
         Backend backend = getBackend(account);
@@ -1044,7 +1046,7 @@ public class MessagingController {
 
     void processPendingDelete(PendingDelete command, Account account) throws MessagingException {
         Backend backend = getBackend(account);
-        backend.deleteMessages(command.folder, command.uids);
+        backend.deleteMessages(command.folder, command.uids);   //删除消息
     }
 
     private void queueExpunge(final Account account, final String folderServerId) {
@@ -1357,6 +1359,7 @@ public class MessagingController {
         }
     }
 
+    /** 根据账户 文件夹  消息id 加载消息 */
     public LocalMessage loadMessage(Account account, String folderServerId, String uid) throws MessagingException {
         LocalStore localStore = localStoreProvider.getInstance(account);
         LocalFolder localFolder = localStore.getFolder(folderServerId);
@@ -2084,6 +2087,7 @@ public class MessagingController {
         return messagesInThreads;
     }
 
+    /*删除消息*/
     public void deleteMessage(MessageReference message, final MessagingListener listener) {
         deleteMessages(Collections.singletonList(message), listener);
     }
@@ -2136,6 +2140,7 @@ public class MessagingController {
 
     }
 
+    /*删除消息          Synchronous 同步的；同时的*/
     private void deleteMessagesSynchronous(final Account account, final String folder,
             final List<? extends Message> messages,
             MessagingListener listener) {
@@ -2144,6 +2149,7 @@ public class MessagingController {
         try {
             //We need to make these callbacks before moving the messages to the trash
             //as messages get a new UID after being moved
+            /*我们需要在将消息移动到垃圾箱之前进行这些回调，因为消息在被移动后将获得一个新的UID*/
             for (Message message : messages) {
                 String messageServerId = message.getUid();
                 for (MessagingListener l : getListeners(listener)) {
@@ -2172,6 +2178,7 @@ public class MessagingController {
             if (folder.equals(account.getTrashFolder()) || !account.hasTrashFolder() ||
                     !backend.isDeleteMoveToTrash()) {
                 Timber.d("Not moving deleted messages to local Trash folder. Removing local copies.");
+                /*未将删除的邮件移动到本地垃圾文件夹。删除本地副本。”*/
 
                 if (!localOnlyMessages.isEmpty()) {
                     localFolder.destroyMessages(localOnlyMessages);
@@ -2179,10 +2186,11 @@ public class MessagingController {
                 if (!syncedMessages.isEmpty()) {
                     localFolder.setFlags(syncedMessages, Collections.singleton(Flag.DELETED), true);
                 }
-            } else {
+            } else {//将删除的邮件移动到本地垃圾文件夹
                 Timber.d("Deleting messages in normal folder, moving");
+                /*删除普通文件夹中的邮件，移动*/
                 localTrashFolder = localStore.getFolder(account.getTrashFolder());
-                uidMap = localFolder.moveMessages(messages, localTrashFolder);
+                uidMap = localFolder.moveMessages(messages, localTrashFolder);  //uidMap Map<String, String>
             }
 
             for (MessagingListener l : getListeners()) {
@@ -2199,6 +2207,7 @@ public class MessagingController {
                 for (Message message : messages) {
                     // If the message was in the Outbox, then it has been copied to local Trash, and has
                     // to be copied to remote trash
+                    //如果消息在发件箱中，则它已被复制到本地垃圾，并必须复制到远程垃圾
                     PendingCommand command = PendingAppend.create(account.getTrashFolder(), message.getUid());
                     queuePendingCommand(account, command);
                 }

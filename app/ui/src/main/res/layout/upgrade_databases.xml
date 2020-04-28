@@ -19,6 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
+        <!--正在更新数据库…-->
         <TextView
             android:id="@+id/databaseUpgradeText"
             android:layout_width="wrap_content"

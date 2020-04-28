@@ -128,7 +128,7 @@ public class UpgradeDatabases extends K9Activity {
     private void initializeLayout() {
         setLayout(R.layout.upgrade_databases);
 
-        mUpgradeText = findViewById(R.id.databaseUpgradeText);
+        mUpgradeText = findViewById(R.id.databaseUpgradeText);//        <!--正在更新数据库…-->
     }
 
     /**
@@ -206,7 +206,7 @@ public class UpgradeDatabases extends K9Activity {
                 Account account = mPreferences.getAccount(accountUuid);
 
                 if (account != null) {
-                    String formatString = getString(R.string.upgrade_database_format);
+                    String formatString = getString(R.string.upgrade_database_format);//正在更新账户 <xliff:g id="account">%s</xliff:g> 的数据库
                     String upgradeStatus = String.format(formatString, account.getDescription());
                     mUpgradeText.setText(upgradeStatus);
                 }

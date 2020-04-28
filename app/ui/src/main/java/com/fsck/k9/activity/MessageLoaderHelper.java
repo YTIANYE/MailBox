@@ -44,13 +44,14 @@ import timber.log.Timber;
 
 /** This class is responsible for loading a message start to finish, and
  * retaining or reloading the loading state on configuration changes.
+ * 该类负责从开始到结束加载消息，并在配置更改时保留或重新加载加载状态。
  *
  * In particular, it takes care of the following:
- *  - load raw message data from the database, using LocalMessageLoader
- *  - download partial message content if it is missing using MessagingController
- *  - apply crypto operations if applicable, using MessageCryptoHelper
- *  - extract MessageViewInfo from the message and crypto data using DecodeMessageLoader
- *  - download complete message content for partially downloaded messages if requested
+ *  - load raw message data from the database, using LocalMessageLoader                    使用LocalMessageLoader从数据库加载原始消息数据
+ *  - download partial message content if it is missing using MessagingController          使用MessagingController下载部分缺失的消息内容
+ *  - apply crypto operations if applicable, using MessageCryptoHelper                      如果可以，使用MessageCryptoHelper应用加密操作
+ *  - extract MessageViewInfo from the message and crypto data using DecodeMessageLoader    使用DecodeMessageLoader从消息和加密数据中提取MessageViewInfo
+ *  - download complete message content for partially downloaded messages if requested      如果被请求，下载部分已下载消息的完整消息内容
  *
  * No state is retained in this object itself. Instead, state is stored in the
  * message loaders and the MessageCryptoHelper which is stored in a
@@ -59,12 +60,20 @@ import timber.log.Timber;
  * then call asyncStartOrResumeLoadingMessage to start or resume loading the
  * message, receiving callbacks when it is loaded.
  *
+ * 此对象本身不保留任何状态。相反，状态存储在消息加载器中，而MessageCryptoHelper存储在一个RetainFragment中。
+ * 公共接口用于活动或片段，它们应该在onCreate中构造该类的新实例，
+ * 然后调用asyncStartOrResumeLoadingMessage来开始或继续加载消息，在加载消息时接收回调。
+ *
  * When the Activity or Fragment is ultimately destroyed, it should call
  * onDestroy, which stops loading and deletes all state kept in loaders and
  * fragments by this object. If it is only destroyed for a configuration
  * change, it should call onDestroyChangingConfigurations, which cancels any
  * further callbacks from this object but retains the loading state to resume
  * from at the next call to asyncStartOrResumeLoadingMessage.
+ *
+ * 当活动或片段最终被销毁时，它应该调用onDestroy，这将停止加载并删除该对象在加载器和片段中保存的所有状态。
+ * 如果它只是因为配置更改而被销毁，那么它应该调用onDestroyChangingConfigurations，它取消该对象的任何进一步回调，
+ * 但保留加载状态，以便在下一次调用asyncStartOrResumeLoadingMessage时恢复加载状态。
  *
  * If the message is already loaded, a call to asyncStartOrResumeLoadingMessage
  * will typically load by starting the decode message loader, retrieving the
@@ -75,6 +84,11 @@ import timber.log.Timber;
  * intermediate step, the input of the respective loaders will be checked for
  * consistency, reloading if there is a mismatch.
  *
+ * 如果消息已经加载，对asyncStartOrResumeLoadingMessage的调用通常会通过启动解码消息加载器来加载，检索已经缓存的LocalMessage。
+ * 此消息将传递到保留的CryptoMessageHelper实例，返回已缓存的MessageCryptoAnnotations。
+ * 这两个对象将根据保留的DecodeMessageLoader进行检查，并返回最终结果。
+ * 在每个中间步骤，将检查各自装入器的输入是否一致，如果不匹配，则重新装入。
+ *
  */
 public class MessageLoaderHelper {
     private static final int LOCAL_MESSAGE_LOADER_ID = 1;
@@ -82,15 +96,17 @@ public class MessageLoaderHelper {
 
 
     // injected state - all of this may be cleared to avoid data leakage!
+    //注入状态-所有这些都可以清除，以避免数据泄漏!
     private Context context;
     private FragmentManager fragmentManager;
     private LoaderManager loaderManager;
     @Nullable // make this explicitly nullable, make sure to cancel/ignore any operation if this is null
+    //使此值显式为空，如果为空，请确保取消/忽略任何操作
     private MessageLoaderCallbacks callback;
     private final MessageViewInfoExtractor messageViewInfoExtractor;
     private Handler handler = new Handler(Looper.getMainLooper());
 
-    // transient state
+    // transient state  过渡状态
     private boolean onlyLoadMetadata;
     private MessageReference messageReference;
     private Account account;
@@ -113,8 +129,8 @@ public class MessageLoaderHelper {
 
 
     // public interface
-
     @UiThread
+    /**  显示具体消息内容 */
     public void asyncStartOrResumeLoadingMessage(MessageReference messageReference, Parcelable cachedDecryptionResult) {
         onlyLoadMetadata = false;
         this.messageReference = messageReference;
@@ -158,7 +174,9 @@ public class MessageLoaderHelper {
         }
     }
 
-    /** Cancels all loading processes, prevents future callbacks, and destroys all loading state. */
+    /** Cancels all loading processes, prevents future callbacks, and destroys all loading state.
+     * 取消所有加载过程，防止将来的回调，并销毁所有加载状态。
+     * */
     @UiThread
     public void onDestroy() {
         if (messageCryptoHelper != null) {
@@ -172,7 +190,9 @@ public class MessageLoaderHelper {
     }
 
     /** Prevents future callbacks, but retains loading state to pick up from in a call to
-     * asyncStartOrResumeLoadingMessage in a new instance of this class. */
+     * asyncStartOrResumeLoadingMessage in a new instance of this class.
+     * 防止将来的回调，但是保留加载状态，以便在这个类的新实例中从对asyncStartOrResumeLoadingMessage的调用中拾取
+     * */
     @UiThread
     public void onDestroyChangingConfigurations() {
         cancelAndClearDecodeLoader();
@@ -198,7 +218,7 @@ public class MessageLoaderHelper {
     }
 
 
-    // load from database
+    // load from database   从数据库加载
 
     private void startOrResumeLocalMessageLoader() {
         LocalMessageLoader loader =
@@ -206,12 +226,12 @@ public class MessageLoaderHelper {
         boolean isLoaderStale = (loader == null) || !loader.isCreatedFor(messageReference);
 
         if (isLoaderStale) {
-            Timber.d("Creating new local message loader");
+            Timber.d("Creating new local message loader");//创建新的本地消息加载程序
             cancelAndClearCryptoOperation();
             cancelAndClearDecodeLoader();
             loaderManager.restartLoader(LOCAL_MESSAGE_LOADER_ID, null, localMessageLoaderCallback);
         } else {
-            Timber.d("Reusing local message loader");
+            Timber.d("Reusing local message loader");//重用本地消息加载程序
             loaderManager.initLoader(LOCAL_MESSAGE_LOADER_ID, null, localMessageLoaderCallback);
         }
     }
@@ -232,7 +252,8 @@ public class MessageLoaderHelper {
             return;
         }
 
-        if (onlyLoadMetadata) {
+        if (onlyLoadMetadata) { //meta 元
+            //从localMessage中取出messageViewInfo
             MessageViewInfo messageViewInfo = MessageViewInfo.createForMetadataOnly(localMessage, !downloadedCompletely);
             onDecodeMessageFinished(messageViewInfo);
             return;
@@ -275,7 +296,7 @@ public class MessageLoaderHelper {
                 throw new IllegalStateException("loader id must be message loader id");
             }
 
-            localMessage = message;
+            localMessage = message; //包含messageReference但不包含具体text  包含preview
             if (message == null) {
                 onLoadMessageFromDatabaseFailed();
             } else {
@@ -294,6 +315,7 @@ public class MessageLoaderHelper {
 
 
     // process with crypto helper
+    //密码处理助手
 
     private void startOrResumeCryptoOperation(String openPgpProvider) {
         RetainFragment<MessageCryptoHelper> retainCryptoHelperFragment = getMessageCryptoHelperRetainFragment(true);
@@ -363,6 +385,7 @@ public class MessageLoaderHelper {
 
 
     // decode message
+    //解码信息
 
     private void startOrResumeDecodeMessage() {
         LocalMessageExtractorLoader loader =
@@ -378,6 +401,7 @@ public class MessageLoaderHelper {
         }
     }
 
+    //此时已经获得了 messageViewInfo
     private void onDecodeMessageFinished(MessageViewInfo messageViewInfo) {
         if (callback == null) {
             throw new IllegalStateException("unexpected call when callback is already detached");
@@ -417,7 +441,7 @@ public class MessageLoaderHelper {
                 throw new IllegalStateException("loader id must be message decoder id");
             }
             return new LocalMessageExtractorLoader(context, localMessage, messageCryptoAnnotations,
-                    messageViewInfoExtractor);
+                    messageViewInfoExtractor);//localMessage包含localStore包含database
         }
 
         @Override
@@ -500,7 +524,7 @@ public class MessageLoaderHelper {
     };
 
 
-    // callback interface
+    // callback interface   回调接口
 
     public interface MessageLoaderCallbacks {
         void onMessageDataLoadFinished(LocalMessage message);

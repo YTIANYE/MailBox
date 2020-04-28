@@ -63,7 +63,7 @@ import timber.log.Timber;
 public class MessageViewFragment extends Fragment implements ConfirmationDialogFragmentListener,
         AttachmentViewCallback, OnClickShowCryptoKeyListener {
 
-    private static final String ARG_REFERENCE = "reference";
+    private static final String ARG_REFERENCE = "reference";    //存储message的引用
 
     private static final int ACTIVITY_CHOOSE_FOLDER_MOVE = 1;
     private static final int ACTIVITY_CHOOSE_FOLDER_COPY = 2;
@@ -74,7 +74,8 @@ public class MessageViewFragment extends Fragment implements ConfirmationDialogF
 
     public static final int PROGRESS_THRESHOLD_MILLIS = 500 * 1000;
 
-    public static MessageViewFragment newInstance(MessageReference reference) {
+    //将 reference 传入 messageviewfragment
+    public static MessageViewFragment newInstance(MessageReference reference) { //reference : accountUuid folderServerId= "Trash" uid flag
         MessageViewFragment fragment = new MessageViewFragment();
 
         Bundle args = new Bundle();
@@ -102,6 +103,7 @@ public class MessageViewFragment extends Fragment implements ConfirmationDialogF
     /**
      * Used to temporarily store the destination folder for refile operations if a confirmation
      * dialog is shown.
+     * 用于在显示确认对话框时临时存储重新填充操作的目标文件夹。
      */
     private String mDstFolder;
 
@@ -135,7 +137,7 @@ public class MessageViewFragment extends Fragment implements ConfirmationDialogF
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // This fragments adds options to the action bar
+        // This fragments adds options to the action bar    此片段将选项添加到操作栏
         setHasOptionsMenu(true);
 
         Context context = getActivity().getApplicationContext();
@@ -227,15 +229,15 @@ public class MessageViewFragment extends Fragment implements ConfirmationDialogF
         super.onActivityCreated(savedInstanceState);
 
         Bundle arguments = getArguments();
-        String messageReferenceString = arguments.getString(ARG_REFERENCE);
-        MessageReference messageReference = MessageReference.parse(messageReferenceString);
+        String messageReferenceString = arguments.getString(ARG_REFERENCE);     //存储消息的引用
+        MessageReference messageReference = MessageReference.parse(messageReferenceString);     //转换为消息引用
 
-        displayMessage(messageReference);
+        displayMessage(messageReference);       //处理消息的引用
     }
 
     private void displayMessage(MessageReference messageReference) {
         mMessageReference = messageReference;
-        Timber.d("MessageView displaying message %s", mMessageReference);
+        Timber.d("MessageView displaying message %s", mMessageReference);   //accountUuid账户ID folderServerId uid消息ID flag
 
         mAccount = Preferences.getPreferences(getApplicationContext()).getAccount(mMessageReference.getAccountUuid());
         messageLoaderHelper.asyncStartOrResumeLoadingMessage(messageReference, null);
@@ -260,7 +262,8 @@ public class MessageViewFragment extends Fragment implements ConfirmationDialogF
         Toast.makeText(context, R.string.message_view_toast_unable_to_display_message, Toast.LENGTH_SHORT).show();
     }
 
-    private void showMessage(MessageViewInfo messageViewInfo) {
+    /** 此时已经成功显示 邮件headview */
+    private void showMessage(MessageViewInfo messageViewInfo) {     //包含 subject text
         hideKeyboard();
 
         boolean handledByCryptoPresenter = messageCryptoPresenter.maybeHandleShowMessage(

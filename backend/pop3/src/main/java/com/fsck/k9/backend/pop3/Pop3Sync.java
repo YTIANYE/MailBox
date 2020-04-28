@@ -1,17 +1,6 @@
 package com.fsck.k9.backend.pop3;
 
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.concurrent.atomic.AtomicInteger;
-
 import com.fsck.k9.backend.api.BackendFolder;
 import com.fsck.k9.backend.api.BackendFolder.MoreMessages;
 import com.fsck.k9.backend.api.BackendStorage;
@@ -30,6 +19,18 @@ import com.fsck.k9.mail.MessagingException;
 import com.fsck.k9.mail.Part;
 import com.fsck.k9.mail.internet.MessageExtractor;
 import com.fsck.k9.mail.store.pop3.Pop3Store;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.concurrent.atomic.AtomicInteger;
+
 import timber.log.Timber;
 
 
@@ -555,7 +556,7 @@ class Pop3Sync {
         remoteFolder.fetch(largeMessages, fp, null);
         for (T message : largeMessages) {
 
-            if (message.getBody() == null) {
+            if (message.getBody() == null) {    //获取消息
                 downloadSaneBody(syncConfig, remoteFolder, backendFolder, message);
             } else {
                 downloadPartial(remoteFolder, backendFolder, message);

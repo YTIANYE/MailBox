@@ -1,6 +1,16 @@
 package com.fsck.k9.mail.store.pop3;
 
 
+import android.annotation.SuppressLint;
+
+import com.fsck.k9.mail.FetchProfile;
+import com.fsck.k9.mail.Flag;
+import com.fsck.k9.mail.Folder;
+import com.fsck.k9.mail.K9MailLib;
+import com.fsck.k9.mail.Message;
+import com.fsck.k9.mail.MessageRetrievalListener;
+import com.fsck.k9.mail.MessagingException;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
@@ -11,19 +21,16 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 
-import android.annotation.SuppressLint;
-
-import com.fsck.k9.mail.FetchProfile;
-import com.fsck.k9.mail.Flag;
-import com.fsck.k9.mail.Folder;
-import com.fsck.k9.mail.K9MailLib;
-import com.fsck.k9.mail.Message;
-import com.fsck.k9.mail.MessageRetrievalListener;
-import com.fsck.k9.mail.MessagingException;
 import timber.log.Timber;
 
 import static com.fsck.k9.mail.K9MailLib.DEBUG_PROTOCOL_POP3;
-import static com.fsck.k9.mail.store.pop3.Pop3Commands.*;
+import static com.fsck.k9.mail.store.pop3.Pop3Commands.DELE_COMMAND;
+import static com.fsck.k9.mail.store.pop3.Pop3Commands.LIST_COMMAND;
+import static com.fsck.k9.mail.store.pop3.Pop3Commands.QUIT_COMMAND;
+import static com.fsck.k9.mail.store.pop3.Pop3Commands.RETR_COMMAND;
+import static com.fsck.k9.mail.store.pop3.Pop3Commands.STAT_COMMAND;
+import static com.fsck.k9.mail.store.pop3.Pop3Commands.TOP_COMMAND;
+import static com.fsck.k9.mail.store.pop3.Pop3Commands.UIDL_COMMAND;
 
 
 /**
@@ -133,6 +140,7 @@ public class Pop3Folder extends Folder<Pop3Message> {
         return -1;
     }
 
+    /*获取消息*/
     @Override
     public Pop3Message getMessage(String uid) throws MessagingException {
         Pop3Message message = uidToMsgMap.get(uid);
@@ -141,7 +149,7 @@ public class Pop3Folder extends Folder<Pop3Message> {
         }
         return message;
     }
-
+    /*获取消息*/
     @Override
     public List<Pop3Message> getMessages(int start, int end, Date earliestDate, MessageRetrievalListener<Pop3Message> listener)
     throws MessagingException {
@@ -201,6 +209,7 @@ public class Pop3Folder extends Folder<Pop3Message> {
         if (unindexedMessageCount < 50 && messageCount > 5000) {
             /*
              * In extreme cases we'll do a UIDL command per message instead of a bulk
+             * 在极端的情况下，我们将对每条消息执行一个UIDL命令，而不是批量命令
              * download.
              */
             for (int msgNum = start; msgNum <= end; msgNum++) {
@@ -354,7 +363,7 @@ public class Pop3Folder extends Folder<Pop3Message> {
         } catch (IOException ioe) {
             throw new MessagingException("fetch", ioe);
         }
-        for (int i = 0, count = messages.size(); i < count; i++) {
+        for (int i = 0, count = messages.size(); i < count; i++) {  //count = 24
             Pop3Message pop3Message = messages.get(i);
             try {
                 if (listener != null && !fp.contains(FetchProfile.Item.ENVELOPE)) {

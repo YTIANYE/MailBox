@@ -84,12 +84,13 @@ public class MessageTopView extends LinearLayout {
         //显示图片按钮和监听事件
         showPicturesButton = findViewById(R.id.show_pictures);
         setShowPicturesButtonListener();
-
+        //显示消息主体
         containerView = findViewById(R.id.message_container);
 
         hideHeaderView();
     }
 
+    /*显示图片按钮监听器*/
     private void setShowPicturesButtonListener() {
         showPicturesButton.setOnClickListener(new OnClickListener() {
             @Override
@@ -122,6 +123,7 @@ public class MessageTopView extends LinearLayout {
         boolean loadPictures = shouldAutomaticallyLoadPictures(showPicturesSetting, messageViewInfo.message) ||
                 showPicturesButtonClicked;
 
+        /*显示消息主体*/
         MessageContainerView view = (MessageContainerView) mInflater.inflate(R.layout.message_container,
                 containerView, false);
         containerView.addView(view);
@@ -210,6 +212,7 @@ public class MessageTopView extends LinearLayout {
     /**
      * Fetch the message header view.  This is not the same as the message headers; this is the View shown at the top
      * of messages.
+     * 获取消息头视图。这与消息头不一样;这是显示在消息顶部的视图。
      * @return MessageHeader View.
      */
     public MessageHeader getMessageHeaderView() {

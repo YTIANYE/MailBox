@@ -81,6 +81,7 @@ public class MessageListHandler extends Handler {
         }
     }
 
+    /** 打开消息引用 */
     public void openMessage(MessageReference messageReference) {
         android.os.Message msg = android.os.Message.obtain(this, ACTION_OPEN_MESSAGE,
                 messageReference);
@@ -132,7 +133,7 @@ public class MessageListHandler extends Handler {
                 fragment.listView.onRestoreInstanceState((Parcelable) msg.obj);
                 break;
             }
-            case ACTION_OPEN_MESSAGE: {
+            case ACTION_OPEN_MESSAGE: { //打开消息
                 MessageReference messageReference = (MessageReference) msg.obj;
                 fragment.fragmentListener.openMessage(messageReference);
                 break;

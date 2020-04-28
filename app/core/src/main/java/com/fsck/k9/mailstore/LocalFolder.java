@@ -1,29 +1,10 @@
 package com.fsck.k9.mailstore;
 
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.Set;
-import java.util.Stack;
-import java.util.UUID;
-
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+
 import androidx.annotation.NonNull;
 
 import com.fsck.k9.Account;
@@ -65,8 +46,30 @@ import com.fsck.k9.message.extractors.PreviewResult;
 import com.fsck.k9.message.extractors.PreviewResult.PreviewType;
 import com.fsck.k9.preferences.Storage;
 import com.fsck.k9.preferences.StorageEditor;
+
 import org.apache.commons.io.IOUtils;
 import org.apache.james.mime4j.util.MimeUtil;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.Set;
+import java.util.Stack;
+import java.util.UUID;
+
 import timber.log.Timber;
 
 
@@ -168,7 +171,7 @@ public class LocalFolder extends Folder<LocalMessage> {
                     try {
                         String baseQuery = "SELECT " + LocalStore.GET_FOLDER_COLS + " FROM folders ";
 
-                        if (serverId != null) {
+                        if (serverId != null) {     //菜单中 点击垃圾箱时  serverId = “Trash”
                             cursor = db.rawQuery(baseQuery + "where folders.server_id = ?", new String[] { serverId });
                         } else {
                             cursor = db.rawQuery(baseQuery + "where folders.id = ?", new String[] { Long.toString(
@@ -176,7 +179,7 @@ public class LocalFolder extends Folder<LocalMessage> {
                         }
 
                         if (cursor.moveToFirst() && !cursor.isNull(LocalStore.FOLDER_ID_INDEX)) {
-                            int folderId = cursor.getInt(LocalStore.FOLDER_ID_INDEX);
+                            int folderId = cursor.getInt(LocalStore.FOLDER_ID_INDEX);   //folderId = 5 垃圾箱id
                             if (folderId > 0) {
                                 open(cursor);
                             }
@@ -198,8 +201,8 @@ public class LocalFolder extends Folder<LocalMessage> {
     }
 
     void open(Cursor cursor) throws MessagingException {
-        databaseId = cursor.getInt(LocalStore.FOLDER_ID_INDEX);
-        serverId = cursor.getString(LocalStore.FOLDER_SERVER_ID_INDEX);
+        databaseId = cursor.getInt(LocalStore.FOLDER_ID_INDEX); //  5
+        serverId = cursor.getString(LocalStore.FOLDER_SERVER_ID_INDEX); //"Trash"
         visibleLimit = cursor.getInt(LocalStore.FOLDER_VISIBLE_LIMIT_INDEX);
         pushState = cursor.getString(LocalStore.FOLDER_PUSH_STATE_INDEX);
         super.setStatus(cursor.getString(LocalStore.FOLDER_STATUS_INDEX));
@@ -220,8 +223,8 @@ public class LocalFolder extends Folder<LocalMessage> {
         this.syncClass = Folder.FolderClass.valueOf((syncClass == null) ? noClass : syncClass);
         String moreMessagesValue = cursor.getString(LocalStore.MORE_MESSAGES_INDEX);
         moreMessages = MoreMessages.fromDatabaseName(moreMessagesValue);
-        name = cursor.getString(LocalStore.FOLDER_NAME_INDEX);
-        localOnly = cursor.getInt(LocalStore.LOCAL_ONLY_INDEX) == 1;
+        name = cursor.getString(LocalStore.FOLDER_NAME_INDEX);  //name = "垃圾箱"
+        localOnly = cursor.getInt(LocalStore.LOCAL_ONLY_INDEX) == 1;    //true
         String typeString = cursor.getString(LocalStore.TYPE_INDEX);
         FolderType folderType = FolderTypeConverter.fromDatabaseFolderType(typeString);
         super.setType(folderType);
@@ -864,6 +867,9 @@ public class LocalFolder extends Folder<LocalMessage> {
         }
     }
 
+    /**
+     * 获取本地消息
+     * */
     @Override
     public LocalMessage getMessage(final String uid) throws MessagingException {
         try {
@@ -971,6 +977,7 @@ public class LocalFolder extends Folder<LocalMessage> {
         }
     }
 
+    /**  获取 文件夹中所有消息 的 uid */
     public List<String> getAllMessageUids() throws MessagingException {
         try {
             return  localStore.getDatabase().execute(false, new DbCallback<List<String>>() {
@@ -1051,6 +1058,9 @@ public class LocalFolder extends Folder<LocalMessage> {
         return ((LocalFolder) folder).appendMessages(msgs, true);
     }
 
+    /**文件夹之间 移动消息
+    * 删除邮件时 将普通邮件移动到垃圾箱
+    * */
     @Override
     public Map<String, String> moveMessages(final List<? extends Message> msgs, final Folder destFolder) throws MessagingException {
         if (!(destFolder instanceof LocalFolder)) {
@@ -1079,6 +1089,7 @@ public class LocalFolder extends Folder<LocalMessage> {
                                     lMessage.getDatabaseId(),
                                     getServerId());
 
+                            /*设置新的UID*/
                             String newUid = K9.LOCAL_UID_PREFIX + UUID.randomUUID().toString();
                             message.setUid(newUid);
 
@@ -1097,10 +1108,12 @@ public class LocalFolder extends Folder<LocalMessage> {
                             cv.put("folder_id", lDestFolder.getDatabaseId());
                             cv.put("uid", newUid);
 
+                            //更新数据库  删除邮件时将该邮件放入垃圾文件夹 folder_id改为5
                             db.update("messages", cv, "id = ?", idArg);
 
                             // Create/update entry in 'threads' table for the message in the
                             // target folder
+                            //在“线程”表中为目标文件夹中的消息创建/更新条目
                             cv.clear();
                             cv.put("message_id", msgId);
                             if (threadInfo.threadId == -1) {
@@ -1122,6 +1135,7 @@ public class LocalFolder extends Folder<LocalMessage> {
                              * Add a placeholder message so we won't download the original
                              * message again if we synchronize before the remote move is
                              * complete.
+                             * 添加一个占位符消息，这样，如果我们在远程移动完成之前进行同步，就不会再次下载原始消息。
                              */
 
                             // We need to open this folder to get the folder id
@@ -1144,18 +1158,21 @@ public class LocalFolder extends Folder<LocalMessage> {
                             if (threadInfo.msgId != -1) {
                                 // There already existed an empty message in the target folder.
                                 // Let's use it as placeholder.
+                                //目标文件夹中已经存在一条空消息。让我们把它用作占位符。
 
                                 newId = threadInfo.msgId;
 
-                                db.update("messages", cv, "id = ?",
-                                        new String[] { Long.toString(newId) });
+                                //更改了原来要删除的消息的 uid
+                                db.update("messages", cv, "id = ?", new String[] { Long.toString(newId) });
                             } else {
-                                newId = db.insert("messages", null, cv);
+                                //添加了一条新的消息，deleted = 1
+                                newId = db.insert("messages", null, cv);    //向messages表插入数据
                             }
 
                             /*
                              * Update old entry in 'threads' table to point to the newly
                              * created placeholder.
+                             *更新“threads”表中的旧条目以指向新创建的占位符。
                              */
 
                             cv.clear();
@@ -1163,7 +1180,7 @@ public class LocalFolder extends Folder<LocalMessage> {
                             db.update("threads", cv, "id = ?",
                                     new String[] { Long.toString(lMessage.getThreadId()) });
                         }
-                    } catch (MessagingException e) {
+                    } catch (MessagingException e) {    //执行上面的语句会跳转到这里
                         throw new WrappedException(e);
                     }
                     return null;
@@ -1181,7 +1198,7 @@ public class LocalFolder extends Folder<LocalMessage> {
 
     /**
      * Convenience transaction wrapper for storing a message and set it as fully downloaded. Implemented mainly to speed up DB transaction commit.
-     *
+     *用于存储消息并将其设置为完全下载的方便的事务包装器。实现的主要目的是加速DB事务提交。
      * @param message Message to store. Never <code>null</code>.
      * @param runnable What to do before setting {@link Flag#X_DOWNLOADED_FULL}. Never <code>null</code>.
      * @return The local version of the message. Never <code>null</code>.
@@ -1211,10 +1228,15 @@ public class LocalFolder extends Folder<LocalMessage> {
      * old message. It is implemented as a delete/insert. This functionality is used in saving
      * of drafts and re-synchronization of updated server messages.
      *
+     * 方法与合同略有不同;如果传入消息已经分配了一个uid，并且它匹配现有消息的uid，那么此消息将替换旧消息。
+     * 它被实现为删除/插入。此功能用于保存草稿和重新同步更新的服务器消息。
+     *
      * NOTE that although this method is located in the LocalStore class, it is not guaranteed
      * that the messages supplied as parameters are actually {@link LocalMessage} instances (in
      * fact, in most cases, they are not). Therefore, if you want to make local changes only to a
      * message, retrieve the appropriate local message instance first (if it already exists).
+     * 注意，尽管此方法位于LocalStore类中，但不能保证作为参数提供的消息实际上是{@link LocalMessage}实例(实际上，在大多数情况下，它们不是)。
+     * 因此，如果您只想对消息进行本地更改，那么首先检索适当的本地消息实例(如果它已经存在)。
      */
     @Override
     public Map<String, String> appendMessages(List<? extends Message> messages) throws MessagingException {
@@ -1276,15 +1298,19 @@ public class LocalFolder extends Folder<LocalMessage> {
 
     /**
      * The method differs slightly from the contract; If an incoming message already has a uid
-     * assigned and it matches the uid of an existing message then this message will replace
-     * the old message. This functionality is used in saving of drafts and re-synchronization
-     * of updated server messages.
+     *      * assigned and it matches the uid of an existing message then this message will replace
+     *      * the old message. This functionality is used in saving of drafts and re-synchronization
+     *      * of updated server messages.
+     *      方法与合同略有不同;如果传入消息已经分配了一个uid，并且它匹配现有消息的uid，那么此消息将替换旧消息。此功能用于保存草稿和重新同步更新的服务器消息。
      *
      * NOTE that although this method is located in the LocalStore class, it is not guaranteed
      * that the messages supplied as parameters are actually {@link LocalMessage} instances (in
      * fact, in most cases, they are not). Therefore, if you want to make local changes only to a
      * message, retrieve the appropriate local message instance first (if it already exists).
      * @return uidMap of srcUids -> destUids
+     *
+     * 注意，尽管此方法位于LocalStore类中，但不能保证作为参数提供的消息实际上是{@link LocalMessage}实例(实际上，在大多数情况下，它们不是)。因此，如果您只想对消息进行本地更改，那么首先检索适当的本地消息实例(如果它已经存在)。
+     * * @返回srcUids的uidMap -> destUids
      */
     private Map<String, String> appendMessages(final List<? extends Message> messages, final boolean copy)
             throws MessagingException {
@@ -1296,7 +1322,7 @@ public class LocalFolder extends Folder<LocalMessage> {
                 public Void doDbWork(final SQLiteDatabase db) throws WrappedException, UnavailableStorageException {
                     try {
                         for (Message message : messages) {
-                            saveMessage(db, message, copy, uidMap);
+                            saveMessage(db, message, copy, uidMap); //将信息添加到本地数据库中
                         }
                     } catch (MessagingException e) {
                         throw new WrappedException(e);
@@ -1313,6 +1339,7 @@ public class LocalFolder extends Folder<LocalMessage> {
         }
     }
 
+    /** 将信息添加到本地数据库中 */
     private void saveMessage(SQLiteDatabase db, Message message, boolean copy, Map<String, String> uidMap)
             throws MessagingException {
         if (!(message instanceof MimeMessage)) {
@@ -1351,7 +1378,7 @@ public class LocalFolder extends Folder<LocalMessage> {
         long msgId;
 
         if (oldMessageId == -1) {
-            // This is a new message. Do the message threading.
+            // This is a new message. Do the message threading.这是一个新的信息。执行消息线程。
             ThreadInfo threadInfo = doMessageThreading(db, message);
             oldMessageId = threadInfo.msgId;
             rootId = threadInfo.rootId;
@@ -1380,7 +1407,7 @@ public class LocalFolder extends Folder<LocalMessage> {
                 encryptionType = null;
                 previewResult = previewCreator.createPreview(message);
                 attachmentCount = attachmentCounter.getAttachmentCount(message);
-                fulltext = fulltextCreator.createFulltext(message);
+                fulltext = fulltextCreator.createFulltext(message);//消息的具体内容
                 extraContentValues = null;
             }
 
@@ -1389,11 +1416,13 @@ public class LocalFolder extends Folder<LocalMessage> {
 
             long rootMessagePartId = saveMessageParts(db, message);
 
+            //将信息存入cv的 mMap 中，map形式存储
+            //    private final ArrayMap<String, Object> mMap;
             ContentValues cv = new ContentValues();
             cv.put("message_part_id", rootMessagePartId);
             cv.put("uid", uid);
-            cv.put("subject", message.getSubject());
-            cv.put("sender_list", Address.pack(message.getFrom()));
+            cv.put("subject", message.getSubject());    //邮件主题
+            cv.put("sender_list", Address.pack(message.getFrom())); //发件人
             cv.put("date", message.getSentDate() == null
                     ? System.currentTimeMillis() : message.getSentDate().getTime());
             cv.put("flags", LocalStore.serializeFlags(message.getFlags()));
@@ -1416,7 +1445,7 @@ public class LocalFolder extends Folder<LocalMessage> {
 
             cv.put("preview_type", databasePreviewType.getDatabaseValue());
             if (previewResult.isPreviewTextAvailable()) {
-                cv.put("preview", previewResult.getPreviewText());
+                cv.put("preview", previewResult.getPreviewText());  //messagelist下 存放邮件主要内容预览
             } else {
                 cv.putNull("preview");
             }
@@ -1431,7 +1460,7 @@ public class LocalFolder extends Folder<LocalMessage> {
             }
 
             if (oldMessageId == -1) {
-                msgId = db.insert("messages", "uid", cv);
+                msgId = db.insert("messages", "uid", cv);   //向messages表中插入数据
 
                 // Create entry in 'threads' table
                 cv.clear();
@@ -1447,6 +1476,7 @@ public class LocalFolder extends Folder<LocalMessage> {
                 db.insert("threads", null, cv);
             } else {
                 msgId = oldMessageId;
+                //更新messages表
                 db.update("messages", cv, "id = ?", new String[] { Long.toString(oldMessageId) });
             }
 
@@ -1454,7 +1484,7 @@ public class LocalFolder extends Folder<LocalMessage> {
                 cv.clear();
                 cv.put("docid", msgId);
                 cv.put("fulltext", fulltext);
-                db.replace("messages_fulltext", null, cv);
+                db.replace("messages_fulltext", null, cv);  //数据库 messages_fulltext表重置
             }
         } catch (Exception e) {
             throw new MessagingException("Error appending message: " + message.getSubject(), e);
@@ -1740,6 +1770,7 @@ public class LocalFolder extends Folder<LocalMessage> {
         this.localStore.getDatabase().execute(false, new DbCallback<Void>() {
             @Override
             public Void doDbWork(final SQLiteDatabase db) throws WrappedException, UnavailableStorageException {
+                //更新messages表
                 db.update("messages", cv, "id = ?", new String[]
                         { Long.toString(message.getDatabaseId()) });
                 return null;
@@ -2037,6 +2068,7 @@ public class LocalFolder extends Folder<LocalMessage> {
         db.delete("threads", "message_id = ?", idArg);
     }
 
+    /** 删除 表 messages_fulltext中 messageID 的内容 */
     void deleteFulltextIndexEntry(SQLiteDatabase db, long messageId) {
         String[] idArg = { Long.toString(messageId) };
         db.delete("messages_fulltext", "docid = ?", idArg);
@@ -2164,6 +2196,7 @@ public class LocalFolder extends Folder<LocalMessage> {
         });
     }
 
+    /**  消息线程 */
     private ThreadInfo doMessageThreading(SQLiteDatabase db, Message message) {
         long rootId = -1;
         long parentId = -1;
@@ -2211,7 +2244,7 @@ public class LocalFolder extends Folder<LocalMessage> {
                 cv.put("folder_id", databaseId);
                 cv.put("empty", 1);
 
-                long newMsgId = db.insert("messages", null, cv);
+                long newMsgId = db.insert("messages", null, cv);    //向 messages 表中插入数据
 
                 // Create entry in 'threads' table
                 cv.clear();
@@ -2266,6 +2299,7 @@ public class LocalFolder extends Folder<LocalMessage> {
         return new ThreadInfo(threadId, msgId, messageId, rootId, parentId);
     }
 
+    /**  提取消息   extract提取*/
     public List<String> extractNewMessages(final List<String> messageServerIds)
             throws MessagingException {
 

@@ -1,11 +1,15 @@
 package com.fsck.k9
 
 import android.app.Application
+import com.facebook.stetho.Stetho
+import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.fsck.k9.activity.MessageCompose
 import com.fsck.k9.controller.MessagingController
 import com.fsck.k9.external.MessageProvider
 import com.fsck.k9.ui.ThemeManager
+import okhttp3.OkHttpClient
 import org.koin.android.ext.android.inject
+
 
 class App : Application() {
     private val messagingController: MessagingController by inject()
@@ -16,6 +20,12 @@ class App : Application() {
         Core.earlyInit(this)
 
         super.onCreate()
+
+        //添加用于数据库查看
+        Stetho.initializeWithDefaults(this)
+        OkHttpClient.Builder()
+                .addNetworkInterceptor(StethoInterceptor())
+                .build()
 
         DI.start(this, coreModules + uiModules + appModules)
 

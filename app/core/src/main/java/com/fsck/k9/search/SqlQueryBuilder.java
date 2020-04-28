@@ -1,19 +1,19 @@
 package com.fsck.k9.search;
 
-import java.util.List;
-
-import com.fsck.k9.DI;
-import com.fsck.k9.mailstore.LocalStoreProvider;
-import timber.log.Timber;
-
 import com.fsck.k9.Account;
-import com.fsck.k9.mail.MessagingException;
+import com.fsck.k9.DI;
 import com.fsck.k9.mail.Folder;
+import com.fsck.k9.mail.MessagingException;
 import com.fsck.k9.mailstore.LocalFolder;
 import com.fsck.k9.mailstore.LocalStore;
+import com.fsck.k9.mailstore.LocalStoreProvider;
 import com.fsck.k9.search.SearchSpecification.Attribute;
 import com.fsck.k9.search.SearchSpecification.SearchCondition;
 import com.fsck.k9.search.SearchSpecification.SearchField;
+
+import java.util.List;
+
+import timber.log.Timber;
 
 
 public class SqlQueryBuilder {
@@ -41,7 +41,7 @@ public class SqlQueryBuilder {
                     } else {
                         query.append("folder_id != ?");
                     }
-                    selectionArgs.add(Long.toString(folderId));
+                    selectionArgs.add(Long.toString(folderId));     //选择语句 包含uid 所在文件夹名称 号码（5）
                     break;
                 }
                 case SEARCHABLE: {
@@ -77,12 +77,12 @@ public class SqlQueryBuilder {
                     }
                     break;
                 }
-                case MESSAGE_CONTENTS: {
+                case MESSAGE_CONTENTS: {    //消息内容
                     String fulltextQueryString = condition.value;
                     if (condition.attribute != Attribute.CONTAINS) {
                         Timber.e("message contents can only be matched!");
                     }
-                    query.append("m.id IN (SELECT docid FROM messages_fulltext WHERE fulltext MATCH ?)");
+                    query.append("m.id IN (SELECT docid FROM messages_fulltext WHERE fulltext MATCH ?)");   //SQL语句
                     selectionArgs.add(fulltextQueryString);
                     break;
                 }

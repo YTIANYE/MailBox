@@ -1,15 +1,6 @@
 package com.fsck.k9.storage;
 
 
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.Collections;
-import java.util.UUID;
-
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
@@ -30,6 +21,7 @@ import com.fsck.k9.mailstore.LocalMessage;
 import com.fsck.k9.mailstore.LocalStore;
 import com.fsck.k9.mailstore.LocalStoreProvider;
 import com.fsck.k9.mailstore.StorageManager;
+
 import org.apache.commons.io.IOUtils;
 import org.apache.james.mime4j.util.MimeUtil;
 import org.junit.Assert;
@@ -39,6 +31,15 @@ import org.openintents.openpgp.util.OpenPgpUtils;
 import org.robolectric.RuntimeEnvironment;
 import org.robolectric.shadows.ShadowLog;
 import org.robolectric.shadows.ShadowSQLiteConnection;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Collections;
+import java.util.UUID;
 
 
 public class MigrationTest extends K9RobolectricTest {
@@ -65,7 +66,7 @@ public class MigrationTest extends K9RobolectricTest {
     }
 
     private SQLiteDatabase createV50Database() {
-
+        /* 打开或创建数据库 */
         SQLiteDatabase db = RuntimeEnvironment.application.openOrCreateDatabase(databaseFile.getName(),
                 Context.MODE_PRIVATE, null);
 

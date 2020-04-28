@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_width="fill_parent" />
 
-    <!-- Unsigned content area -->
+    <!-- Unsigned content area  无符号内容区域 -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -65,7 +65,7 @@
 
     </LinearLayout>
 
-    <!-- Attachments area -->
+    <!-- Attachments area  附件区 -->
     <LinearLayout
         android:id="@+id/attachments_container"
         android:orientation="vertical"

@@ -167,7 +167,7 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
 
     private MessageListAdapter adapter;
     private View footerView;
-    private FolderInfoHolder currentFolder;
+    private FolderInfoHolder currentFolder;     //当前文件夹
     private LayoutInflater layoutInflater;
     private MessagingController messagingController;
 
@@ -325,6 +325,7 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
 
     private void setWindowTitle() {
         // regular folder content display
+        //常规文件夹内容显示
         if (!isManualSearch() && singleFolderMode) {
             fragmentListener.setMessageListTitle(currentFolder.displayName);
         } else {
@@ -334,7 +335,7 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
                 fragmentListener.setMessageListTitle(title);
             } else {
                 // This is a search result; set it to the default search result line.
-                fragmentListener.setMessageListTitle(getString(R.string.search_results));
+                fragmentListener.setMessageListTitle(getString(R.string.search_results));//搜索结果
             }
         }
     }
@@ -395,7 +396,7 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
                 fragmentListener.showThread(account, folderServerId, rootId);
             } else {
                 // This item represents a message; just display the message.
-                openMessageAtPosition(listViewToAdapterPosition(position));
+                openMessageAtPosition(listViewToAdapterPosition(position)); //此项目表示一条消息;只显示消息。
             }
         }
     }
@@ -501,6 +502,7 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
 
         remoteSearchPerformed = savedInstanceState.getBoolean(STATE_REMOTE_SEARCH_PERFORMED);
         savedListState = savedInstanceState.getParcelable(STATE_MESSAGE_LIST);
+        //获取到激活消息的 账户 文件夹 id
         String messageReferenceString = savedInstanceState.getString(STATE_ACTIVE_MESSAGE);
         activeMessage = MessageReference.parse(messageReferenceString);
         if (adapter != null) adapter.setActiveMessage(activeMessage);
@@ -520,6 +522,7 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
 
     /**
      * Restore selected messages from a {@link Bundle}.
+     * 恢复选定的消息
      */
     private void restoreSelectedMessages(Bundle savedInstanceState) {
         long[] selected = savedInstanceState.getLongArray(STATE_SELECTED_MESSAGES);
@@ -2302,23 +2305,27 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
         }
     }
 
+    /**
+     * 打开上一条消息
+     * */
     public boolean openPrevious(MessageReference messageReference) {
         int position = getPosition(messageReference);
         if (position <= 0) {
             return false;
         }
 
-        openMessageAtPosition(position - 1);
+        openMessageAtPosition(position - 1);    //打开上一条消息
         return true;
     }
 
+    /** 打开下一条 消息 */
     public boolean openNext(MessageReference messageReference) {
         int position = getPosition(messageReference);
         if (position < 0 || position == adapter.getCount() - 1) {
             return false;
         }
 
-        openMessageAtPosition(position + 1);
+        openMessageAtPosition(position + 1);    //打开下一条消息
         return true;
     }
 
@@ -2330,6 +2337,7 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
         return adapter.isEmpty() || messageReference.equals(getReferenceForPosition(adapter.getCount() - 1));
     }
 
+    /**获得消息的引用   uid 文件夹id 消息id*/
     private MessageReference getReferenceForPosition(int position) {
         Cursor cursor = (Cursor) adapter.getItem(position);
 
@@ -2353,7 +2361,9 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
         // For some reason the listView.setSelection() above won't do anything when we call
         // onOpenMessage() (and consequently adapter.notifyDataSetChanged()) right away. So we
         // defer the call using MessageListHandler.
-        handler.openMessage(ref);
+        /* 由于某种原因，上面的listView.setSelection()在调用onOpenMessage()(以及相应的adapter.notifyDataSetChanged())时不会执行任何操作。
+        所以我们使用MessageListHandler来推迟通话。*/
+        handler.openMessage(ref);   //打开消息引用
     }
 
     private int getPosition(MessageReference messageReference) {
@@ -2383,7 +2393,7 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
         void onForwardAsAttachment(MessageReference message);
         void onReply(MessageReference message);
         void onReplyAll(MessageReference message);
-        void openMessage(MessageReference messageReference);
+        void openMessage(MessageReference messageReference);//打开消息
         void setMessageListTitle(String title);
         void onCompose(Account account);
         boolean startSearch(Account account, String folderServerId);
@@ -2563,6 +2573,9 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
         return fragmentListener.startSearch(account, folderServerId);
    }
 
+   /**
+    * 加载具体消息内容的数据库操作
+    * */
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         String accountUuid = accountUuids[id];
@@ -2701,7 +2714,7 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
                     title = Utility.stripSubject(title);
                 }
                 if (TextUtils.isEmpty(title)) {
-                    title = getString(R.string.general_no_subject);
+                    title = getString(R.string.general_no_subject);//(无主题)
                 }
                 updateTitle();
             } else {
@@ -2728,6 +2741,7 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
         }
     }
 
+    /** 加载更多信息或刷新当前文件夹*/
     private void updateMoreMessagesOfCurrentFolder() {
         if (folderServerId != null) {
             try {
@@ -2866,11 +2880,11 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
 
     /**
      * Mark a message as 'active'.
-     *将消息标记为“活动”。
+     *将消息标记为“激活”。
      * <p>
      * The active message is the one currently displayed in the message view portion of the split
      * view.
-     * 活动消息是当前在拆分的消息视图部分中显示的消息
+     * 激活消息是当前在拆分的消息视图部分中显示的消息
      * *视图。
      * </p>
      *
@@ -2878,9 +2892,9 @@ public class MessageListFragment extends Fragment implements OnItemClickListener
      *         {@code null} to not mark any message as being 'active'.
      */
 
-    /*启动方式*/
+    /*将正在查看的消息设置为激活*/
     public void setActiveMessage(MessageReference messageReference) {
-        activeMessage = messageReference;
+        activeMessage = messageReference;   //激活消息的信息 accountUuid folderServerId= "Trash" uid flag
 
         // Reload message list with modified query that always includes the active message
         //使用始终包含活动消息的修改查询重新加载消息列表

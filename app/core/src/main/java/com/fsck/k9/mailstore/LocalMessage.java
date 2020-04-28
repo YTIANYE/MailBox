@@ -1,14 +1,10 @@
 package com.fsck.k9.mailstore;
 
 
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.util.Date;
-
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+
 import androidx.annotation.VisibleForTesting;
 
 import com.fsck.k9.Account;
@@ -24,13 +20,19 @@ import com.fsck.k9.mail.message.MessageHeaderParser;
 import com.fsck.k9.mailstore.LockableDatabase.DbCallback;
 import com.fsck.k9.mailstore.LockableDatabase.WrappedException;
 import com.fsck.k9.message.extractors.PreviewResult.PreviewType;
+
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.util.Date;
+
 import timber.log.Timber;
 
 
 public class LocalMessage extends MimeMessage {
     private final LocalStore localStore;
 
-    private long databaseId;
+    private long databaseId;    //本地消息的id   与 messages_fulltext表 docid 相同
     private long rootId;
     private long threadId;
     private long messagePartId;
@@ -47,6 +49,7 @@ public class LocalMessage extends MimeMessage {
         this.localStore = localStore;
     }
 
+    /** 构造函数 */
     LocalMessage(LocalStore localStore, String uid, Folder folder) {
         this.localStore = localStore;
         this.mUid = uid;
@@ -54,6 +57,7 @@ public class LocalMessage extends MimeMessage {
     }
 
 
+    //Cursor 游标
     void populateFromGetMessageCursor(Cursor cursor) throws MessagingException {
         final String subject = cursor.getString(LocalStore.MSG_INDEX_SUBJECT);
         this.setSubject(subject == null ? "" : subject);
@@ -307,8 +311,8 @@ public class LocalMessage extends MimeMessage {
                 @Override
                 public Void doDbWork(final SQLiteDatabase db) throws WrappedException, UnavailableStorageException {
                     ContentValues cv = new ContentValues();
-                    cv.put("deleted", 1);
-                    cv.put("empty", 1);
+                    cv.put("deleted", 1);   //设置 为已删除
+                    cv.put("empty", 1); //设置为空
                     cv.putNull("subject");
                     cv.putNull("sender_list");
                     cv.putNull("date");

@@ -43,6 +43,9 @@ import java.util.Map;
 
 import static android.app.DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED;
 
+/**
+ * 显示消息主体
+ * */
 
 public class MessageContainerView extends LinearLayout implements OnCreateContextMenuListener {
     private static final int MENU_ITEM_LINK_VIEW = Menu.FIRST;
@@ -79,7 +82,7 @@ public class MessageContainerView extends LinearLayout implements OnCreateContex
     private Map<Uri, AttachmentViewInfo> attachments = new HashMap<>();
     private boolean hasHiddenExternalImages;
 
-    private String currentHtmlText;
+    private String currentHtmlText;     //邮件文本
     private AttachmentResolver currentAttachmentResolver;
 
 
@@ -87,16 +90,17 @@ public class MessageContainerView extends LinearLayout implements OnCreateContex
     public void onFinishInflate() {
         super.onFinishInflate();
 
-        mMessageContentView = findViewById(R.id.message_content);
+        mMessageContentView = findViewById(R.id.message_content);   //显示消息内容
         if (!isInEditMode()) {
             mMessageContentView.configure(webViewConfigProvider.createForMessageView());
         }
         mMessageContentView.setOnCreateContextMenuListener(this);
         mMessageContentView.setVisibility(View.VISIBLE);
 
+        /*附件*/
         mAttachmentsContainer = findViewById(R.id.attachments_container);
         mAttachments = findViewById(R.id.attachments);
-
+        /*无符号内容区域*/
         unsignedTextContainer = findViewById(R.id.message_unsigned_container);
         unsignedTextDivider = findViewById(R.id.message_unsigned_divider);
         unsignedText = findViewById(R.id.message_unsigned_text);
@@ -323,6 +327,7 @@ public class MessageContainerView extends LinearLayout implements OnCreateContex
         }
     }
 
+    /*下载图片*/
     private void downloadImage(Uri uri) {
         DownloadManager.Request request = new DownloadManager.Request(uri);
         request.setNotificationVisibility(VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
@@ -346,6 +351,7 @@ public class MessageContainerView extends LinearLayout implements OnCreateContex
         try {
             context.startActivity(intent);
         } catch (ActivityNotFoundException e) {
+            //没有找到可以用于这一操作的程序。
             Toast.makeText(context, R.string.error_activity_not_found, Toast.LENGTH_LONG).show();
         }
     }
@@ -381,6 +387,7 @@ public class MessageContainerView extends LinearLayout implements OnCreateContex
         }
     }
 
+    /**  messageViewInfo.text 处理邮件正文文本 */
     public void displayMessageViewContainer(MessageViewInfo messageViewInfo,
                                             final OnRenderingFinishedListener onRenderingFinishedListener, boolean loadPictures,
                                             boolean hideUnsignedTextDivider, AttachmentViewCallback attachmentCallback) {
@@ -391,7 +398,7 @@ public class MessageContainerView extends LinearLayout implements OnCreateContex
 
         renderAttachments(messageViewInfo);
 
-        String textToDisplay = messageViewInfo.text;
+        String textToDisplay = messageViewInfo.text;    //要显示的文本
         if (textToDisplay != null && !isShowingPictures()) {
             if (Utility.hasExternalImages(textToDisplay)) {
                 if (loadPictures) {
@@ -401,8 +408,9 @@ public class MessageContainerView extends LinearLayout implements OnCreateContex
                 }
             }
         }
-
+        //没有文本
         if (textToDisplay == null) {
+            //没有文本
             String noTextMessage = getContext().getString(R.string.webview_empty_message);
             textToDisplay = displayHtml.wrapStatusMessage(noTextMessage);
         }
@@ -430,7 +438,7 @@ public class MessageContainerView extends LinearLayout implements OnCreateContex
 
     private void displayHtmlContentWithInlineAttachments(String htmlText, AttachmentResolver attachmentResolver,
             OnPageFinishedListener onPageFinishedListener) {
-        currentHtmlText = htmlText;
+        currentHtmlText = htmlText;     //设置文本
         currentAttachmentResolver = attachmentResolver;
         mMessageContentView.displayHtmlContentWithInlineAttachments(htmlText, attachmentResolver, onPageFinishedListener);
     }
